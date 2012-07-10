@@ -6,7 +6,12 @@ module Gametel
   module Platforms
     class Calabash
       def has_text?(text)
-        performAction 'assert_text', text, true
+        begin
+          performAction 'assert_text', text, true
+        rescue
+          return false
+        end
+        true
       end
       
       def wait_for_text(text_to_find)
