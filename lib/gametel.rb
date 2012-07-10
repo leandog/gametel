@@ -23,6 +23,16 @@ module Gametel
     platform.has_text?(text)
   end
 
+  #
+  # Press the back button
+  #
+  def back
+    platform.back
+  end
+
+  #
+  # Wait for the provided text to appear
+  #
   def wait_for_text(text_to_find)
     platform.wait_for_text(text_to_find)
   end
