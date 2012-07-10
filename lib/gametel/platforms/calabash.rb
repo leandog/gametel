@@ -5,6 +5,9 @@ include Calabash::Android::Operations
 module Gametel
   module Platforms
     class Calabash
+      #
+      # Returns true if the provided text is found on the screen
+      #
       def has_text?(text)
         begin
           performAction 'assert_text', text, true
