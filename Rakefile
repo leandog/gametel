@@ -9,10 +9,13 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 task :spec
 
-desc "Run all features"
+desc 'Run all features'
 task :features do
   sh %{calabash-android run --no-source}
 end
+
+desc 'Run all specs and features'
+task :test => ['spec', 'features']
 
 task :lib do
   $LOAD_PATH.unshift(File.expand_path("lib", File.dirname(__FILE__)))
