@@ -13,11 +13,15 @@ module Gametel
   end
 
   def initialize(pform = :calabash)
-    @platform = Gametel::Platforms::Calabash if pform == :calabash
+    @platform = Gametel::Platforms::Calabash.new if pform == :calabash
   end
 
   def wait_for_text(text_to_find)
     platform.wait_for_text(text_to_find)
+  end
+
+  def has_text?(text)
+    platform.has_text?(text)
   end
 end
 
