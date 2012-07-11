@@ -2,7 +2,7 @@ module Gametel
   module Accessors
     def text(name, locator)
       define_method("#{name}=") do |value|
-        platform.enter_text(locator, value)
+        platform.enter_text(value, locator)
       end
     end
 
