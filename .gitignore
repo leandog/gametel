@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 *.swp
+*.class
 .bundle
 .config
 .yardoc
@@ -18,3 +19,4 @@ test/version_tmp
 tmp
 Test.apk
 results
+ApiDemos/gen
