@@ -16,6 +16,7 @@ Gem::Specification.new do |gem|
   gem.version       = Gametel::VERSION
 
   gem.add_dependency 'calabash-android', '>= 0.1.0'
+  gem.add_dependency 'rake', '>= 0.9.2.2'
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
 

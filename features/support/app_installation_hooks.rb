@@ -1,22 +1,27 @@
 require 'calabash-android/management/app_installation'
 
 AfterConfiguration do |config|
-	FeatureNameMemory.feature_name = nil
+  FeatureNameMemory.feature_name = nil
 end
 
 Before do |scenario|
-  feature_name = scenario.feature.name
-  if FeatureNameMemory.feature_name != feature_name
-    log "Is first scenario - reinstalling apps"
-    uninstall_apps
-    install_app(ENV["TEST_APP_PATH"])
-    install_app(ENV["APP_PATH"])
-    FeatureNameMemory.feature_name = feature_name
-	end
+  deploy_app unless already_installed
+  FeatureNameMemory.feature_name = scenario.feature.name
 end
 
 at_exit do
-#	uninstall_apps
+  #	uninstall_apps
+end
+
+def already_installed()
+  !FeatureNameMemory.feature_name.nil?
+end
+
+def deploy_app()
+  log "Is first scenario - reinstalling apps"
+  uninstall_apps
+  install_app(ENV["TEST_APP_PATH"])
+  install_app(ENV["APP_PATH"])
 end
 
 FeatureNameMemory = Class.new

@@ -9,7 +9,7 @@ module Gametel
       #
       # enter text in a text box
       #
-      def enter_text(locator, text)
+      def enter_text(text, locator)
         action = locator.kind_of?(String) ?  'enter_text_into_named_field' :  'enter_text_into_numbered_field'
         performAction(action, text, locator)
       end

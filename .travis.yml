@@ -1,0 +1,5 @@
+language: ruby
+notifications:
+  email:
+    - levi@leviwilson.com
+    - jeff.morgan@leandog.com
