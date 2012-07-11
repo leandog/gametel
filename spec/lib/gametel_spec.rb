@@ -30,5 +30,11 @@ describe Gametel do
       platform.should_receive(:performAction).with('go_back')
       screen.back
     end
+
+    it "should be able to enter text into indexed fields" do
+      platform.should_receive(:performAction).with('enter_text_into_numbered_field', 'blar', 7)
+      screen.enter_text 'blar', 7
+    end
+
   end
 end
