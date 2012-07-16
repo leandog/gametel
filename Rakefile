@@ -1,7 +1,8 @@
 #!/usr/bin/env rake
 require "bundler/gem_tasks"
 require 'rspec/core/rake_task'
-require 'fileutils'
+require 'cucumber'
+require 'cucumber/rake/task'
 
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.ruby_opts = "-I lib:spec"
@@ -9,9 +10,8 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 task :spec
 
-desc 'Run all features'
-task :features do
-  sh %{calabash-android run --no-source}
+Cucumber::Rake::Task.new(:features, "Run all features") do |t|
+  t.profile = 'default'
 end
 
 desc 'Run all specs and features'
