@@ -1,4 +1,4 @@
-Feature: Interacting with the standard Android controls
+Feature: Interacting with the standard text field
 
   Scenario: Entering text into a text field
     Given I'm on the controls screen
