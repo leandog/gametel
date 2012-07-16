@@ -21,3 +21,5 @@ Test.apk
 results
 ApiDemos/gen
 ApiDemos/bin/classes
+ApiDemos/bin/res
+ApiDemos/bin/classes.dex
