@@ -1,6 +1,5 @@
 Given /^I\'m on the controls screen$/ do
   on(MainMenuScreen) do |screen|
-    screen.scroll_down
     screen.views
     screen.wait_for_text 'Controls'
   end
