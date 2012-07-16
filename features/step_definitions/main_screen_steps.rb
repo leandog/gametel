@@ -3,7 +3,7 @@ Then /^I should see the "(.*?)" list item$/ do |list_item|
 end
 
 When /^I press the "(.*?)" list item$/ do |list_item|
-  on(MainMenuScreen).send "#{list_item}_list_item"
+  on(MainMenuScreen).send "#{list_item}_list_item_text"
 end
 
 When /^I press the Back button$/ do

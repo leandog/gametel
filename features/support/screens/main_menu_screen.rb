@@ -1,7 +1,8 @@
 class MainMenuScreen
   include Gametel
 
-  list_item(:first_list_item, :text => 'Accessibility')
+  list_item(:first_list_item_text, :text => 'Accessibility')
+  list_item(:first_list_item_index, :index => 0)
   list_item(:app, :text => 'App')
   list_item(:content, :text => 'Content')
   list_item(:graphics, :text => 'Graphics')
