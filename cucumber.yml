@@ -1,5 +1,5 @@
 <%
-std_opts = "--no-source --color --format Cucumber::Formatter::Fuubar"
+std_opts = "PACKAGE_NAME=com.example.android.apis TEST_PACKAGE_NAME=com.example.android.apis.test APP_PATH=/Users/cheezy/dev/gametel/ApiDemos/bin/ApiDemos.apk TEST_APP_PATH=features/support/Test.apk TEST_SERVER_PORT=34777  --no-source --color --format pretty"
 %>
 
 default: <%= std_opts %>
