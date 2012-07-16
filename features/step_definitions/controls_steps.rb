@@ -2,8 +2,12 @@ Given /^I\'m on the controls screen$/ do
   on(MainMenuScreen) do |screen|
     screen.scroll_down
     screen.views
+    screen.wait_for_text 'Controls'
   end
-  on(ViewsMenuScreen).controls
+  on(ViewsMenuScreen) do |screen|
+    screen.controls
+    screen.wait_for_text 'Light Theme'
+  end
   on(ControlsMenuScreen).light_theme
 end
 

@@ -16,9 +16,6 @@ module Gametel
       define_method(name) do
         platform.press_list_item(locator)
       end
-      define_method("long_#{name}") do
-        platform.long_press_list_item(locator)
-      end
     end
   end
 end

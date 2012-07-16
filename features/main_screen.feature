@@ -1,4 +1,3 @@
-@focus
 Feature: Interacting with the elements on the main screen
 
   Scenario: Identifying the list items on the main screen

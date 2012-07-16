@@ -10,8 +10,8 @@ module Gametel
       # enter text in a text box
       #
       def enter_text(text, locator)
-        action = locator.kind_of?(String) ?  'enter_text_into_named_field' :  'enter_text_into_numbered_field'
-        performAction(action, text, locator)
+        performAction('enter_text_into_name_field', text, locator[:name]) if locator[:name]
+        performAction('enter_text_into_numbered_field', text, locator[:index] + 1) if locator[:index]
       end
 
       #
@@ -26,7 +26,8 @@ module Gametel
       # press a list item
       #
       def press_list_item(locator)
-        performAction 'press_list_item', locator, 0
+        performAction 'press_list_item', locator[:index] + 1, 0 if locator[:index]
+        performAction 'click_on_text', locator[:text] if locator[:text]
       end
       
       #
