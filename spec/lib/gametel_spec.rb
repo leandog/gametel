@@ -31,10 +31,14 @@ describe Gametel do
       screen.back
     end
 
-    it "should be able to enter text into indexed fields" do
-      platform.should_receive(:performAction).with('enter_text_into_numbered_field', 'blar', 7)
-      screen.enter_text 'blar', 7
+    it "should know how to scroll down" do
+      platform.should_receive(:performAction).with('scroll_down')
+      screen.scroll_down
     end
 
+    it "should know how to scroll up" do
+      platform.should_receive(:performAction).with('scroll_up')
+      screen.scroll_up
+    end
   end
 end

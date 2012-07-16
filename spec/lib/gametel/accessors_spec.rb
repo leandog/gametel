@@ -4,6 +4,7 @@ class AccessorsSampleScreen
   include Gametel
 
   list_item(:first_list_item, 1)
+  text(:first_name, 3)
 end
 
 describe Gametel::Accessors do
@@ -21,5 +22,9 @@ describe Gametel::Accessors do
       screen.long_first_list_item
     end
 
+    it "should know how to enter text into a text field" do
+      platform.should_receive(:performAction).with('enter_text_into_numbered_field', 'blah', 3)
+      screen.first_name = 'blah'
+    end
   end
 end

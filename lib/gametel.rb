@@ -31,14 +31,25 @@ module Gametel
   end
 
   #
+  # scroll down
+  #
+  def scroll_down
+    platform.scroll_down
+  end
+
+  #
+  # scroll up
+  #
+  def scroll_up
+    platform.scroll_up
+  end
+
+  #
   # Wait for the provided text to appear
   #
   def wait_for_text(text_to_find)
     platform.wait_for_text(text_to_find)
   end
 
-  def enter_text(text, locator)
-    platform.enter_text(text, locator)
-  end
 end
 

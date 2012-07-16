@@ -56,6 +56,20 @@ module Gametel
       end
 
       #
+      # scroll down
+      #
+      def scroll_down
+        performAction 'scroll_down'
+      end
+
+      #
+      # scroll up
+      #
+      def scroll_up
+        performAction 'scroll_up'
+      end
+
+      #
       # wait for text to appear on the screen
       #
       def wait_for_text(text_to_find)

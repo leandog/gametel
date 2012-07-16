@@ -1,5 +1,8 @@
 Given /^I\'m on the controls screen$/ do
-  on(MainMenuScreen).views
+  on(MainMenuScreen) do |screen|
+    screen.scroll_down
+    screen.views
+  end
   on(ViewsMenuScreen).controls
   on(ControlsMenuScreen).light_theme
 end

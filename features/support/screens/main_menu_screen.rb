@@ -10,5 +10,5 @@ class MainMenuScreen
   list_item(:os, 7)
   list_item(:preference, 8)
   list_item(:text, 9)
-  list_item(:views, 10)
+  list_item(:views, 9)
 end
