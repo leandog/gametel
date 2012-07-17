@@ -1,6 +1,8 @@
 # Gametel
 
-TODO: Write a gem description
+[![Build Status](http://travis-ci.org/leandog/gametel.png)](http://travis-ci.org/leandog/gametel)
+
+A gem to assist in building page-object like structures for testing android applications.
 
 ## Installation
 
@@ -18,7 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Defining your screen object
+````ruby
+class LoginScreen
+  include Gametel
+end
+````
+
+When you include this module methods are added to your class allowing you to declare the items on the screen.
+
+````ruby
+class LoginPage
+  include Gametel
+  
+  text(:username, :index => 0)
+  text(:password, :index => 1)
+  button(:login, :text => 'Login')
+end
+````
+
+In your step definitions you can then access generated methods to interact with the views on your screen.
+
+````ruby
+on(LoginPage) do |screen|
+  screen.username = 'levi'
+  screen.password = 'secret'
+  screen.login
+end
+````
+
 
 ## Contributing
 
