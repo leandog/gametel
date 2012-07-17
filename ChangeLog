@@ -1,2 +1,6 @@
+=== Version 0.2
+* Enhancements
+  * Added generated method to clear a text view
+
 === Version 0.1 / 2012-7-17
 Initial release with very basic support for a few controls

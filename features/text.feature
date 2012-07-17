@@ -1,4 +1,3 @@
-@focus
 Feature: Interacting with the standard text field
 
   Scenario: Entering text into a text field
