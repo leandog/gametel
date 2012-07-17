@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["jeff.morgan@leandog.com", "levi@leandog.com"]
   gem.description   = %q{High level wrapper around android drivers}
   gem.summary       = %q{High level wrapper around android drivers}
-  gem.homepage      = ""
+  gem.homepage      = "http://github.com/leandog/gametel"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
