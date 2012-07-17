@@ -18,8 +18,8 @@ module Gametel
       # press a button
       #
       def press_button(locator)
-        action = locator.kind_of?(String) ? 'press_button_with_text' : 'press_button_number'
-        performAction(action, locator)
+        performAction 'press_button_with_text', locator[:text] if locator[:text]
+        performAction 'press_button_number', locator[:index] + 1 if locator[:index]
       end
 
       #
