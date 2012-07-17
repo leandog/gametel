@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ### Defining your screen object
 ````ruby
-class LoginScreen
+class LoginPage
   include Gametel
 end
 ````
