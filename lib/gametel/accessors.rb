@@ -23,6 +23,12 @@ module Gametel
         platform.click_checkbox(locator)
       end
     end
+
+    def radio_button(name, locator)
+      define_method(name) do
+        platform.click_radio_button(locator)
+      end
+    end
   end
 end
   

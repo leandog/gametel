@@ -1,4 +1,3 @@
-@focus
 Feature:  Interacting with checkboxes
 
   Scenario: Clicking a checkbox by index

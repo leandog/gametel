@@ -39,6 +39,13 @@ module Gametel
       end
 
       #
+      # click a radio button
+      #
+      def click_radio_button(locator)
+        performAction 'click_on_text', locator[:text] if locator[:text]
+      end
+
+      #
       # determine if text exists on the screen
       #
       def has_text?(text)

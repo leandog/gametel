@@ -10,6 +10,7 @@ class AccessorsSampleScreen
   button(:save_index, :index => 1)
   checkbox(:checkbox_index, :index => 0)
   checkbox(:checkbox_text, :text => 'Checkbox 2')
+  radio_button(:radio_text, :text => 'Radio Button 1')
 end
 
 describe Gametel::Accessors do
@@ -50,6 +51,11 @@ describe Gametel::Accessors do
     it "should know how to check a checkbox by text" do
       platform.should_receive(:performAction).with('click_on_text', 'Checkbox 2')
       screen.checkbox_text
+    end
+
+    it "should know how to click a radio button by text" do
+      platform.should_receive(:performAction).with('click_on_text', 'Radio Button 1')
+      screen.radio_text
     end
   end
 end
