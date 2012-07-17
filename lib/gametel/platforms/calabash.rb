@@ -10,7 +10,7 @@ module Gametel
       # enter text in a text box
       #
       def enter_text(text, locator)
-        performAction('enter_text_into_name_field', text, locator[:name]) if locator[:name]
+        performAction('enter_text_into_named_field', text, locator[:name]) if locator[:name]
         performAction('enter_text_into_numbered_field', text, locator[:index] + 1) if locator[:index]
       end
 

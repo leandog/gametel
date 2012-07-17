@@ -5,7 +5,8 @@ class AccessorsSampleScreen
 
   list_item(:first_list_item_text, :text => 'first item')
   list_item(:first_list_item_index, :index => 0)
-  text(:first_name, :index => 2)
+  text(:first_name_index, :index => 2)
+  text(:first_name_name, :name => 'Some name')
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
   checkbox(:checkbox_index, :index => 0)
@@ -28,9 +29,14 @@ describe Gametel::Accessors do
       screen.first_list_item_index
     end
 
-    it "should know how to enter text into a text field" do
+    it "should know how to enter text into a text field using index" do
       platform.should_receive(:performAction).with('enter_text_into_numbered_field', 'blah', 3)
-      screen.first_name = 'blah'
+      screen.first_name_index = 'blah'
+    end
+
+    it "should know how to enter text into a text field using the name" do
+      platform.should_receive(:performAction).with('enter_text_into_named_field', 'blah', 'Some name')
+      screen.first_name_name = 'blah'
     end
 
     it "should know how to press a button by text" do
