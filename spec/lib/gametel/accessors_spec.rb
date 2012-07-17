@@ -39,6 +39,16 @@ describe Gametel::Accessors do
       screen.first_name_name = 'blah'
     end
 
+    it "should know how to clear a text using index" do
+      platform.should_receive(:performAction).with('clear_numbered_field', 3)
+      screen.clear_first_name_index
+    end
+
+    it "should know how to clear a text using name" do
+      platform.should_receive(:performAction).with('clear_named_field', 'Some name')
+      screen.clear_first_name_name
+    end
+
     it "should know how to press a button by text" do
       platform.should_receive(:performAction).with('press_button_with_text', 'Save')
       screen.save_text

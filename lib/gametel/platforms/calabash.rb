@@ -14,6 +14,11 @@ module Gametel
         performAction('enter_text_into_numbered_field', text, locator[:index] + 1) if locator[:index]
       end
 
+      def clear_text(locator)
+        performAction 'clear_numbered_field', locator[:index] + 1 if locator[:index]
+        performAction 'clear_named_field', locator[:name] if locator[:name]
+      end
+
       #
       # press a button
       #

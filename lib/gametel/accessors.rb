@@ -1,11 +1,12 @@
 module Gametel
   module Accessors
     #
-    # Generates one method to enter text into a text field.
+    # Generates two method to enter text into a text field and to
+    # clear the text field
     #
     # @example
     #   text(:first_name, :index => 0)
-    #   # will generate 'first_name=" method
+    #   # will generate 'first_name=' and 'clear_first_name' methods
     #
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the text is found  The valid
@@ -16,6 +17,9 @@ module Gametel
     def text(name, locator)
       define_method("#{name}=") do |value|
         platform.enter_text(value, locator)
+      end
+      define_method("clear_#{name}") do
+          platform.clear_text(locator)
       end
     end
 
