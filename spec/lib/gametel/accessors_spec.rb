@@ -8,6 +8,8 @@ class AccessorsSampleScreen
   text(:first_name, :index => 2)
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
+  checkbox(:checkbox_index, :index => 0)
+  checkbox(:checkbox_text, :text => 'Checkbox 2')
 end
 
 describe Gametel::Accessors do
@@ -38,6 +40,16 @@ describe Gametel::Accessors do
     it "should know how to press a button by index" do
       platform.should_receive(:performAction).with('press_button_number', 2)
       screen.save_index
+    end
+
+    it "should know how to check a checkbox by index" do
+      platform.should_receive(:performAction).with('toggle_numbered_checkbox', 1)
+      screen.checkbox_index
+    end
+
+    it "should know how to check a checkbox by text" do
+      platform.should_receive(:performAction).with('click_on_text', 'Checkbox 2')
+      screen.checkbox_text
     end
   end
 end

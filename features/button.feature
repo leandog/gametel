@@ -1,4 +1,3 @@
-@focus
 Feature: Interacting with buttons
 
   Scenario: Should be able to click a button by text

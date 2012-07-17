@@ -17,6 +17,12 @@ module Gametel
         platform.press_list_item(locator)
       end
     end
+
+    def checkbox(name, locator)
+      define_method(name) do
+        platform.click_checkbox(locator)
+      end
+    end
   end
 end
   

@@ -31,10 +31,11 @@ module Gametel
       end
       
       #
-      # long press a list item
+      # click a checkbox
       #
-      def long_press_list_item(locator)
-        performAction 'long_press_list_item', locator, 0
+      def click_checkbox(locator)
+        performAction 'toggle_numbered_checkbox', locator[:index] + 1 if locator[:index]
+        performAction 'click_on_text', locator[:text] if locator[:text]
       end
 
       #
