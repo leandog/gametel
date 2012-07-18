@@ -35,6 +35,7 @@ module Gametel
     # keys are:
     #  * :text
     #  * :index
+    #  * :id
     #
     def button(name, locator)
       define_method(name) do
@@ -73,6 +74,7 @@ module Gametel
     # keys are:
     #  * :text
     #  * :index
+    #  * :id
     #
     def checkbox(name, locator)
       define_method(name) do
@@ -91,6 +93,7 @@ module Gametel
     # @param  [Hash]  locator for how the checkbox is found  The valid
     # keys are:
     #  * :text
+    #  * :id
     #
     def radio_button(name, locator)
       define_method(name) do
