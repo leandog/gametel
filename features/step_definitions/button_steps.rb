@@ -20,3 +20,7 @@ end
 Then /^I should see the text "(.*?)" on the screen$/ do |text|
   on(ButtonScreen).should have_text text
 end
+
+When /^I click the on\/off button by "(.*?)"$/ do |how|
+  on(ButtonScreen).send "on_off_#{how}"
+end
