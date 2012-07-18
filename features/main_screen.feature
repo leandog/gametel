@@ -16,8 +16,3 @@ Feature: Interacting with the elements on the main screen
     Then I should see the "Views" list item
     When I scroll up to the top of the screen
     Then I should see the "Accessibility" list item
-
-  Scenario: Clicking on items by their id
-    When I am perusing options for Alert Dialogs
-    And I choose the List Dialogs button by id
-    Then I should see the "Command one" list item
