@@ -16,6 +16,7 @@ class AccessorsSampleScreen
   radio_button(:radio_text, :text => 'Radio Button 1')
   radio_button(:radio_id, :id => 'some_radio_id')
   view(:view_id, :id => 'some_view_id')
+  view(:view_text, :text => 'Any view text')
 end
 
 describe Gametel::Accessors do
@@ -108,6 +109,11 @@ describe Gametel::Accessors do
       it "should know how to be clicked by id" do
         platform.should_receive(:performAction).with('click_on_view_by_id', 'some_view_id')
         screen.view_id
+      end
+
+      it "should know how to be clicked by test" do
+        platform.should_receive(:performAction).with('click_on_text', 'Any view text')
+        screen.view_text
       end
     end
   end

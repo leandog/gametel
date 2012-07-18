@@ -57,7 +57,8 @@ module Gametel
       # click a view
       #
       def click_view(locator)
-        performAction 'click_on_view_by_id', locator[:id]
+        performAction 'click_on_view_by_id', locator[:id] if locator[:id]
+        performAction 'click_on_text', locator[:text] if locator[:text]
       end
 
       #
