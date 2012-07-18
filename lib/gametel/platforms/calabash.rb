@@ -51,6 +51,13 @@ module Gametel
       end
 
       #
+      # click a view
+      #
+      def click_view(locator)
+        performAction 'click_on_view_by_id', locator[:id]
+      end
+
+      #
       # determine if text exists on the screen
       #
       def has_text?(text)
@@ -89,6 +96,7 @@ module Gametel
       def wait_for_text(text_to_find)
         performAction 'wait_for_text', text_to_find
       end
+
     end
   end
 end

@@ -97,6 +97,23 @@ module Gametel
         platform.click_radio_button(locator)
       end
     end
+
+    #
+    # Generates one method to click a view.
+    # @example
+    #   view(:clickable_text, :id => 'id_name_of_your_control')
+    #   # will generate 'clickable_text' method
+    #
+    # @param  [String]  the name used for the generated methods
+    # @param  [Hash]  locator indicating an id for how the view is found.
+    # The only valid keys are:
+    #   * :id
+    #
+    def view(name, locator)
+      define_method(name) do
+        platform.click_view(locator)
+      end
+    end
   end
 end
   

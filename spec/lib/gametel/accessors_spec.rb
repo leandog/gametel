@@ -12,6 +12,7 @@ class AccessorsSampleScreen
   checkbox(:checkbox_index, :index => 0)
   checkbox(:checkbox_text, :text => 'Checkbox 2')
   radio_button(:radio_text, :text => 'Radio Button 1')
+  view(:view_id, :id => 'some_view_id')
 end
 
 describe Gametel::Accessors do
@@ -72,6 +73,11 @@ describe Gametel::Accessors do
     it "should know how to click a radio button by text" do
       platform.should_receive(:performAction).with('click_on_text', 'Radio Button 1')
       screen.radio_text
+    end
+
+    it "should know how to click a view by its id" do
+      platform.should_receive(:performAction).with('click_on_view_by_id', 'some_view_id')
+      screen.view_id
     end
   end
 end
