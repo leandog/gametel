@@ -25,6 +25,7 @@ module Gametel
       def press_button(locator)
         performAction 'press_button_with_text', locator[:text] if locator[:text]
         performAction 'press_button_number', locator[:index] + 1 if locator[:index]
+        performAction 'click_on_view_by_id', locator[:id] if locator[:id]
       end
 
       #
@@ -41,6 +42,7 @@ module Gametel
       def click_checkbox(locator)
         performAction 'toggle_numbered_checkbox', locator[:index] + 1 if locator[:index]
         performAction 'click_on_text', locator[:text] if locator[:text]
+        performAction 'click_on_view_by_id', locator[:id] if locator[:id]
       end
 
       #
@@ -48,6 +50,7 @@ module Gametel
       #
       def click_radio_button(locator)
         performAction 'click_on_text', locator[:text] if locator[:text]
+        performAction 'click_on_view_by_id', locator[:id] if locator[:id]
       end
 
       #

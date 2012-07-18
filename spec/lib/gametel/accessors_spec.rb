@@ -9,9 +9,12 @@ class AccessorsSampleScreen
   text(:first_name_name, :name => 'Some name')
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
+  button(:save_id, :id => 'some_button_id')
   checkbox(:checkbox_index, :index => 0)
   checkbox(:checkbox_text, :text => 'Checkbox 2')
+  checkbox(:checkbox_id, :id => 'some_check_id')
   radio_button(:radio_text, :text => 'Radio Button 1')
+  radio_button(:radio_id, :id => 'some_radio_id')
   view(:view_id, :id => 'some_view_id')
 end
 
@@ -60,6 +63,12 @@ describe Gametel::Accessors do
       screen.save_index
     end
 
+    it "should know how to press a button by id" do
+      platform.should_receive(:performAction).with('click_on_view_by_id', 'some_button_id')
+      screen.save_id
+    end
+
+
     it "should know how to check a checkbox by index" do
       platform.should_receive(:performAction).with('toggle_numbered_checkbox', 1)
       screen.checkbox_index
@@ -70,9 +79,19 @@ describe Gametel::Accessors do
       screen.checkbox_text
     end
 
+    it "should know how to check a checkbox by id" do
+      platform.should_receive(:performAction).with('click_on_view_by_id', 'some_check_id')
+      screen.checkbox_id
+    end
+
     it "should know how to click a radio button by text" do
       platform.should_receive(:performAction).with('click_on_text', 'Radio Button 1')
       screen.radio_text
+    end
+
+    it "should know how to click a radio button by id" do
+      platform.should_receive(:performAction).with('click_on_view_by_id', 'some_radio_id')
+      screen.radio_id
     end
 
     it "should know how to click a view by its id" do
