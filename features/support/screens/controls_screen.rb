@@ -8,5 +8,5 @@ class ControlsScreen
   checkbox(:checkbox_text, :text => 'Checkbox 2')
   checkbox(:checkbox_id, :id => 'check1')
   radio_button(:radio_button_text, :text => 'RadioButton 1')
-  
+  radio_button(:radio_button_id, :id => 'radio2')
 end
