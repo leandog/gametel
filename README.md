@@ -49,6 +49,19 @@ on(LoginPage) do |screen|
 end
 ````
 
+## Supported Drivers
+
+### Calabash Android
+
+Sample `features/support/env.rb` file.
+
+````ruby
+require 'calabash-android/cucumber'
+require 'gametel'
+require 'gametel/navigation'
+
+World(Gametel::Navigation)
+````
 
 ## Contributing
 
