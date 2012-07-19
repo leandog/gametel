@@ -12,7 +12,6 @@ Feature: Interacting with the list item control
     When I click the list item "Views" from the main menu
     Then I should see the "Controls" list item
 
-  @focus
   Scenario: Should be able to click a list item from a specific list
     When I click the first list item by index on the first list
     Then I should see the "Accessibility Service" list item
