@@ -50,11 +50,23 @@ module Gametel
     #   list_item(:details, :text => 'Details')
     #   # will generate 'details' method
     #
+    # @example
+    #   list_item(:details, :index => 1, :list => 1)
+    #   # will generate 'details' method to select second item in the
+    #   # second list
+    #
+    # @example
+    #   list_item(:details, :index => 2)
+    #   # will generate 'details' method to select third item in the
+    #   # first list
+    #
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the list item is found  The valid
     # keys are:
     #  * :text
     #  * :index
+    #  * :list - only us with :index to indicate which list to use on
+    # the screen.  Default is 0
     #
     def list_item(name, locator)
       define_method(name) do

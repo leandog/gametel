@@ -5,6 +5,7 @@ class AccessorsSampleScreen
 
   list_item(:first_list_item_text, :text => 'first item')
   list_item(:first_list_item_index, :index => 0)
+  list_item(:first_list_item_index_list, :index => 0, :list => 1)
   text(:first_name_index, :index => 2)
   text(:first_name_name, :name => 'Some name')
   button(:save_text, :text => 'Save')
@@ -33,6 +34,11 @@ describe Gametel::Accessors do
       it "should know how to be chosen by index" do
         platform.should_receive(:performAction).with('press_list_item', 1, 0)
         screen.first_list_item_index
+      end
+
+      it "should know how to select the list when using index" do
+        platform.should_receive(:performAction).with('press_list_item', 1, 1)
+        screen.first_list_item_index_list
       end
     end
 
