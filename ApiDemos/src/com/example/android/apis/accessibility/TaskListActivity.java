@@ -50,7 +50,6 @@ public class TaskListActivity extends ListActivity {
         // Add a shortcut to the accessibility settings.
         ImageButton button = (ImageButton) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 startActivity(sSettingsIntent);
             }

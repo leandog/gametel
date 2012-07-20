@@ -16,33 +16,31 @@
 
 package com.example.android.apis.view;
 
-import com.example.android.apis.R;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.InputDevice;
+import android.view.InputDevice.MotionRange;
 import android.view.InputEvent;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.InputDevice.MotionRange;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
+import com.example.android.apis.R;
 
 
 /**
@@ -76,7 +74,6 @@ public class GameControllerInput extends Activity {
         mSummaryList = (ListView) findViewById(R.id.summary);
         mSummaryList.setAdapter(mSummaryAdapter);
         mSummaryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mSummaryAdapter.onItemClick(position);
             }
@@ -368,22 +365,18 @@ public class GameControllerInput extends Activity {
             return true;
         }
 
-        @Override
         public int getCount() {
             return mVisibleItems.size();
         }
 
-        @Override
         public Item getItem(int position) {
             return mVisibleItems.get(position);
         }
 
-        @Override
         public long getItemId(int position) {
             return getItem(position).getItemId();
         }
 
-        @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             return getItem(position).getView(convertView, parent);
         }

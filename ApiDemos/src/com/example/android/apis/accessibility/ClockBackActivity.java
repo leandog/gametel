@@ -46,7 +46,6 @@ public class ClockBackActivity extends Activity {
         // Add a shortcut to the accessibility settings.
         ImageButton button = (ImageButton) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
                 startActivity(sSettingsIntent);
             }

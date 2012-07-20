@@ -184,7 +184,6 @@ public class VoiceRecognition extends Activity implements OnClickListener {
 
             if (getResultCode() != Activity.RESULT_OK) {
                 mHandler.post(new Runnable() {
-                    @Override
                     public void run() {
                         showToast("Error code:" + getResultCode());
                     }
@@ -193,7 +192,6 @@ public class VoiceRecognition extends Activity implements OnClickListener {
 
             if (extra == null) {
                 mHandler.post(new Runnable() {
-                    @Override
                     public void run() {
                         showToast("No extra");
                     }
@@ -203,7 +201,6 @@ public class VoiceRecognition extends Activity implements OnClickListener {
             if (extra.containsKey(RecognizerIntent.EXTRA_SUPPORTED_LANGUAGES)) {
                 mHandler.post(new Runnable() {
 
-                    @Override
                     public void run() {
                         updateSupportedLanguages(extra.getStringArrayList(
                                 RecognizerIntent.EXTRA_SUPPORTED_LANGUAGES));
@@ -214,7 +211,6 @@ public class VoiceRecognition extends Activity implements OnClickListener {
             if (extra.containsKey(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE)) {
                 mHandler.post(new Runnable() {
 
-                    @Override
                     public void run() {
                         updateLanguagePreference(
                                 extra.getString(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE));

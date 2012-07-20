@@ -148,7 +148,6 @@ public class LoaderCustom extends Activity {
      */
     public static final Comparator<AppEntry> ALPHA_COMPARATOR = new Comparator<AppEntry>() {
         private final Collator sCollator = Collator.getInstance();
-        @Override
         public int compare(AppEntry object1, AppEntry object2) {
             return sCollator.compare(object1.getLabel(), object2.getLabel());
         }
@@ -437,7 +436,7 @@ public class LoaderCustom extends Activity {
             item.setActionView(sv);
         }
 
-        @Override public boolean onQueryTextChange(String newText) {
+        public boolean onQueryTextChange(String newText) {
             // Called when the action bar search text has changed.  Since this
             // is a simple array adapter, we can just have it do the filtering.
             mCurFilter = !TextUtils.isEmpty(newText) ? newText : null;
@@ -445,7 +444,7 @@ public class LoaderCustom extends Activity {
             return true;
         }
 
-        @Override public boolean onQueryTextSubmit(String query) {
+        public boolean onQueryTextSubmit(String query) {
             // Don't care about this.
             return true;
         }
@@ -455,13 +454,13 @@ public class LoaderCustom extends Activity {
             Log.i("LoaderCustom", "Item clicked: " + id);
         }
 
-        @Override public Loader<List<AppEntry>> onCreateLoader(int id, Bundle args) {
+        public Loader<List<AppEntry>> onCreateLoader(int id, Bundle args) {
             // This is called when a new Loader needs to be created.  This
             // sample only has one Loader with no arguments, so it is simple.
             return new AppListLoader(getActivity());
         }
 
-        @Override public void onLoadFinished(Loader<List<AppEntry>> loader, List<AppEntry> data) {
+        public void onLoadFinished(Loader<List<AppEntry>> loader, List<AppEntry> data) {
             // Set the new data in the adapter.
             mAdapter.setData(data);
 
@@ -473,7 +472,7 @@ public class LoaderCustom extends Activity {
             }
         }
 
-        @Override public void onLoaderReset(Loader<List<AppEntry>> loader) {
+        public void onLoaderReset(Loader<List<AppEntry>> loader) {
             // Clear the data in the adapter.
             mAdapter.setData(null);
         }

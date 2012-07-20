@@ -40,7 +40,6 @@ public class Switches extends Activity implements CompoundButton.OnCheckedChange
         }
     }
 
-    @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
        Toast.makeText(this, "Monitored switch is " + (isChecked ? "on" : "off"),
                Toast.LENGTH_SHORT).show();

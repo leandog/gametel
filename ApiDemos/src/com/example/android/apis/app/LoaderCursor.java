@@ -110,7 +110,7 @@ public class LoaderCursor extends Activity {
             return true;
         }
 
-        @Override public boolean onQueryTextSubmit(String query) {
+        public boolean onQueryTextSubmit(String query) {
             // Don't care about this.
             return true;
         }

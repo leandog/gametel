@@ -88,7 +88,6 @@ public class FileProvider extends ContentProvider
         }
     }
 
-    @Override
     public void writeDataToPipe(ParcelFileDescriptor output, Uri uri, String mimeType,
             Bundle opts, InputStream args) {
         // Transfer data from the asset to the pipe the client is reading.

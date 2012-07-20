@@ -194,7 +194,6 @@ public class DeviceAdminSample extends PreferenceActivity {
             }
         }
 
-        @Override
         public boolean onPreferenceClick(Preference preference) {
             if (mSetPassword != null && preference == mSetPassword) {
                 Intent intent = new Intent(DevicePolicyManager.ACTION_SET_NEW_PASSWORD);
@@ -204,7 +203,6 @@ public class DeviceAdminSample extends PreferenceActivity {
             return false;
         }
 
-        @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             if (mResetPassword != null && preference == mResetPassword) {
                 doResetPassword((String)newValue);
@@ -717,7 +715,6 @@ public class DeviceAdminSample extends PreferenceActivity {
             builder.setMessage(R.string.wipe_warning_first);
             builder.setPositiveButton(R.string.wipe_warning_first_ok,
                     new DialogInterface.OnClickListener() {
-                @Override
                 public void onClick(DialogInterface dialog, int which) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
                     if (wipeAllData) {
@@ -727,7 +724,6 @@ public class DeviceAdminSample extends PreferenceActivity {
                     }
                     builder.setPositiveButton(R.string.wipe_warning_second_ok,
                             new DialogInterface.OnClickListener() {
-                        @Override
                         public void onClick(DialogInterface dialog, int which) {
                             boolean stillActive = mActivity.isActiveAdmin();
                             if (stillActive) {

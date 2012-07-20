@@ -90,7 +90,6 @@ public class ActionBarSettingsActionProviderActivity extends Activity {
             ImageButton button = (ImageButton) view.findViewById(R.id.button);
             // Attach a click listener for launching the system settings.
             button.setOnClickListener(new View.OnClickListener() {
-                @Override
                 public void onClick(View v) {
                     mContext.startActivity(sSettingsIntent);
                 }

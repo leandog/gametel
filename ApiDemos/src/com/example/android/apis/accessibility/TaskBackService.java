@@ -168,7 +168,6 @@ public class TaskBackService extends AccessibilityService implements OnInitListe
     /**
      * {@inheritDoc}
      */
-    @Override
     public void onInit(int status) {
         // Set a flag so that the TaskBackService knows that the Text-To-Speech
         // engine has been initialized, and can now handle speaking requests.

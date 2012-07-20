@@ -75,7 +75,6 @@ final class TaskAdapter extends BaseAdapter{
         mCheckboxes = checkboxes;
     }
 
-    @Override
     public int getCount() {
         return mLabels.length;
     }
@@ -83,7 +82,6 @@ final class TaskAdapter extends BaseAdapter{
     /** Expands the views for individual list entries, and sets content descriptions for use by the
      *  TaskBackAccessibilityService.
      */
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
@@ -107,12 +105,10 @@ final class TaskAdapter extends BaseAdapter{
         return convertView;
     }
 
-    @Override
     public Object getItem(int position) {
         return mLabels[position];
     }
 
-    @Override
     public long getItemId(int position) {
         return position;
     }

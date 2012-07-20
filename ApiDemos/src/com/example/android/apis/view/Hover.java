@@ -16,24 +16,16 @@
 
 package com.example.android.apis.view;
 
-import com.example.android.apis.R;
-
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.example.android.apis.R;
 
 
 /**
@@ -73,7 +65,6 @@ public class Hover extends Activity {
 
         View container = findViewById(R.id.container);
         container.setOnHoverListener(new View.OnHoverListener() {
-            @Override
             public boolean onHover(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_HOVER_ENTER:
@@ -97,7 +88,6 @@ public class Hover extends Activity {
         });
 
         mInterceptCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 mInterceptor.setInterceptHover(isChecked);
             }
