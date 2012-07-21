@@ -47,6 +47,7 @@
         android:layout_height="wrap_content">
 
         <EditText android:id="@+id/edit"
+            android:contentDescription="@string/controls_1_edit_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

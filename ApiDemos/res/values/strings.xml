@@ -968,6 +968,7 @@
     <string name="baseline_7_lean">Slim and slick.</string>
     <string name="baseline_nested_1_label">label</string>
     <string name="controls_1_save">Save</string>
+    <string name="controls_1_edit_desc">Edit Description</string>
     <string name="controls_1_checkbox_1">Checkbox 1</string>
     <string name="controls_1_checkbox_2">Checkbox 2</string>
     <string name="controls_1_radiobutton_1">RadioButton 1</string>
