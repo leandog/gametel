@@ -84,6 +84,13 @@ module Gametel
       end
 
       #
+      # press the enter key
+      #
+      def enter
+        performAction 'send_key_enter'
+      end
+
+      #
       # scroll down
       #
       def scroll_down

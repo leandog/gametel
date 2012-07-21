@@ -31,6 +31,11 @@ describe Gametel do
       screen.back
     end
 
+    it "should know how to press the enter key" do
+      platform.should_receive(:performAction).with('send_key_enter')
+      screen.enter
+    end
+
     it "should know how to scroll down" do
       platform.should_receive(:performAction).with('scroll_down')
       screen.scroll_down

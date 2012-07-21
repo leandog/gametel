@@ -16,3 +16,8 @@ Feature: Interacting with the elements on the main screen
     Then I should see the "Views" list item
     When I scroll up to the top of the screen
     Then I should see the "Accessibility" list item
+
+  Scenario: Pressing the enter key
+    When I hit the enter key twice
+    Then I should see the "Accessibility Service" list item
+

@@ -31,6 +31,13 @@ module Gametel
   end
 
   #
+  # Press the enter key
+  #
+  def enter
+    platform.enter
+  end
+
+  #
   # scroll down
   #
   def scroll_down

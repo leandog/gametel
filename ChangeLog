@@ -1,5 +1,6 @@
 === Version 0.2
 * Enhancements
+  * Added the enter method to Gametel module to press the enter key on the device
   * Added generated method to clear a text view
   * Added generated method to click a view, button, checkbox or radio by id
   * Added ability to enter and clear text from a text view identified by id
