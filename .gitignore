@@ -2,6 +2,8 @@
 *.rbc
 *.swp
 *.class
+*.cache
+*.d
 .bundle
 .config
 .yardoc
@@ -20,6 +22,4 @@ tmp
 Test.apk
 results
 ApiDemos/gen
-ApiDemos/bin/classes
-ApiDemos/bin/res
-ApiDemos/bin/classes.dex
+ApiDemos/bin
