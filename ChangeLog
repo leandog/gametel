@@ -2,6 +2,7 @@
 * Enhancements
   * Added generated method to clear a text view
   * Added generated method to click a view, button, checkbox or radio by id
+  * Added ability to enter and clear text from a text view identified by id
   * Added :list locator that can be used with :index locator to select the target list
 
 === Version 0.1 / 2012-7-17

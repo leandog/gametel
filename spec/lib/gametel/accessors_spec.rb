@@ -8,6 +8,7 @@ class AccessorsSampleScreen
   list_item(:first_list_item_index_list, :index => 0, :list => 1)
   text(:first_name_index, :index => 2)
   text(:first_name_name, :name => 'Some name')
+  text(:first_name_id, :id => 'fnid')
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
   button(:save_id, :id => 'some_button_id')
@@ -53,6 +54,11 @@ describe Gametel::Accessors do
         screen.first_name_name = 'blah'
       end
 
+      it "should know how to enter text using the id" do
+        platform.should_receive(:performAction).with('enter_text_into_id_field', 'blah', 'fnid')
+        screen.first_name_id = 'blah'
+      end
+
       it "should know how to be cleared using an index" do
         platform.should_receive(:performAction).with('clear_numbered_field', 3)
         screen.clear_first_name_index
@@ -61,6 +67,11 @@ describe Gametel::Accessors do
       it "should know how to be cleared by name" do
         platform.should_receive(:performAction).with('clear_named_field', 'Some name')
         screen.clear_first_name_name
+      end
+
+      it "should know now to be cleared by id" do
+        platform.should_receive(:performAction).with('clear_id_field', 'fnid')
+        screen.clear_first_name_id
       end
     end
 

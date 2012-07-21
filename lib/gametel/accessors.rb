@@ -12,6 +12,7 @@ module Gametel
     # @param  [Hash]  locator for how the text is found  The valid
     # keys are:
     #  * :name
+    #  * :id
     #  * :index
     #
     def text(name, locator)

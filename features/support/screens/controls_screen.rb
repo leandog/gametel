@@ -1,7 +1,8 @@
 class ControlsScreen
   include Gametel
   
-  text(:text_field, :index => 0)
+  text(:text_field_index, :index => 0)
+  text(:text_field_id, :id => 'edit')
   button(:enabled_save, :index => 0)
   button(:disabled_save, :index => 1)
   checkbox(:checkbox_index, :index => 0)
