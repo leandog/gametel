@@ -8,6 +8,7 @@ Given /^I\'m on the controls screen$/ do
     screen.wait_for_text 'Light Theme'
   end
   on(ControlsMenuScreen).light_theme
+  on(ControlsScreen).wait_for_text 'Views/Controls'
 end
 
 When /^I enter "(.*?)" into the text field identified by "(.*?)"$/ do |text_value, how|

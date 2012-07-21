@@ -11,7 +11,7 @@ module Gametel
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the text is found  The valid
     # keys are:
-    #  * :name
+    #  * :content_description
     #  * :id
     #  * :index
     #

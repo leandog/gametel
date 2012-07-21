@@ -10,14 +10,14 @@ module Gametel
       # enter text in a text box
       #
       def enter_text(text, locator)
-        performAction 'enter_text_into_named_field', text, locator[:name] if locator[:name]
+        performAction 'enter_text_into_named_field', text, locator[:content_description] if locator[:content_description]
         performAction 'enter_text_into_numbered_field', text, locator[:index] + 1 if locator[:index]
         performAction 'enter_text_into_id_field', text, locator[:id] if locator[:id]
       end
 
       def clear_text(locator)
         performAction 'clear_numbered_field', locator[:index] + 1 if locator[:index]
-        performAction 'clear_named_field', locator[:name] if locator[:name]
+        performAction 'clear_named_field', locator[:content_description] if locator[:content_description]
         performAction 'clear_id_field', locator[:id] if locator[:id]
       end
 

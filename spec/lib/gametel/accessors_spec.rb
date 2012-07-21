@@ -7,7 +7,7 @@ class AccessorsSampleScreen
   list_item(:first_list_item_index, :index => 0)
   list_item(:first_list_item_index_list, :index => 0, :list => 1)
   text(:first_name_index, :index => 2)
-  text(:first_name_name, :name => 'Some name')
+  text(:first_name_name, :content_description => 'Some name')
   text(:first_name_id, :id => 'fnid')
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
