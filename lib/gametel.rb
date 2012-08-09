@@ -24,6 +24,13 @@ module Gametel
   end
 
   #
+  # Returns true if the view is enabled
+  #
+  def enabled?(locator)
+    platform.enabled?(locator)
+  end
+
+  #
   # Press the back button
   #
   def back

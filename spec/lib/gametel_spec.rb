@@ -26,6 +26,11 @@ describe Gametel do
       screen.has_text? "blah"
     end
 
+    it "should know if a view is enabled" do
+      platform.should_receive(:performAction).with('is_enabled', 'some_id').and_return("success" => true)
+      screen.should be_enabled('some_id')
+    end
+
     it "should know how to press the back button" do
       platform.should_receive(:performAction).with('go_back')
       screen.back

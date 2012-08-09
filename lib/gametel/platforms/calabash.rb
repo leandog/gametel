@@ -77,6 +77,18 @@ module Gametel
       end
 
       #
+      # determine if a view is enabled
+      #
+      def enabled?(locator)
+        begin
+          performAction 'is_enabled', locator
+        rescue
+          return false
+        end
+        true
+      end
+
+      #
       # press the back button
       #
       def back
