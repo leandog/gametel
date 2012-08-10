@@ -1,4 +1,3 @@
-@wip
 Feature: Determining whether or not a view is enabled
 
   Scenario: Identifying a disabled view
