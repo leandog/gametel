@@ -1,11 +1,7 @@
-When /^I am looking at the various button types$/ do
-    pending # express the regexp above with the code you wish you had
+Then /^I can tell when buttons are disabled$/ do
+  on(ButtonScreen).should_not be_enabled('button_disabled')
 end
 
-Then /^I can tell that the Disabled button is disabled$/ do
-    pending # express the regexp above with the code you wish you had
-end
-
-Then /^I can tell that the Normal button is enabled$/ do
-    pending # express the regexp above with the code you wish you had
+Then /^I can tell when buttons are enabled$/ do
+  on(ButtonScreen).should be_enabled('button_normal')
 end

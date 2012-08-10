@@ -1,10 +1,10 @@
-@focus
+@wip
 Feature: Determining whether or not a view is enabled
 
   Scenario: Identifying a disabled view
-    When I am looking at the various button types
-    Then I can tell that the Disabled button is disabled
+    When I'm on the buttons screen
+    Then I can tell when buttons are disabled
 
   Scenario: Identifying an enabled view
-    When I am looking at the various button types
-    Then I can tell that the Normal button is enabled
+    When I'm on the buttons screen
+    Then I can tell when buttons are enabled
