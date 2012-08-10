@@ -1,5 +1,13 @@
 <%
-std_opts = "PACKAGE_NAME=com.example.android.apis TEST_PACKAGE_NAME=com.example.android.apis.test APP_PATH=/Users/leviwilson/git/leandog/gametel/ApiDemos/bin/ApiDemos.apk TEST_APP_PATH=features/support/Test.apk TEST_SERVER_PORT=34777  --no-source --color --format pretty"
+begin
+  puts 'Building the calabash test server...'
+  last_test_apk = 'test_servers/' << Dir.entries("test_servers").last
+rescue
+  `calabash-android build ApiDemos/bin/ApiDemos.apk`
+  retry
+end
+
+std_opts = "PACKAGE_NAME=com.example.android.apis TEST_PACKAGE_NAME=com.example.android.apis.test APP_PATH=./ApiDemos/bin/ApiDemos.apk TEST_APP_PATH=#{last_test_apk} TEST_SERVER_PORT=34777  --no-source --color --format pretty"
 %>
 
 default: <%= std_opts %> --tags ~@ignore
