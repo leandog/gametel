@@ -5,23 +5,20 @@ AfterConfiguration do |config|
 end
 
 Before do |scenario|
-  deploy_app unless already_installed
-  FeatureNameMemory.feature_name = scenario.feature.name
+  feature_name = scenario.feature.name
+  if FeatureNameMemory.feature_name != feature_name
+    log "Is first scenario - reinstalling apps"
+    
+    uninstall_apps
+    install_app(ENV["TEST_APP_PATH"])
+    install_app(ENV["APP_PATH"])
+    FeatureNameMemory.feature_name = feature_name
+	end
 end
 
 at_exit do
-  #	uninstall_apps
-end
-
-def already_installed()
-  !FeatureNameMemory.feature_name.nil?
-end
-
-def deploy_app()
-  log "Is first scenario - reinstalling apps"
-  uninstall_apps
-  install_app(ENV["TEST_APP_PATH"])
-  install_app(ENV["APP_PATH"])
+  require 'net/http'
+  Net::HTTP.get(URI.parse("http://127.0.0.1:34777/kill"))
 end
 
 FeatureNameMemory = Class.new
