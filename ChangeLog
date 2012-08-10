@@ -6,6 +6,7 @@
   * Added ability to enter and clear text from a text view identified by id
   * Added :list locator that can be used with :index locator to select the target list
   * Renamed the :name locator to :content_description for text so it more accurately reflects what it is doing
+	*	Added support for determining if a view is enabled / disabled
 
 === Version 0.1 / 2012-7-17
 Initial release with very basic support for a few controls
