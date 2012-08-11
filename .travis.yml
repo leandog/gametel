@@ -8,7 +8,8 @@ script:
   - sudo calabash-android build ApiDemos/bin/ApiDemos.apk
   - rake features
 before_install:
-  - sudo gem install calabash-android
+  - sudo gem install bundler
+  - sudo bundle install
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
   - tar -zxf android-sdk_r18-linux.tgz
   - export ANDROID_HOME=~/builds/leandog/gametel/android-sdk-linux
