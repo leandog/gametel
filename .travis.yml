@@ -7,6 +7,7 @@ notifications:
 script: rake features
 before_install:
   - gem install calabash-android
+  - gem install fileutils
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
   - tar -zxf android-sdk_r18-linux.tgz
   - export ANDROID_HOME=~/builds/leandog/gametel/android-sdk-linux
