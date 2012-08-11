@@ -9,7 +9,7 @@ before_install:
   - gem install cucumber
   - gem install json
   - gem install slowhandcuke
-  - gem install -l calabash-android-0.2.9.gem
+  - gem install -l calabash-android-0.2.9.1.gem
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
   - tar -zxf android-sdk_r18-linux.tgz
   - export ANDROID_HOME=~/builds/leandog/gametel/android-sdk-linux
