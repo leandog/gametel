@@ -2,7 +2,6 @@ language: ruby
 notifications:
   email:
     - levi@leviwilson.com
-    - jeff.morgan@leandog.com
 before_install:
   - gem install calabash-android
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
