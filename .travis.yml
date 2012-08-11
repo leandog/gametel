@@ -4,7 +4,9 @@ jdk:
 notifications:
   email:
     - levi@leviwilson.com
-script: sudo rake features
+script:
+  - sudo calabash-android build ApiDemos/bin/ApiDemos.apk
+  - rake features
 before_install:
   - gem install calabash-android
   - gem install fileutils
