@@ -4,14 +4,11 @@ notifications:
     - levi@leviwilson.com
     - jeff.morgan@leandog.com
 before_install:
-  - sudo apt-get update
-  - echo y | sudo apt-get install openjdk-6-jdk
   - gem install calabash-android
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
+  - tar -zxf android-sdk_r18-linux.tgz
   - export ANDROID_HOME=~/builds/leandog/gametel/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-  - pwd
-  - ls -lart
   - android update sdk --filter 1,2 --no-ui --force
   - android update sdk --filter 5,10,29,33 --no-ui --force
   - android list targets
