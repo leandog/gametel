@@ -13,3 +13,4 @@ before_install:
   - android update sdk --filter 1,2 --no-ui --force
   - android update sdk --filter 5,10,29,33 --no-ui --force
   - android list targets
+  - android list sdk
