@@ -4,7 +4,7 @@ jdk:
 notifications:
   email:
     - levi@leviwilson.com
-script: rake features
+script: sudo rake features
 before_install:
   - gem install calabash-android
   - gem install fileutils
