@@ -4,6 +4,7 @@
 *.class
 *.cache
 *.d
+*.dex
 .bundle
 .config
 .yardoc
@@ -22,5 +23,7 @@ tmp
 Test.apk
 results
 ApiDemos/gen
-ApiDemos/bin
+ApiDemos/bin/aidl
+ApiDemos/bin/classes
+ApiDemos/bin/res*
 test_servers
