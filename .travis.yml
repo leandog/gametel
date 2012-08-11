@@ -6,7 +6,7 @@ notifications:
     - levi@leviwilson.com
 script:
   - android update project -p ./ApiDemos
-  - ant -f ./ApiDemos/build.xml
+  - ant -f ./ApiDemos/build.xml debug
   - calabash-android build ./ApiDemos/bin/ApiDemos.apk
   - rake features
 before_install:
