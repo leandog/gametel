@@ -19,7 +19,6 @@ before_install:
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   - android update sdk -s --filter 1,2 --no-ui --force
   - android update sdk -s --filter 5,10,25,29,33 --no-ui --force
-  - android list targets
   - echo no | android create avd -n android-15 -t 3
   - emulator-arm -avd android-15 -no-window -no-audio 1>&2 &
   - sh wait_for_emulator.sh
