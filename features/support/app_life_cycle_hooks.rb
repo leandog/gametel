@@ -1,5 +1,4 @@
 require 'calabash-android/management/adb'
-include Calabash::Android::Operations
 
 Before do |scenario|
 
@@ -8,5 +7,5 @@ Before do |scenario|
 end
 
 After do
-  shutdown_test_server
+  Calabash::Android::Operations::shutdown_test_server
 end
