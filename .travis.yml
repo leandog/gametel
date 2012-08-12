@@ -7,7 +7,7 @@ notifications:
 script:
   - rake spec
   - android update project -p ./ApiDemos
-  - ant -f ./ApiDemos/build.xml debug -outfile ApiDemosBuild.out
+  - ant -f ./ApiDemos/build.xml debug -logfile ApiDemosBuild.out
   - calabash-android build ./ApiDemos/bin/ApiDemos-debug.apk
   - calabash-android run ./ApiDemos/bin/ApiDemos-debug.apk
 before_install:
