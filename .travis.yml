@@ -5,6 +5,7 @@ notifications:
   email:
     - levi@leviwilson.com
 script:
+  - gem install retriable
   - gem install -l calabash-android-0.2.9.1.gem
   - rake spec
   - android update project -p ./ApiDemos
