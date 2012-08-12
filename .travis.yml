@@ -6,7 +6,7 @@ notifications:
     - levi@leviwilson.com
 script:
   - gem install retriable
-  - gem install -l calabash-android-0.2.9.1.gem
+  - gem install -l calabash-android-0.2.9.2.gem
   - rake spec
   - android update project -p ./ApiDemos
   - ant -f ./ApiDemos/build.xml debug -logfile ApiDemosBuild.out
