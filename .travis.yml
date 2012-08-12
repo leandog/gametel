@@ -20,6 +20,6 @@ before_install:
   - android update sdk -s --filter 1,2 --no-ui --force
   - android update sdk -s --filter 5,10,25,29,33 --no-ui --force
   - echo no | android create avd -n android-15 -t 3
-  - sed -i '' -e 's/hw\.ramSize=[0-9]+/hw\.ramSize=1024/g' ~/.android/avd/android-15.avd/config.ini
+  - echo 'hw.ramSize=1024' >> ~/.android/avd/android-15.avd/config.ini
   - emulator-arm -avd android-15 -no-window -no-audio -gpu on 1>&2 &
   - sh wait_for_emulator.sh
