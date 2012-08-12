@@ -8,8 +8,8 @@ script:
   - rake spec
   - android update project -p ./ApiDemos
   - ant -f ./ApiDemos/build.xml debug
-  - calabash-android build ./ApiDemos/bin/ApiDemos-debug.apk
-  - calabash-android run ./ApiDemos/bin/ApiDemos-debug.apk
+  - calabash-android build ./ApiDemos/bin/ApiDemos-debug.apk -v
+  - calabash-android run ./ApiDemos/bin/ApiDemos-debug.apk -v
 before_install:
   - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
   - tar -zxf android-sdk_r18-linux.tgz
