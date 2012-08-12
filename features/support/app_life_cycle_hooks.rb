@@ -1,4 +1,5 @@
 require 'calabash-android/management/adb'
+include Calabash::Android::Operations
 
 Before do |scenario|
 
