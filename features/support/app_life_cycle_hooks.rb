@@ -6,6 +6,5 @@ Before do |scenario|
 end
 
 After do
-  require 'net/http'
-  Net::HTTP.get(URI.parse("http://localhost:34777/kill"))
+  shutdown_test_server
 end
