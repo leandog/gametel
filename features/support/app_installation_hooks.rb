@@ -6,7 +6,7 @@ end
 
 Before do |scenario|
   feature_name = scenario.feature.name
-  if FeatureNameMemory.feature_name != feature_name
+  if FeatureNameMemory.feature_name.nil?
     log "Is first scenario - reinstalling apps"
     
     uninstall_apps
