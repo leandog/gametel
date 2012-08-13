@@ -1,5 +1,25 @@
 language: ruby
+jdk:
+  - openjdk6
 notifications:
   email:
     - levi@leviwilson.com
-    - jeff.morgan@leandog.com
+script:
+  - gem install retriable
+  - gem install -l calabash-android-LATEST.gem
+  - rake spec
+  - android update project -p ./ApiDemos
+  - ant -f ./ApiDemos/build.xml debug -logfile ApiDemosBuild.out
+  - calabash-android run ./ApiDemos/bin/ApiDemos-debug.apk
+before_install:
+  - wget http://dl.google.com/android/android-sdk_r18-linux.tgz
+  - tar -zxf android-sdk_r18-linux.tgz
+  - export ANDROID_HOME=~/builds/leandog/gametel/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  - android update sdk -s --filter 1,2 --no-ui --force
+  - android update sdk -s --filter 5,10,25,29,33 --no-ui --force
+  - echo no | android create avd -n android-15 -t 3
+  - echo 'hw.ramSize=1024' >> ~/.android/avd/android-15.avd/config.ini
+  - emulator-arm -avd android-15 -no-window -no-audio -gpu on 1>&2 &
+  - sh wait_for_emulator.sh
+
