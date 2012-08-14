@@ -1,4 +1,4 @@
-=== Version 0.2
+=== Version 0.2 / 2012-8-14
 * Enhancements
   * Added the enter method to Gametel module to press the enter key on the device
   * Added generated method to clear a text view
