@@ -89,6 +89,18 @@ module Gametel
       end
 
       #
+      # determine if a view exists
+      #
+      def has_view?(locator)
+        begin
+          performAction 'has_view', locator
+        rescue
+          return false
+        end
+        true
+      end
+
+      #
       # press the back button
       #
       def back

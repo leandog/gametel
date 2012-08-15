@@ -31,6 +31,17 @@ describe Gametel do
       screen.should be_enabled('some_id')
     end
 
+    it "should know if a view exists" do
+      platform.should_receive(:performAction).with('has_view', 'some_id').and_return("success" => true)
+      screen.should have_view('some_id')
+    end
+
+    it "should know if a view does not exist" do
+      platform.should_receive(:performAction).with('has_view', 'some_id').and_throw('we do not care what this exception is')
+      screen.should_not have_view('some_id')
+    end
+
+
     it "should know how to press the back button" do
       platform.should_receive(:performAction).with('go_back')
       screen.back

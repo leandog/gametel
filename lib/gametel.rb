@@ -31,6 +31,13 @@ module Gametel
   end
 
   #
+  # Returns true if a view exists
+  #
+  def has_view?(locator)
+    platform.has_view?(locator)
+  end
+
+  #
   # Press the back button
   #
   def back
