@@ -35,3 +35,8 @@ Feature: Interacting with the standard text field
     Then I should have the value "example text" on the control screen
     When I clear the text from the text field identified by "name"
     Then I should not have the value "example text" on the control screen
+
+  Scenario: Retrieving text identified by index
+    Given I'm on the controls screen
+    When I enter "example text" into the text field identified by "id"
+    Then I should have the value "example text" in the text field identified by "id"

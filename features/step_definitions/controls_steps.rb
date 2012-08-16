@@ -26,3 +26,9 @@ end
 Then /^I should not have the value "(.*?)" on the control screen$/ do |text_value|
   on(ControlsScreen).should_not have_text text_value
 end
+
+Then /^I should have the value "(.*?)" in the text field identified by "(.*?)"$/ do |text_value, how|
+  on(ControlsScreen) do |screen|
+    screen.send("text_field_#{how}").should eq(text_value)
+  end
+end
