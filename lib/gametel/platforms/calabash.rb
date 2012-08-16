@@ -7,6 +7,13 @@ module Gametel
     class Calabash
 
       #
+      # get text
+      #
+      def get_text(locator)
+        performAction('get_text_by_id', locator[:id])['message'] if locator[:id]
+      end
+
+      #
       # enter text in a text box
       #
       def enter_text(text, locator)

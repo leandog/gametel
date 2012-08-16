@@ -6,7 +6,7 @@ module Gametel
     #
     # @example
     #   text(:first_name, :index => 0)
-    #   # will generate 'first_name=' and 'clear_first_name' methods
+    #   # will generate 'first_name', 'first_name=' and 'clear_first_name' methods
     #
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the text is found  The valid
@@ -16,6 +16,9 @@ module Gametel
     #  * :index
     #
     def text(name, locator)
+      define_method("#{name}") do
+        platform.get_text(locator)
+      end
       define_method("#{name}=") do |value|
         platform.enter_text(value, locator)
       end

@@ -73,6 +73,12 @@ describe Gametel::Accessors do
         platform.should_receive(:performAction).with('clear_id_field', 'fnid')
         screen.clear_first_name_id
       end
+
+      it "should know how to get text by id" do
+        platform.should_receive(:performAction).with('get_text_by_id', 'fnid').and_return('message' => 'the value')
+        screen.first_name_id.should eq('the value')
+      end
+        
     end
 
     context "buttons" do
