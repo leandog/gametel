@@ -1,4 +1,3 @@
-@wip
 Feature:  Determining whether or not a view exists
 
   Scenario:  Checking the existence of a view
