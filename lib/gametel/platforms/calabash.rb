@@ -142,6 +142,14 @@ module Gametel
         performAction 'wait_for_text', text_to_find
       end
 
+      #
+      # get the selected spinner value
+      #
+      def get_spinner_value(spinner_id)
+        result = performAction 'get_selected_spinner_item_text', spinner_id[:id]
+        result['message']
+      end
+
     end
   end
 end

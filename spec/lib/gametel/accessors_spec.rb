@@ -19,6 +19,7 @@ class AccessorsSampleScreen
   radio_button(:radio_id, :id => 'some_radio_id')
   view(:view_id, :id => 'some_view_id')
   view(:view_text, :text => 'Any view text')
+  spinner(:spinner_id, :id => 'spinner_id')
 end
 
 describe Gametel::Accessors do
@@ -137,6 +138,13 @@ describe Gametel::Accessors do
       it "should know how to be clicked by test" do
         platform.should_receive(:performAction).with('click_on_text', 'Any view text')
         screen.view_text
+      end
+    end
+
+    context "spinners" do
+      it "should be able to determine their selected item" do
+        platform.should_receive(:performAction).with('get_selected_spinner_item_text', 'spinner_id').and_return('message' => 'the text value')
+        screen.spinner_id.should eq('the text value')
       end
     end
   end

@@ -133,6 +133,23 @@ module Gametel
         platform.click_view(locator)
       end
     end
+
+    #
+    # Generates one method to get the selected item text.
+    # @example
+    #   spinner(:spinner_item, :id => 'id_name_of_your_control')
+    #   # will generate 'spinner_item' method
+    #
+    # @param  [String]  the name used for the generated methods
+    # @param  [Hash]  locator indicating an id for how the spinner is found.
+    # The only valid keys are:
+    #   * :id
+    #
+    def spinner(name, locator)
+      define_method(name) do
+        platform.get_spinner_value(locator) if locator[:id]
+      end
+    end
   end
 end
   
