@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Gametel::VERSION
 
-  gem.add_dependency 'calabash-android', '>= 0.2.11'
+  gem.add_dependency 'calabash-android', '>= 0.2.12'
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
   gem.add_development_dependency 'cucumber'
