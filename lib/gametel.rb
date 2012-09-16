@@ -1,6 +1,7 @@
 require 'gametel/accessors'
 require 'gametel/navigation'
 require 'gametel/version'
+require 'gametel/platforms/brazenhead_platform'
 require 'gametel/platforms/calabash'
 
 module Gametel
@@ -12,8 +13,8 @@ module Gametel
     cls.extend Gametel::Accessors
   end
 
-  def initialize(pform = :calabash)
-    @platform = Gametel::Platforms::Calabash.new if pform == :calabash
+  def initialize(pform = :brazenhead)
+    @platform = Gametel::Platforms::BrazenheadPlatform.new if pform == :brazenhead
   end
 
   #
