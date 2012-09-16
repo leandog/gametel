@@ -12,8 +12,10 @@ end
 require 'rspec'
 require 'gametel'
 
-def calabash_platform(gametel)
-  platform = Gametel::Platforms::Calabash.new
+def brazenhead_platform(gametel)
+  platform = Gametel::Platforms::BrazenheadPlatform.new
   gametel.instance_variable_set(:@platform, platform)
+  platform.stub(:accumulator).and_return(accumulator)
   platform
 end
+

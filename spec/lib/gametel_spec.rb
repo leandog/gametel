@@ -9,7 +9,7 @@ describe Gametel do
   it "should initialize the platform to Calabash when no other platform is specified" do
     screen = GametelSampleScreen.new
     platform = screen.instance_variable_get(:@platform)
-    platform.should be_instance_of ::Gametel::Platforms::Calabash
+    platform.should be_instance_of ::Gametel::Platforms::BrazenheadPlatform
   end
 
   it "should add the accessors to the class when included" do
@@ -17,48 +17,66 @@ describe Gametel do
     GametelSampleScreen.should respond_to :button
   end
   
-  context "when using Calabash" do
+  context "when using Brazenhead" do
     let(:screen) { GametelSampleScreen.new }
-    let(:platform) { calabash_platform(screen) }
+    let(:platform) { brazenhead_platform(screen) }
+    let(:accumulator) { double('accumulator') }
+    let(:result) { double('result') }
+    let(:device) { double('device') }
+
           
+    before(:each) do
+      platform.stub(:accumulator).and_return(accumulator)
+      platform.stub(:device).and_return(device)
+      accumulator.stub(:clear)
+      accumulator.stub(:message)
+      device.stub(:send).and_return(result)
+    end
+
     it "should know when a sceen has text" do
-      platform.should_receive(:performAction).with('assert_text', 'blah', true).and_return(true)
+      platform.should_receive(:search_text).with('blah', true).and_return(result)
+      result.should_receive(:body).and_return('true')
       screen.has_text? "blah"
     end
 
     it "should know if a view is enabled" do
-      platform.should_receive(:performAction).with('is_enabled', 'some_id').and_return("success" => true)
+      result.should_receive(:body).and_return('true')
+      accumulator.should_receive(:id_from_name)
+      accumulator.should_receive(:get_view)
+      accumulator.should_receive(:is_enabled)
       screen.should be_enabled('some_id')
     end
 
     it "should know if a view exists" do
-      platform.should_receive(:performAction).with('has_view', 'some_id').and_return("success" => true)
+      result.should_receive(:body).and_return('windowLocation')
+      platform.should_receive(:get_view_by_id).and_return(result)
       screen.should have_view('some_id')
     end
 
     it "should know if a view does not exist" do
-      platform.should_receive(:performAction).with('has_view', 'some_id').and_throw('we do not care what this exception is')
+      result.should_receive(:body).and_return('')
+      platform.should_receive(:get_view_by_id).and_return(result)
       screen.should_not have_view('some_id')
     end
 
 
     it "should know how to press the back button" do
-      platform.should_receive(:performAction).with('go_back')
+      platform.should_receive(:go_back)
       screen.back
     end
 
     it "should know how to press the enter key" do
-      platform.should_receive(:performAction).with('send_key_enter')
+      platform.should_receive(:send_key).with(66)
       screen.enter
     end
 
     it "should know how to scroll down" do
-      platform.should_receive(:performAction).with('scroll_down')
+      platform.should_receive(:scroll_down)
       screen.scroll_down
     end
 
     it "should know how to scroll up" do
-      platform.should_receive(:performAction).with('scroll_up')
+      platform.should_receive(:scroll_up)
       screen.scroll_up
     end
   end

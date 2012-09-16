@@ -25,58 +25,68 @@ end
 describe Gametel::Accessors do
   context "when using Calabash" do
     let(:screen) { AccessorsSampleScreen.new }
-    let(:platform) { calabash_platform(screen) }
+    let(:platform) { brazenhead_platform(screen) }
+    let(:accumulator) { double('accumulator') }
+    let(:device) { double('device') }
+    let(:result) { double('result') }
+
+
+    before(:each) do
+      platform.stub(:accumulator).and_return(accumulator)
+      platform.stub(:device).and_return(device)
+      accumulator.stub(:clear)
+      accumulator.stub(:message)
+      device.stub(:send).and_return(result)
+    end
 
     context "list items" do
       it "should know how to be chosen by text" do
-        platform.should_receive(:performAction).with('click_on_text', 'first item')
+        platform.should_receive(:click_on_text)
         screen.first_list_item_text
       end
 
       it "should know how to be chosen by index" do
-        platform.should_receive(:performAction).with('press_list_item', 1, 0)
-        screen.first_list_item_index
+        platform.should_receive(:click_in_list).with(1)
+        screen.first_list_item_index_list
       end
 
       it "should know how to select the list when using index" do
-        platform.should_receive(:performAction).with('press_list_item', 1, 1)
+        platform.should_receive(:click_in_list).with(1)
         screen.first_list_item_index_list
       end
     end
 
     context "text controls" do
       it "should know how to enter text using an index" do
-        platform.should_receive(:performAction).with('enter_text_into_numbered_field', 'blah', 3)
+        accumulator.should_receive(:enter_text)
         screen.first_name_index = 'blah'
       end
 
-      it "should know how to enter text using the name" do
-        platform.should_receive(:performAction).with('enter_text_into_named_field', 'blah', 'Some name')
-        screen.first_name_name = 'blah'
-      end
-
       it "should know how to enter text using the id" do
-        platform.should_receive(:performAction).with('enter_text_into_id_field', 'blah', 'fnid')
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:enter_text)
         screen.first_name_id = 'blah'
       end
 
       it "should know how to be cleared using an index" do
-        platform.should_receive(:performAction).with('clear_numbered_field', 3)
+        platform.should_receive(:clear_edit_text)
         screen.clear_first_name_index
       end
 
-      it "should know how to be cleared by name" do
-        platform.should_receive(:performAction).with('clear_named_field', 'Some name')
-        screen.clear_first_name_name
-      end
-
       it "should know now to be cleared by id" do
-        platform.should_receive(:performAction).with('clear_id_field', 'fnid')
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:clear_edit_text)
         screen.clear_first_name_id
       end
 
       it "should know how to get text by id" do
-        platform.should_receive(:performAction).with('get_text_by_id', 'fnid').and_return('message' => 'the value')
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:get_text)
+        accumulator.should_receive(:to_string)
+        result.should_receive(:body).and_return("the value")
         screen.first_name_id.should eq('the value')
       end
         
@@ -84,17 +94,17 @@ describe Gametel::Accessors do
 
     context "buttons" do
       it "should know how to be chosen by text" do
-        platform.should_receive(:performAction).with('press_button_with_text', 'Save')
+        platform.should_receive(:click_on_button).with('Save')
         screen.save_text
       end
 
       it "should know how to be chosen by index" do
-        platform.should_receive(:performAction).with('press_button_number', 2)
+        platform.should_receive(:click_on_button).with(2)
         screen.save_index
       end
 
       it "should know how to be chosen by id" do
-        platform.should_receive(:performAction).with('click_on_view_by_id', 'some_button_id')
+        platform.should_receive(:click_on_view_by_id).with('some_button_id')
         screen.save_id
       end
     end
@@ -102,48 +112,51 @@ describe Gametel::Accessors do
 
     context "checkboxes" do
       it "should know how to be checked by index" do
-        platform.should_receive(:performAction).with('toggle_numbered_checkbox', 1)
+        platform.should_receive(:click_on_checkbox).with(1)
         screen.checkbox_index
       end
 
       it "should know how to be checked by text" do
-        platform.should_receive(:performAction).with('click_on_text', 'Checkbox 2')
+        platform.should_receive(:click_on_text).with('Checkbox 2')
         screen.checkbox_text
       end
 
       it "should know how to be checked by id" do
-        platform.should_receive(:performAction).with('click_on_view_by_id', 'some_check_id')
+        platform.should_receive(:click_on_view_by_id).with('some_check_id')
         screen.checkbox_id
       end
     end
 
     context "radio buttons" do
       it "should know how to be clicked by text" do
-        platform.should_receive(:performAction).with('click_on_text', 'Radio Button 1')
+        platform.should_receive(:click_on_text).with('Radio Button 1')
         screen.radio_text
       end
 
       it "should know how to be clicked by id" do
-        platform.should_receive(:performAction).with('click_on_view_by_id', 'some_radio_id')
+        platform.should_receive(:click_on_view_by_id).with('some_radio_id')
         screen.radio_id
       end
     end
 
     context "views" do
       it "should know how to be clicked by id" do
-        platform.should_receive(:performAction).with('click_on_view_by_id', 'some_view_id')
+        platform.should_receive(:click_on_view_by_id).with('some_view_id')
         screen.view_id
       end
 
       it "should know how to be clicked by test" do
-        platform.should_receive(:performAction).with('click_on_text', 'Any view text')
+        platform.should_receive(:click_on_text).with('Any view text')
         screen.view_text
       end
     end
 
     context "spinners" do
       it "should be able to determine their selected item" do
-        platform.should_receive(:performAction).with('get_selected_spinner_item_text', 'spinner_id').and_return('message' => 'the text value')
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:get_selected_item)
+        result.should_receive(:body).and_return('the text value')
         screen.spinner_id.should eq('the text value')
       end
     end
