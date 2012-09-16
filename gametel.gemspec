@@ -16,7 +16,8 @@ Gem::Specification.new do |gem|
   gem.version       = Gametel::VERSION
 
   gem.add_dependency 'calabash-android', '>= 0.2.12'
-  gem.add_dependency 'brazenhead'
+  gem.add_dependency 'brazenhead', '>= 0.2.0'
+  gem.add_dependency 'ADB'
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
   gem.add_development_dependency 'cucumber'
