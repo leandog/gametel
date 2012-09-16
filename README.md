@@ -51,16 +51,32 @@ end
 
 ## Supported Drivers
 
-### Calabash Android
+### Brazenhead
 
 Sample `features/support/env.rb` file.
 
 ````ruby
-require 'calabash-android/cucumber'
+require 'brazenhead'
+require 'brazenhead/server'
 require 'gametel'
 require 'gametel/navigation'
 
 World(Gametel::Navigation)
+
+server = Brazenhead::Server.new "ApiDemos.apk"
+
+class Driver
+  include Brazenhead
+end
+
+Before do
+  @driver = Driver.new
+  server.start "ApiDemos"
+end
+
+After do
+  server.stop
+end
 ````
 
 ## Contributing

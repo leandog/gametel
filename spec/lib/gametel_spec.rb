@@ -6,7 +6,7 @@ end
 
 describe Gametel do
 
-  it "should initialize the platform to Calabash when no other platform is specified" do
+  it "should initialize the platform to Brazenhead when no other platform is specified" do
     screen = GametelSampleScreen.new
     platform = screen.instance_variable_get(:@platform)
     platform.should be_instance_of ::Gametel::Platforms::BrazenheadPlatform

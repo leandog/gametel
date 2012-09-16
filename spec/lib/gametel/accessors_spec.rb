@@ -23,7 +23,7 @@ class AccessorsSampleScreen
 end
 
 describe Gametel::Accessors do
-  context "when using Calabash" do
+  context "when using Brazenhead" do
     let(:screen) { AccessorsSampleScreen.new }
     let(:platform) { brazenhead_platform(screen) }
     let(:accumulator) { double('accumulator') }
