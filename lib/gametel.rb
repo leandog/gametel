@@ -2,10 +2,8 @@ require 'gametel/accessors'
 require 'gametel/navigation'
 require 'gametel/version'
 require 'gametel/platforms/brazenhead_platform'
-require 'gametel/platforms/calabash'
 
 module Gametel
-  include Calabash::Android::Operations
 
   attr_reader :platform
 
