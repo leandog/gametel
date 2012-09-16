@@ -21,8 +21,7 @@ When /^I scroll up to the top of the screen$/ do
   on(MainMenuScreen).scroll_up
 end
 
-When /^I hit the enter key twice$/ do
-  on(MainMenuScreen).enter
+When /^I hit the enter key$/ do
   on(MainMenuScreen).enter
 end
 

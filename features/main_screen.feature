@@ -18,6 +18,6 @@ Feature: Interacting with the elements on the main screen
     Then I should see the "Accessibility" list item
 
   Scenario: Pressing the enter key
-    When I hit the enter key twice
+    When I hit the enter key
     Then I should see the "Accessibility Service" list item
 
