@@ -14,7 +14,7 @@ Then /^I should be able to click the button by "(.*?)"$/ do |how|
 end
 
 When /^I click the on\/off button$/ do
-  on(ButtonScreen).on_off
+  on(ButtonScreen).on_off_id
 end
 
 Then /^I should see the text "(.*?)" on the screen$/ do |text|
