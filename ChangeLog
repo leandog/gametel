@@ -1,3 +1,7 @@
+=== Version 0.4
+* Enhancements
+  * Replace calabash-android platform with brazenhead
+
 === Version 0.3 / 2012-8-29
 * Enhancements
 	*	Added the ability to check the existence of a view by id
