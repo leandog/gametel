@@ -1,10 +1,11 @@
 require 'brazenhead'
-
+require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
 
 module Gametel
   module Platforms
     class BrazenheadPlatform
       include Brazenhead
+      include Gametel::Platforms::Text
 
       ENTER_KEY = 66
 
@@ -12,12 +13,7 @@ module Gametel
       # get text
       #
       def get_text(locator)
-        result = chain_calls do |device|
-          device.id_from_name(locator[:id], :target => 'Brazenhead', :variable => '@@view_id@@')
-          device.get_view('@@view_id@@', :target => 'Robotium')
-          device.get_text
-          device.to_string
-        end
+        result = get_text_by_id(locator[:id])
         strip_quotes_from result.body
       end
 
@@ -25,26 +21,16 @@ module Gametel
       # enter text in a text box
       #
       def enter_text(text, locator)
-        result = chain_calls do |device|
-          device.enter_text(locator[:index], text)
-        end if locator[:index]
-        result = chain_calls do |device|
-          device.id_from_name(locator[:id], :target => 'Brazenhead', :variable => '@@view_id@@')
-          device.get_view('@@view_id@@', :target => 'Robotium', :variable => '@@the_view@@')
-          device.enter_text('@@the_view@@', text, :target => 'Robotium')
-        end if locator[:id]
+        enter_text_by_index(locator[:index], text) if locator[:index]
+        enter_text_by_id(locator[:id], text) if locator[:id]
       end
 
       #
       # clear the text in a text box
       #
       def clear_text(locator)
-        result = clear_edit_text(locator[:index]) if locator[:index]
-        chain_calls do |device|
-          device.id_from_name(locator[:id], :target => 'Brazenhead', :variable => '@@view_id@@')
-          device.get_view('@@view_id@@', :target => 'Robotium', :variable => '@@the_view@@')
-          device.clear_edit_text('@@the_view@@', :target => 'Robotium')
-        end if locator[:id]
+        clear_edit_text(locator[:index]) if locator[:index]
+        clear_text_by_id(locator[:id]) if locator[:id]
       end
 
       #
