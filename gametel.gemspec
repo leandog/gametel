@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Gametel::VERSION
 
-  gem.add_dependency 'brazenhead', '>= 0.2.0'
+  gem.add_dependency 'brazenhead', '>= 0.3.0'
   gem.add_dependency 'ADB'
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
