@@ -46,12 +46,14 @@ describe Gametel::Accessors do
       end
 
       it "should know how to be chosen by index" do
-        platform.should_receive(:click_in_list).with(1)
-        screen.first_list_item_index_list
+        list = 0
+        platform.should_receive(:click_in_list).with(1, list)
+        screen.first_list_item_index
       end
 
       it "should know how to select the list when using index" do
-        platform.should_receive(:click_in_list).with(1)
+        list = 1
+        platform.should_receive(:click_in_list).with(1, list)
         screen.first_list_item_index_list
       end
     end

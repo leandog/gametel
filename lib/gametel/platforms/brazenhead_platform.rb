@@ -54,7 +54,7 @@ module Gametel
       #
       def press_list_item(locator)
         list = locator[:list] ? locator[:list] : 0
-        result = click_in_list(locator[:index] + 1), list if locator[:index]
+        result = click_in_list(locator[:index] + 1, list) if locator[:index]
         result = click_on_text(locator[:text]) if locator[:text]
       end
       
