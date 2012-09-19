@@ -158,6 +158,7 @@ describe Gametel::Accessors do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_selected_item)
+        accumulator.should_receive(:to_string)
         result.should_receive(:body).and_return('the text value')
         screen.spinner_id.should eq('the text value')
       end
