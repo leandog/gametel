@@ -1,3 +1,8 @@
+===	Version 0.5
+*	Bug Fixes
+	*	fixes an issue so the string value of a spinner is returned as it did in
+	the previous version
+
 === Version 0.4 / 2012-9-18
 * Enhancements
   * Replace calabash-android platform with brazenhead
