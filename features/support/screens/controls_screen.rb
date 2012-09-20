@@ -4,6 +4,8 @@ class ControlsScreen
   text(:text_field_index, :index => 0)
   text(:text_field_id, :id => 'edit')
   text(:text_field_name, :content_description => 'Edit Description')
+  text(:button_field_id, :id => 'button')
+  text(:button_disabled_field_id, :id => 'button_disabled')
   button(:enabled_save, :index => 0)
   button(:disabled_save, :index => 1)
   checkbox(:checkbox_index, :index => 0)

@@ -36,3 +36,15 @@ Feature: Interacting with the standard text field
     Given I'm on the controls screen
     When I enter "example text" into the text field identified by "id"
     Then I should have the value "example text" in the text field identified by "id"
+
+  Scenario: Determining if a text view is enabled
+    When I'm on the controls screen
+    Then the "text" field's "enabled" property is "true"
+
+  Scenario: Determining if a button view is enabled
+    When I'm on the controls screen
+    Then the "button" field's "enabled" property is "true"
+
+  Scenario: Determining if a button view is disabled
+    When I'm on the controls screen
+    Then the "button_disabled" field's "enabled" property is "false"

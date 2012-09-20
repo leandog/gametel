@@ -8,7 +8,7 @@ class AccessorsSampleScreen
   list_item(:first_list_item_index_list, :index => 0, :list => 1)
   text(:first_name_index, :index => 2)
   text(:first_name_name, :content_description => 'Some name')
-  text(:first_name_id, :id => 'fnid')
+  text(:first_name_id, :id => 'id_for_first_name')
   button(:save_text, :text => 'Save')
   button(:save_index, :index => 1)
   button(:save_id, :id => 'some_button_id')
@@ -107,6 +107,11 @@ describe Gametel::Accessors do
         result.should_receive(:body).and_return("the content description")
         screen.first_name_id_description.should eq('the content description')
       end
+
+      it "should know if they are enabled" do
+        platform.should_receive(:enabled?).with('id_for_first_name').and_return(true)
+        screen.should be_first_name_id_enabled
+      end
         
     end
 
@@ -124,6 +129,11 @@ describe Gametel::Accessors do
       it "should know how to be chosen by id" do
         platform.should_receive(:click_on_view_by_id).with('some_button_id')
         screen.save_id
+      end
+
+      it "should know if the button is enabled by id" do
+        platform.should_receive(:enabled?).with('some_button_id').and_return(true)
+        screen.should be_save_id_enabled
       end
     end
 

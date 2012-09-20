@@ -29,14 +29,15 @@ module Gametel
           platform.send "get_text_#{property}", locator
         end
       end
+      define_enabled(name, locator)
     end
 
     #
-    # Generates one method to click a button.
+    # Generates a method to click a button and determine if it is enabled.
     #
     # @example
     #   button(:save, :text => 'Save')
-    #   # will generate 'save' method
+    #   # will generate 'save' and 'save_enabled?' methods
     #
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the button is found  The valid
@@ -49,6 +50,7 @@ module Gametel
       define_method(name) do
         platform.press_button(locator)
       end
+      define_enabled(name, locator)
     end
 
     #
@@ -152,6 +154,13 @@ module Gametel
     def spinner(name, locator)
       define_method(name) do
         platform.get_spinner_value(locator) if locator[:id]
+      end
+    end
+
+    private
+    def define_enabled(name, locator)
+      define_method("#{name}_enabled?") do
+        platform.enabled? locator[:id]
       end
     end
   end
