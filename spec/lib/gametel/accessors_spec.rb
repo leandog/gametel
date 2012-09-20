@@ -76,7 +76,7 @@ describe Gametel::Accessors do
         screen.clear_first_name_index
       end
 
-      it "should know now to be cleared by id" do
+      it "should know how to be cleared by id" do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:clear_edit_text)
