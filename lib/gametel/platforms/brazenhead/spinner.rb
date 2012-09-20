@@ -5,9 +5,7 @@ module Gametel
     module Spinner
       
       def get_spinner_value_by_id(id)
-        chain_calls do |device|
-          device.id_from_name(id, :target => 'Brazenhead', :variable => '@@view_id@@')
-          device.get_view('@@view_id@@', :target => 'Robotium')
+        get_view_by_id(id) do |device|
           device.get_selected_item
           device.to_string
         end
