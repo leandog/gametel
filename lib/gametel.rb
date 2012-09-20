@@ -7,8 +7,8 @@ module Gametel
 
   attr_reader :platform
 
-  RobotiumLeft=21
-  RobotiumRight=22
+  ROBOTIUM_LEFT = 21
+  ROBOTIUM_RIGHT = 22
 
   def self.included(cls)
     cls.extend Gametel::Accessors
@@ -71,14 +71,14 @@ module Gametel
   # scroll left
   #
   def scroll_left
-    platform.scroll_to_side RobotiumLeft
+    platform.scroll_to_side ROBOTIUM_LEFT
   end
 
   #
   # scroll right
   #
   def scroll_right
-    platform.scroll_to_side RobotiumRight
+    platform.scroll_to_side ROBOTIUM_RIGHT
   end
 
   #
