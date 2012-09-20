@@ -1,4 +1,8 @@
-===	Version 0.5
+=== Version 0.6
+*	Enhancements
+	*	added scroll_left and scroll_right functionality
+
+===	Version 0.5 / 2012-9-19
 *	Bug Fixes
 	*	fixes an issue so the string value of a spinner is returned as it did in
 	the previous version
