@@ -1,6 +1,6 @@
 === Version 0.6
 *	Enhancements
-	*	Added ability to get the hint text of a text control
+	*	Added ability to get the hint and content description of a text control
 	*	added scroll_left and scroll_right functionality
 
 ===	Version 0.5 / 2012-9-19
