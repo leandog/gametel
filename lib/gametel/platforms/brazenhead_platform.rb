@@ -33,6 +33,14 @@ module Gametel
       end
 
       #
+      # get the content description
+      #
+      def get_text_description(locator)
+        result = get_text_description_by_id(locator[:id])
+        strip_quotes_from result.body
+      end
+
+      #
       # enter text in a text box
       #
       def enter_text(text, locator)

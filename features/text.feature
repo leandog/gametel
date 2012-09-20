@@ -28,6 +28,10 @@ Feature: Interacting with the standard text field
     When I'm on the search view filter screen
     Then I am am given the hint "Some Hint Text" for the "text_field_id" control
 
+  Scenario: Retrieving the content description text identified by id
+    When I'm on the search view filter screen
+    Then I am am given the description "Edit Description" for the "text_field_id" control
+
   Scenario: Retrieving text identified by index
     Given I'm on the controls screen
     When I enter "example text" into the text field identified by "id"

@@ -27,6 +27,9 @@ module Gametel
       define_method("#{name}_hint") do
         platform.get_text_hint(locator)
       end
+      define_method("#{name}_description") do
+        platform.get_text_description(locator)
+      end
     end
 
     #
