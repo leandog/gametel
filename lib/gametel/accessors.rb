@@ -1,12 +1,12 @@
 module Gametel
   module Accessors
     #
-    # Generates two method to enter text into a text field and to
-    # clear the text field
+    # Generates methods to enter text into a text field, clear the text
+    # field, get the hint as well as the description
     #
     # @example
     #   text(:first_name, :index => 0)
-    #   # will generate 'first_name', 'first_name=' and 'clear_first_name' methods
+    #   # will generate 'first_name', 'first_name=', 'clear_first_name', 'first_name_hint' and 'first_name_description' methods
     #
     # @param  [String]  the name used for the generated methods
     # @param  [Hash]  locator for how the text is found  The valid
