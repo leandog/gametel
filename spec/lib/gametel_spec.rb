@@ -79,5 +79,15 @@ describe Gametel do
       platform.should_receive(:scroll_up)
       screen.scroll_up
     end
+
+    it "should know how to scroll left" do
+      platform.should_receive(:scroll_to_side).with(21)
+      screen.scroll_left
+    end
+
+    it "should know how to scroll right" do
+      platform.should_receive(:scroll_to_side).with(22)
+      screen.scroll_right
+    end
   end
 end

@@ -63,6 +63,20 @@ module Gametel
   def scroll_up
     platform.scroll_up
   end
+  
+  #
+  # scroll left
+  #
+  def scroll_left
+    platform.scroll_to_side 21
+  end
+
+  #
+  # scroll right
+  #
+  def scroll_right
+    platform.scroll_to_side 22
+  end
 
   #
   # Wait for the provided text to appear
