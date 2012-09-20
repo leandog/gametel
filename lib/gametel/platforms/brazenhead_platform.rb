@@ -25,6 +25,14 @@ module Gametel
       end
 
       #
+      # get the hint text
+      #
+      def get_text_hint(locator)
+        result = get_text_hint_by_id(locator[:id])
+        strip_quotes_from result.body
+      end
+
+      #
       # enter text in a text box
       #
       def enter_text(text, locator)

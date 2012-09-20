@@ -22,7 +22,10 @@ module Gametel
         platform.enter_text(value, locator)
       end
       define_method("clear_#{name}") do
-          platform.clear_text(locator)
+        platform.clear_text(locator)
+      end
+      define_method("#{name}_hint") do
+        platform.get_text_hint(locator)
       end
     end
 

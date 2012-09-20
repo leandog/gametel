@@ -91,6 +91,14 @@ describe Gametel::Accessors do
         result.should_receive(:body).and_return("the value")
         screen.first_name_id.should eq('the value')
       end
+
+      it "should know how to get the hint text" do
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:get_hint)
+        result.should_receive(:body).and_return("the hint")
+        screen.first_name_id_hint.should eq('the hint')
+      end
         
     end
 
