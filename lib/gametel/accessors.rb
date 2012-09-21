@@ -143,6 +143,12 @@ module Gametel
     end
 
     def progress(name, locator)
+      define_method("#{name}") do
+        platform.get_view_by_id(locator[:id]) do |device|
+          device.get_progress
+        end
+        platform.last_response.body.to_i
+      end
       define_method("#{name}=") do |value|
         platform.get_view_by_id(locator[:id]) do |device|
           device.set_progress_bar '@@the_view@@', value, :target => 'Robotium'

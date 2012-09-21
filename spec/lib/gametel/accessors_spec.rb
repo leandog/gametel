@@ -427,6 +427,14 @@ describe Gametel::Accessors do
         accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
         screen.progress_id = 37
       end
+
+      it "should be able to get the progress by id" do
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:get_progress)
+        result.should_receive(:body).and_return("37")
+        screen.progress_id.should eq(37)
+      end
     end
   end
 end

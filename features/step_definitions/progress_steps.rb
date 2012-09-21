@@ -9,3 +9,9 @@ When /^I set the progress indicated by "(.*?)" to "(.*?)"$/ do |how, value|
   end
 end
 
+Then /^the retrieved progress indicated by "(.*?)" should be "(.*?)"$/ do |how, value|
+  on(SeekBarScreen) do |screen|
+    screen.send("progress_#{how}").should eq(value.to_i)
+  end
+end
+
