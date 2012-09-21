@@ -230,7 +230,7 @@ describe Gametel::Accessors do
 
     context "checkboxes" do
       it "should know how to be checked by index" do
-        platform.should_receive(:click_on_checkbox).with(1)
+        platform.should_receive(:click_on_check_box).with(1)
         screen.checkbox_index
       end
 
