@@ -24,10 +24,11 @@ module Gametel
       define_method("clear_#{name}") do
         platform.clear_text(locator)
       end
-      ['hint', 'description'].each do |property|
-        define_method("#{name}_#{property}") do
-          platform.send "get_text_#{property}", locator
-        end
+      define_method("#{name}_hint") do
+        platform.get_text_hint(locator)
+      end
+      define_method("#{name}_description") do
+        platform.get_text_description(locator)
       end
       view_properties_for(name, locator) if locator[:id]
     end
