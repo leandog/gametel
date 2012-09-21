@@ -1,7 +1,13 @@
 === Version 0.6
 *	Enhancements
-	*	Added ability to determine whether text and button controls are enabled by
-	id
+	*	Added ability to look at view properties for text, view and button
+	accessors (by id) such as:
+		*	clickable
+		* enabled  
+		* focusable
+		* focused  
+		* selected 
+		* shown    
 	*	Added ability to get the hint and content description of a text control
 	*	Added scroll_left and scroll_right functionality
 
