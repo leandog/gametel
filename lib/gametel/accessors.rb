@@ -160,12 +160,6 @@ module Gametel
     end
 
     private
-    def define_enabled(name, locator)
-      define_method("#{name}_enabled?") do
-        platform.enabled? locator[:id]
-      end
-    end
-
     def view_properties_for(name, locator)
       properties = [:clickable, :enabled, :focusable, :focused, :selected, :shown]
       properties.each do |property|
