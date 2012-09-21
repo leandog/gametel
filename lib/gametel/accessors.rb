@@ -52,7 +52,6 @@ module Gametel
         platform.press_button(locator)
       end
       button_properties_for(name, locator)
-      view_properties_for(name, locator) if locator[:id]
     end
 
     #
@@ -168,7 +167,9 @@ module Gametel
     def button_properties_for(name, locator)
       view_properties.each do |property|
         define_method("#{name}_#{property}?") do
-          platform.get_button_property_by_index(locator[:index], property) if locator[:index]
+          result = platform.get_button_property_by_id(locator[:id], property) if locator[:id]
+          result = platform.get_button_property_by_index(locator[:index], property) if locator[:index]
+          result
         end
       end
     end

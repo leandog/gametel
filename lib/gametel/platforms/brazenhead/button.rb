@@ -16,6 +16,13 @@ module Gametel
         end
         last_response.body
       end
+
+      def get_button_property_by_id(id, property)
+        get_view_by_id(id) do |device|
+          device.send "is_#{property}"
+        end
+        last_response.body
+      end
     end
   end
 end
