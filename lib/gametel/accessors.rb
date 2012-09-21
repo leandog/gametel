@@ -51,7 +51,7 @@ module Gametel
       define_method(name) do
         platform.press_button(locator)
       end
-      define_enabled(name, locator)
+      view_properties_for(name, locator) if locator[:id]
     end
 
     #
