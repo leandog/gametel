@@ -169,6 +169,7 @@ module Gametel
         define_method("#{name}_#{property}?") do
           result = platform.get_button_property_by_id(locator[:id], property) if locator[:id]
           result = platform.get_button_property_by_index(locator[:index], property) if locator[:index]
+          result = platform.get_button_property_by_text(locator[:text], property) if locator[:text]
           result
         end
       end

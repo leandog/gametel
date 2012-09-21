@@ -41,3 +41,14 @@ Feature: Interacting with buttons
       | focused   | false |
       | selected  | false |
       | shown     | true  |
+
+  Scenario: Determining properties of a button by text
+    When I'm on the controls screen
+    Then the "button" field identified by "text" can determine the following properties:
+      | property  | value |
+      | clickable | true  |
+      | enabled   | false |
+      | focusable | true  |
+      | focused   | false |
+      | selected  | false |
+      | shown     | true  |

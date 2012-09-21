@@ -270,6 +270,50 @@ describe Gametel::Accessors do
           screen.should be_save_index_shown
         end
       end
+
+      context "when looking at properties by text" do
+        it "should know if they are enabled" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_enabled)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_enabled
+        end
+
+        it "should know if they are clickable" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_clickable)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_clickable
+        end
+
+        it "should know if they are focusable" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_focusable)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_focusable
+        end
+
+        it "should know if they are focused" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_focused)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_focused
+        end
+
+        it "should know if they are selected" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_selected)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_selected
+        end
+
+        it "should know if they are shown" do
+          accumulator.should_receive(:get_button).with('Save', anything())
+          accumulator.should_receive(:is_shown)
+          result.should_receive(:body).and_return("true")
+          screen.should be_save_text_shown
+        end
+      end
     end
 
     context "checkboxes" do

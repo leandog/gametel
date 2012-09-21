@@ -11,6 +11,7 @@ class ControlsScreen
   button(:enabled_save, :index => 0)
   button(:disabled_save, :index => 1)
   button(:button_field_index, :index => 1)
+  button(:button_field_text, :text => 'Save')
   checkbox(:checkbox_index, :index => 0)
   checkbox(:checkbox_text, :text => 'Checkbox 2')
   checkbox(:checkbox_id, :id => 'check1')
