@@ -20,6 +20,7 @@ class AccessorsSampleScreen
   view(:view_id, :id => 'some_view_id')
   view(:view_text, :text => 'Any view text')
   spinner(:spinner_id, :id => 'spinner_id')
+  progress(:progress_id, :id => 'progress_id')
 end
 
 describe Gametel::Accessors do
@@ -416,6 +417,15 @@ describe Gametel::Accessors do
         accumulator.should_receive(:to_string)
         result.should_receive(:body).and_return('the text value')
         screen.spinner_id.should eq('the text value')
+      end
+    end
+
+    context "progress bars" do
+      it "should be able to set the progress by id" do
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
+        screen.progress_id = 37
       end
     end
   end

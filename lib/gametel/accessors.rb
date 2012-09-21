@@ -142,6 +142,14 @@ module Gametel
       view_properties_for(name, locator) if locator[:id]
     end
 
+    def progress(name, locator)
+      define_method("#{name}=") do |value|
+        platform.get_view_by_id(locator[:id]) do |device|
+          device.set_progress_bar '@@the_view@@', value, :target => 'Robotium'
+        end
+      end
+    end
+
     #
     # Generates one method to get the selected item text.
     # @example
