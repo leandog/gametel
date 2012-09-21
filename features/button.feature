@@ -20,12 +20,23 @@ Feature: Interacting with buttons
     When I click the on/off button
     Then I should see the text "OFF" on the screen
 
-  Scenario: Determining properties of a button
+  Scenario: Determining properties of a button by id
     When I'm on the controls screen
     Then the "button" field identified by "id" can determine the following properties:
       | property  | value |
       | clickable | true  |
       | enabled   | true  |
+      | focusable | true  |
+      | focused   | false |
+      | selected  | false |
+      | shown     | true  |
+
+  Scenario: Determining properties of a button by index
+    When I'm on the controls screen
+    Then the "button" field identified by "index" can determine the following properties:
+      | property  | value |
+      | clickable | true  |
+      | enabled   | false |
       | focusable | true  |
       | focused   | false |
       | selected  | false |

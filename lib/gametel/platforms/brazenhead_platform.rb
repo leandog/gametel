@@ -1,5 +1,6 @@
 require 'brazenhead'
 require File.join(File.dirname(__FILE__), 'brazenhead', 'basic')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'button')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'view')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'spinner')
@@ -10,6 +11,7 @@ module Gametel
     class BrazenheadPlatform
       include Brazenhead
       include Gametel::Platforms::Basic
+      include Gametel::Platforms::Button
       include Gametel::Platforms::View
       include Gametel::Platforms::Text
       include Gametel::Platforms::Spinner

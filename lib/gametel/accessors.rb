@@ -51,6 +51,7 @@ module Gametel
       define_method(name) do
         platform.press_button(locator)
       end
+      button_properties_for(name, locator)
       view_properties_for(name, locator) if locator[:id]
     end
 
@@ -160,9 +161,20 @@ module Gametel
     end
 
     private
+    def view_properties
+      [:clickable, :enabled, :focusable, :focused, :selected, :shown]
+    end
+
+    def button_properties_for(name, locator)
+      view_properties.each do |property|
+        define_method("#{name}_#{property}?") do
+          platform.get_button_property_by_index(locator[:index], property) if locator[:index]
+        end
+      end
+    end
+
     def view_properties_for(name, locator)
-      properties = [:clickable, :enabled, :focusable, :focused, :selected, :shown]
-      properties.each do |property|
+      view_properties.each do |property|
         define_method("#{name}_#{property}?") do
           platform.get_view_by_id(locator[:id]) do |device|
             device.send "is_#{property}"
