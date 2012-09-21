@@ -6,8 +6,8 @@ Feature: Interacting with view elements
     Then I should see the "Command one" list item
 
   Scenario: Clicking on view by their text
-    When I am observing custom views
-    Then I should see the "blue" custom view
+    When I'm on the controls screen
+    Then I should be able to click a view by "text"
 
   Scenario: Determining properties of a view
     When I'm on the controls screen

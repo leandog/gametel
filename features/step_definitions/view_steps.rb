@@ -15,8 +15,8 @@ When /^I am observing custom views$/ do
   on(ViewsMenuScreen).custom
 end
 
-Then /^I should see the "(.*?)" custom view$/ do |view_text|
-  on(CustomViewScreen).send view_text
+Then /^I should be able to click a view by "(.*?)"$/ do |how|
+  on(ControlsScreen).send "view_field_#{how}"
 end
 
 Then /^the "(.*?)" field identified by "(.*?)" can determine the following properties:$/ do |what, how, properties|
