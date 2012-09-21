@@ -138,6 +138,7 @@ module Gametel
       define_method(name) do
         platform.click_view(locator)
       end
+      view_properties_for(name, locator)
     end
 
     #

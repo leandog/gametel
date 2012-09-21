@@ -223,6 +223,57 @@ describe Gametel::Accessors do
         platform.should_receive(:click_on_text).with('Any view text')
         screen.view_text
       end
+
+      context "when looking at properties" do
+
+        it "should know if they are enabled" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_enabled)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_enabled
+        end
+
+        it "should know if they are clickable" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_clickable)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_clickable
+        end
+
+        it "should know if they are focusable" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_focusable)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_focusable
+        end
+
+        it "should know if they are focused" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_focused)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_focused
+        end
+
+        it "should know if they are selected" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_selected)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_selected
+        end
+
+        it "should know if they are shown" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_shown)
+          result.should_receive(:body).and_return("true")
+          screen.should be_view_id_shown
+        end
+      end
     end
 
     context "spinners" do
