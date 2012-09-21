@@ -38,3 +38,11 @@ Then /^the "(.*?)" field's "(.*?)" property is "(.*?)"$/ do |which, what, result
     screen.send("#{which}_field_id_#{what}?").to_s.should eq(result)
   end
 end
+
+Then /^the text field identified by "(.*?)" can determine the following properties:$/ do |how, properties|
+  screen = ControlsScreen.new
+  properties.hashes.each do |property|
+    result = screen.send("text_field_#{how}_#{property["property"]}?")
+    result.to_s.should eq(property["value"]), "for field #{property["property"]}"
+  end
+end

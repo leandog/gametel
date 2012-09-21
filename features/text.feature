@@ -48,3 +48,14 @@ Feature: Interacting with the standard text field
   Scenario: Determining if a button view is disabled
     When I'm on the controls screen
     Then the "button_disabled" field's "enabled" property is "false"
+
+  Scenario: Determining properties of a text view
+    When I'm on the controls screen
+    Then the text field identified by "id" can determine the following properties:
+      | property  | value |
+      | clickable | true  |
+      | enabled   | true  |
+      | focusable | true  |
+      | focused   | true  |
+      | selected  | false |
+      | shown     | true  |

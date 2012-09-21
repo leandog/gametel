@@ -29,7 +29,18 @@ module Gametel
           platform.send "get_text_#{property}", locator
         end
       end
-      define_enabled(name, locator)
+      is(name, locator, :clickable, :enabled, :focusable, :focused, :selected, :shown)
+    end
+
+    def is(name, locator, *properties)
+      properties.each do |property|
+        define_method("#{name}_#{property}?") do
+          platform.get_view_by_id(locator[:id]) do |device|
+            device.send "is_#{property}"
+          end
+          platform.last_response.body
+        end
+      end
     end
 
     #
