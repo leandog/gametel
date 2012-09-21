@@ -8,3 +8,14 @@ Feature: Interacting with view elements
   Scenario: Clicking on view by their text
     When I am observing custom views
     Then I should see the "blue" custom view
+
+  Scenario: Determining properties of a view
+    When I'm on the controls screen
+    Then the "view" field identified by "id" can determine the following properties:
+      | property  | value |
+      | clickable | true  |
+      | enabled   | true  |
+      | focusable | true  |
+      | focused   | true  |
+      | selected  | false |
+      | shown     | true  |

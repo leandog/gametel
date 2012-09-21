@@ -18,3 +18,11 @@ end
 Then /^I should see the "(.*?)" custom view$/ do |view_text|
   on(CustomViewScreen).send view_text
 end
+
+Then /^the "(.*?)" field identified by "(.*?)" can determine the following properties:$/ do |what, how, properties|
+  screen = ControlsScreen.new
+  properties.hashes.each do |property|
+    result = screen.send("#{what}_field_#{how}_#{property["property"]}?")
+    result.to_s.should eq(property["value"]), "for field #{property["property"]}"
+  end
+end

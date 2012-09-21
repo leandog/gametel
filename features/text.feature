@@ -51,7 +51,7 @@ Feature: Interacting with the standard text field
 
   Scenario: Determining properties of a text view
     When I'm on the controls screen
-    Then the text field identified by "id" can determine the following properties:
+    Then the "text" field identified by "id" can determine the following properties:
       | property  | value |
       | clickable | true  |
       | enabled   | true  |
