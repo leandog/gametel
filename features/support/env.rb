@@ -9,13 +9,13 @@ require 'gametel/navigation'
 World(Gametel::Navigation)
 
 keystore = {
-  :path => '~/.android/debug.keystore',
+  :path => 'features/support/debug.keystore',
   :alias => 'androiddebugkey',
   :password => 'android',
   :keystore_password => 'android'
 }
 
-server = Brazenhead::Server.new('ApiDemos/bin/ApiDemos.apk', keystore)
+server = Brazenhead::Server.new('features/support/ApiDemos.apk', keystore)
 
 class Driver
   include Brazenhead
