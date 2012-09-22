@@ -1,5 +1,6 @@
 === Version 0.6
 *	Enhancements
+	*	Introduced the progress accessor for progress bar controls
 	*	Added ability to look at view properties of buttons by text, id and index
 	*	Added ability to look at view properties for text and view
 	accessors (by id) such as:
