@@ -142,6 +142,18 @@ module Gametel
       view_properties_for(name, locator) if locator[:id]
     end
 
+    #
+    # Generates methods to get an set the progress as well as
+    # the secondary progress
+    # @example
+    #   spinner(:progress_item, :id => 'id_name_of_your_control')
+    #   # will generate progress_item, progress_item=, progress_item_secondary, progress_item_secondary=
+    #
+    # @param  [String]  the name used for the generated methods
+    # @param  [Hash]  locator indicating an id for how the progress bar is found.
+    # The only valid keys are:
+    #   * :id
+    #
     def progress(name, locator)
       define_method("#{name}") do
         platform.get_progress_by_id locator[:id]
