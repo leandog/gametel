@@ -149,9 +149,20 @@ module Gametel
         end
         platform.last_response.body.to_i
       end
+      define_method("#{name}_secondary") do
+        platform.get_view_by_id(locator[:id]) do |device|
+          device.get_secondary_progress
+        end
+        platform.last_response.body.to_i
+      end
       define_method("#{name}=") do |value|
         platform.get_view_by_id(locator[:id]) do |device|
           device.set_progress_bar '@@the_view@@', value, :target => 'Robotium'
+        end
+      end
+      define_method("#{name}_secondary=") do |value|
+        platform.get_view_by_id(locator[:id]) do |device|
+          device.set_secondary_progress value
         end
       end
     end

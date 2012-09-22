@@ -428,12 +428,27 @@ describe Gametel::Accessors do
         screen.progress_id = 37
       end
 
+      it "should be able to set the secondary progress by id" do
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:set_secondary_progress).with(74)
+        screen.progress_id_secondary = 74
+      end
+
       it "should be able to get the progress by id" do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_progress)
         result.should_receive(:body).and_return("37")
         screen.progress_id.should eq(37)
+      end
+
+      it "should be able to get the secondary progress by id" do
+        accumulator.should_receive(:id_from_name)
+        accumulator.should_receive(:get_view)
+        accumulator.should_receive(:get_secondary_progress)
+        result.should_receive(:body).and_return("74")
+        screen.progress_id_secondary.should eq(74)
       end
     end
   end

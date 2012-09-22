@@ -15,3 +15,16 @@ Then /^the retrieved progress indicated by "(.*?)" should be "(.*?)"$/ do |how, 
   end
 end
 
+When /^I set the secondary progress indicated by "(.*?)" to "(.*?)"$/ do |how, value|
+  on(SeekBarScreen) do |screen|
+    screen.send "progress_#{how}_secondary=", value.to_i
+  end
+end
+
+When /^the retrieved secondary progress indicated by "(.*?)" should be "(.*?)"$/ do |how, value|
+  on(SeekBarScreen) do |screen|
+    screen.send("progress_#{how}_secondary").should eq(value.to_i)
+  end
+end
+
+
