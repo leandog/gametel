@@ -1,9 +1,10 @@
 require 'brazenhead'
 require File.join(File.dirname(__FILE__), 'brazenhead', 'basic')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'button')
-require File.join(File.dirname(__FILE__), 'brazenhead', 'view')
-require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'progress')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'spinner')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'view')
 
 
 module Gametel
@@ -12,9 +13,10 @@ module Gametel
       include Brazenhead
       include Gametel::Platforms::Basic
       include Gametel::Platforms::Button
-      include Gametel::Platforms::View
-      include Gametel::Platforms::Text
+      include Gametel::Platforms::Progress
       include Gametel::Platforms::Spinner
+      include Gametel::Platforms::Text
+      include Gametel::Platforms::View
 
       ENTER_KEY = 66
 

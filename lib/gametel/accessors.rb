@@ -144,26 +144,16 @@ module Gametel
 
     def progress(name, locator)
       define_method("#{name}") do
-        platform.get_view_by_id(locator[:id]) do |device|
-          device.get_progress
-        end
-        platform.last_response.body.to_i
+        platform.get_progress_by_id locator[:id]
       end
       define_method("#{name}_secondary") do
-        platform.get_view_by_id(locator[:id]) do |device|
-          device.get_secondary_progress
-        end
-        platform.last_response.body.to_i
+        platform.get_secondary_progress_by_id locator[:id]
       end
       define_method("#{name}=") do |value|
-        platform.get_view_by_id(locator[:id]) do |device|
-          device.set_progress_bar '@@the_view@@', value, :target => 'Robotium'
-        end
+        platform.set_progress_by_id locator[:id], value
       end
       define_method("#{name}_secondary=") do |value|
-        platform.get_view_by_id(locator[:id]) do |device|
-          device.set_secondary_progress value
-        end
+        platform.set_secondary_progress_by_id locator[:id], value
       end
     end
 
