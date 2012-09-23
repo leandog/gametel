@@ -156,16 +156,20 @@ module Gametel
     #
     def progress(name, locator)
       define_method("#{name}") do
-        platform.get_progress_by_id locator[:id]
+        return platform.get_progress_by_id locator[:id] if locator[:id]
+        return platform.get_progress_by_index locator[:index] if locator[:index]
       end
       define_method("#{name}_secondary") do
-        platform.get_secondary_progress_by_id locator[:id]
+        return platform.get_secondary_progress_by_id locator[:id] if locator[:id]
+        return platform.get_secondary_progress_by_index locator[:index] if locator[:index]
       end
       define_method("#{name}=") do |value|
-        platform.set_progress_by_id locator[:id], value
+        platform.set_progress_by_id locator[:id], value if locator[:id]
+        platform.set_progress_by_index locator[:index], value if locator[:index]
       end
       define_method("#{name}_secondary=") do |value|
-        platform.set_secondary_progress_by_id locator[:id], value
+        platform.set_secondary_progress_by_id locator[:id], value if locator[:id]
+        platform.set_secondary_progress_by_index locator[:index], value if locator[:index]
       end
     end
 

@@ -6,7 +6,6 @@ Feature:  Interacting with progress bars
     Then I should see the text "37 from touch" on the screen 
     And the retrieved progress indicated by "id" should be "37" 
 
-  @wip
   Scenario: Getting and setting the progress by index
     Given I am looking at the progress of a seek bar
     When I set the progress indicated by "index" to "11"

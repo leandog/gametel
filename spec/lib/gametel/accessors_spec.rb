@@ -21,6 +21,7 @@ class AccessorsSampleScreen
   view(:view_text, :text => 'Any view text')
   spinner(:spinner_id, :id => 'spinner_id')
   progress(:progress_id, :id => 'progress_id')
+  progress(:progress_index, :index => 1)
 end
 
 describe Gametel::Accessors do
@@ -421,34 +422,73 @@ describe Gametel::Accessors do
     end
 
     context "progress bars" do
-      it "should be able to set the progress by id" do
-        accumulator.should_receive(:id_from_name)
-        accumulator.should_receive(:get_view)
-        accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
-        screen.progress_id = 37
+
+      context "identified by id" do
+        it "should be able to set the progress" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
+          screen.progress_id = 37
+        end
+
+        it "should be able to set the secondary progress" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:set_secondary_progress).with(74)
+          screen.progress_id_secondary = 74
+        end
+
+        it "should be able to get the progress" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:get_progress)
+          result.should_receive(:body).and_return("37")
+          screen.progress_id.should eq(37)
+        end
+
+        it "should be able to get the secondary progress" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:get_secondary_progress)
+          result.should_receive(:body).and_return("74")
+          screen.progress_id_secondary.should eq(74)
+        end
       end
 
-      it "should be able to set the secondary progress by id" do
-        accumulator.should_receive(:id_from_name)
-        accumulator.should_receive(:get_view)
-        accumulator.should_receive(:set_secondary_progress).with(74)
-        screen.progress_id_secondary = 74
-      end
+      context "identified by index" do
+        it "should be able to set the progress" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
+          accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
+          screen.progress_index = 37
+        end
 
-      it "should be able to get the progress by id" do
-        accumulator.should_receive(:id_from_name)
-        accumulator.should_receive(:get_view)
-        accumulator.should_receive(:get_progress)
-        result.should_receive(:body).and_return("37")
-        screen.progress_id.should eq(37)
-      end
+        it "should be able to set the secondary progress" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
+          accumulator.should_receive(:set_secondary_progress).with(74)
+          screen.progress_index_secondary = 74
+        end
 
-      it "should be able to get the secondary progress by id" do
-        accumulator.should_receive(:id_from_name)
-        accumulator.should_receive(:get_view)
-        accumulator.should_receive(:get_secondary_progress)
-        result.should_receive(:body).and_return("74")
-        screen.progress_id_secondary.should eq(74)
+        it "should be able to get the progress" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
+          accumulator.should_receive(:get_progress)
+          result.should_receive(:body).and_return("37")
+          screen.progress_index.should eq(37)
+        end
+
+        it "should be able to get the secondary progress" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
+          accumulator.should_receive(:get_secondary_progress)
+          result.should_receive(:body).and_return("74")
+          screen.progress_index_secondary.should eq(74)
+        end
       end
     end
   end
