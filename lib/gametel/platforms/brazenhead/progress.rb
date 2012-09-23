@@ -26,6 +26,11 @@ module Gametel
         set_secondary_progress_by_index locator[:index], value if locator[:index]
       end
 
+      def get_progress_max(locator)
+        return get_progress_max_by_id locator[:id] if locator[:id]
+        return get_progress_max_by_index locator[:index] if locator[:index]
+      end
+
       private
       def get_progress_by_id(id)
         get_view_by_id(id) do |device|
@@ -77,6 +82,20 @@ module Gametel
         get_view_by_index(PROGRESS_BAR_CLASS, index) do |device|
           device.set_secondary_progress progress
         end
+      end
+
+      def get_progress_max_by_id(id)
+        get_view_by_id(id) do |device|
+          device.get_max
+        end
+        last_response.body.to_i
+      end
+
+      def get_progress_max_by_index(index)
+        get_view_by_index(PROGRESS_BAR_CLASS, index) do |device|
+          device.get_max
+        end
+        last_response.body.to_i
       end
     end
   end

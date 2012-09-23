@@ -453,6 +453,14 @@ describe Gametel::Accessors do
           result.should_receive(:body).and_return("74")
           screen.progress_id_secondary.should eq(74)
         end
+
+        it "should be able to get the max" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:get_max)
+          result.should_receive(:body).and_return("100")
+          screen.progress_id_max.should eq(100)
+        end
       end
 
       context "identified by index" do
@@ -488,6 +496,15 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_secondary_progress)
           result.should_receive(:body).and_return("74")
           screen.progress_index_secondary.should eq(74)
+        end
+
+        it "should be able to get the max" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
+          accumulator.should_receive(:get_max)
+          result.should_receive(:body).and_return("100")
+          screen.progress_index_max.should eq(100)
         end
       end
     end

@@ -158,6 +158,9 @@ module Gametel
       define_method("#{name}") do
         platform.get_progress(locator)
       end
+      define_method("#{name}_max") do
+        platform.get_progress_max(locator)
+      end
       define_method("#{name}_secondary") do
         platform.get_secondary_progress(locator)
       end

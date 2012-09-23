@@ -27,4 +27,8 @@ When /^the retrieved secondary progress indicated by "(.*?)" should be "(.*?)"$/
   end
 end
 
-
+Then /^the retrieved progress max indicated by "(.*?)" should be "(.*?)"$/ do |how, value|
+  on(SeekBarScreen) do |screen|
+    screen.send("progress_#{how}_max").should eq(value.to_i)
+  end
+end

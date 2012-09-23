@@ -15,3 +15,11 @@ Feature:  Interacting with progress bars
     Given I am looking at the progress of a seek bar
     When I set the secondary progress indicated by "id" to "74"
     And the retrieved secondary progress indicated by "id" should be "74" 
+
+  Scenario: Getting the progress max by id
+    When I am looking at the progress of a seek bar
+    Then the retrieved progress max indicated by "id" should be "100"
+
+  Scenario: Getting the progress max by index
+    When I am looking at the progress of a seek bar
+    Then the retrieved progress max indicated by "index" should be "100"
