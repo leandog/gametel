@@ -2,6 +2,7 @@ require 'gametel/accessors'
 require 'gametel/navigation'
 require 'gametel/version'
 require 'gametel/platforms/brazenhead_platform'
+require 'gametel/views'
 
 module Gametel
 

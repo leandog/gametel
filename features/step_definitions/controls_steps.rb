@@ -33,8 +33,9 @@ Then /^I should have the value "(.*?)" in the text field identified by "(.*?)"$/
   end
 end
 
-Then /^the "(.*?)" field's "(.*?)" property is "(.*?)"$/ do |which, what, result|
+Then /^the "(.*?)" field\'s "(.*?)" property is "(.*?)"$/ do |which, what, result|
   on(ControlsScreen) do |screen|
-    screen.send("#{which}_field_id_#{what}?").to_s.should eq(result)
+    view = screen.send("#{which}_field_id_view")
+    view.send("#{what}?").to_s.should == result
   end
 end

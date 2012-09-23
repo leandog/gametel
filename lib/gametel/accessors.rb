@@ -24,13 +24,9 @@ module Gametel
       define_method("clear_#{name}") do
         platform.clear_text(locator)
       end
-      define_method("#{name}_hint") do
-        platform.get_text_hint(locator)
+      define_method("#{name}_view") do
+        Gametel::Views::Text.new(platform, locator)
       end
-      define_method("#{name}_description") do
-        platform.get_text_description(locator)
-      end
-      view_properties_for(name, locator) if locator[:id]
     end
 
     #
@@ -51,7 +47,9 @@ module Gametel
       define_method(name) do
         platform.press_button(locator)
       end
-      button_properties_for(name, locator)
+      define_method("#{name}_view") do
+        Gametel::Views::Button.new(platform, locator)
+      end
     end
 
     #
@@ -139,7 +137,9 @@ module Gametel
       define_method(name) do
         platform.click_view(locator)
       end
-      view_properties_for(name, locator) if locator[:id]
+      define_method("#{name}_view") do
+        Gametel::Views::View.new(platform, locator)
+      end
     end
 
     #
@@ -186,33 +186,6 @@ module Gametel
     def spinner(name, locator)
       define_method(name) do
         platform.get_spinner_value(locator) if locator[:id]
-      end
-    end
-
-    private
-    def view_properties
-      [:clickable, :enabled, :focusable, :focused, :selected, :shown]
-    end
-
-    def button_properties_for(name, locator)
-      view_properties.each do |property|
-        define_method("#{name}_#{property}?") do
-          result = platform.get_button_property_by_id(locator[:id], property) if locator[:id]
-          result = platform.get_button_property_by_index(locator[:index], property) if locator[:index]
-          result = platform.get_button_property_by_text(locator[:text], property) if locator[:text]
-          result
-        end
-      end
-    end
-
-    def view_properties_for(name, locator)
-      view_properties.each do |property|
-        define_method("#{name}_#{property}?") do
-          platform.get_view_by_id(locator[:id]) do |device|
-            device.send "is_#{property}"
-          end
-          platform.last_response.body
-        end
       end
     end
   end

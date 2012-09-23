@@ -1,21 +1,22 @@
-=== Version 0.6
-*	Enhancements
-	*	Introduced the progress accessor for progress bar controls
-	*	Added ability to look at view properties of buttons by text, id and index
-	*	Added ability to look at view properties for text and view
+=== Version 0.5.1
+* Enhancements
+  * Introduced the progress accessor for progress bar controls
+  * Added ability to look at view properties of buttons by text, id and index
+  * Added ability to look at view properties for text and view
 	accessors (by id) such as:
-		*	clickable
-		* enabled  
+		* clickable
+		* enabled
 		* focusable
-		* focused  
-		* selected 
-		* shown    
-	*	Added ability to get the hint and content description of a text control
-	*	Added scroll_left and scroll_right functionality
+		* focused
+		* selected
+		* shown
+  * Added ability to get the hint and content description of a text control
+  * Added scroll_left and scroll_right functionality
+  * Added new View, Button, and Text classes to represent the corresponding views
 
-===	Version 0.5 / 2012-9-19
-*	Bug Fixes
-	*	fixes an issue so the string value of a spinner is returned as it did in
+=== Version 0.5 / 2012-9-19
+* Bug Fixes
+  * fixes an issue so the string value of a spinner is returned as it did in
 	the previous version
 
 === Version 0.4 / 2012-9-18

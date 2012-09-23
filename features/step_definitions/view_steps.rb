@@ -21,8 +21,9 @@ end
 
 Then /^the "(.*?)" field identified by "(.*?)" can determine the following properties:$/ do |what, how, properties|
   screen = ControlsScreen.new
+  view = screen.send "#{what}_field_#{how}_view"
   properties.hashes.each do |property|
-    result = screen.send("#{what}_field_#{how}_#{property["property"]}?")
+    result = view.send("#{property["property"]}?")
     result.to_s.should eq(property["value"]), "for field #{property["property"]}"
   end
 end

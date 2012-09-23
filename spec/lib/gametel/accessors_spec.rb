@@ -99,7 +99,8 @@ describe Gametel::Accessors do
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_hint)
         result.should_receive(:body).and_return("the hint")
-        screen.first_name_id_hint.should eq('the hint')
+        view = screen.first_name_id_view
+        view.hint.should eq('the hint')
       end
 
       it "should know how to get the content description" do
@@ -107,7 +108,8 @@ describe Gametel::Accessors do
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_content_description)
         result.should_receive(:body).and_return("the content description")
-        screen.first_name_id_description.should eq('the content description')
+        view = screen.first_name_id_view
+        view.description.should eq('the content description')
       end
 
       context "when looking at properties" do
@@ -117,7 +119,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_enabled
+          view = screen.first_name_id_view
+          view.should be_enabled
         end
 
         it "should know if they are clickable" do
@@ -125,7 +128,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_clickable)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_clickable
+          view = screen.first_name_id_view
+          view.should be_clickable
         end
 
         it "should know if they are focusable" do
@@ -133,7 +137,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focusable)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_focusable
+          view = screen.first_name_id_view
+          view.should be_focusable
         end
 
         it "should know if they are focused" do
@@ -141,7 +146,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focused)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_focused
+          view = screen.first_name_id_view
+          view.should be_focused
         end
 
         it "should know if they are selected" do
@@ -149,7 +155,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_selected)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_selected
+          view = screen.first_name_id_view
+          view.should be_selected
         end
 
         it "should know if they are shown" do
@@ -157,7 +164,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_shown)
           result.should_receive(:body).and_return("true")
-          screen.should be_first_name_id_shown
+          view = screen.first_name_id_view
+          view.should be_shown
         end
       end
 
@@ -185,7 +193,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_enabled
+          view = screen.save_id_view
+          view.should be_enabled
         end
 
         it "should know if they are clickable" do
@@ -193,7 +202,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_clickable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_clickable
+          view = screen.save_id_view
+          view.should be_clickable
         end
 
         it "should know if they are focusable" do
@@ -201,7 +211,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focusable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_focusable
+          view = screen.save_id_view
+          view.should be_focusable
         end
 
         it "should know if they are focused" do
@@ -209,7 +220,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focused)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_focused
+          view = screen.save_id_view
+          view.should be_focused
         end
 
         it "should know if they are selected" do
@@ -217,7 +229,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_selected)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_selected
+          view = screen.save_id_view
+          view.should be_selected
         end
 
         it "should know if they are shown" do
@@ -225,7 +238,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_shown)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_id_shown
+          view = screen.save_id_view
+          view.should be_shown
         end
       end
 
@@ -234,42 +248,48 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_enabled)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_enabled
+          view = screen.save_index_view
+          view.should be_enabled
         end
 
         it "should know if they are clickable" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_clickable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_clickable
+          view = screen.save_index_view
+          view.should be_clickable
         end
 
         it "should know if they are focusable" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_focusable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_focusable
+          view = screen.save_index_view
+          view.should be_focusable
         end
 
         it "should know if they are focused" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_focused)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_focused
+          view = screen.save_index_view
+          view.should be_focused
         end
 
         it "should know if they are selected" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_selected)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_selected
+          view = screen.save_index_view
+          view.should be_selected
         end
 
         it "should know if they are shown" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_shown)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_index_shown
+          view = screen.save_index_view
+          view.should be_shown
         end
       end
 
@@ -278,42 +298,48 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_enabled)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_enabled
+          view = screen.save_text_view
+          view.should be_enabled
         end
 
         it "should know if they are clickable" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_clickable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_clickable
+          view = screen.save_text_view
+          view.should be_clickable
         end
 
         it "should know if they are focusable" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_focusable)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_focusable
+          view = screen.save_text_view
+          view.should be_focusable
         end
 
         it "should know if they are focused" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_focused)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_focused
+          view = screen.save_text_view
+          view.should be_focused
         end
 
         it "should know if they are selected" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_selected)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_selected
+          view = screen.save_text_view
+          view.should be_selected
         end
 
         it "should know if they are shown" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_shown)
           result.should_receive(:body).and_return("true")
-          screen.should be_save_text_shown
+          view = screen.save_text_view
+          view.should be_shown
         end
       end
     end
@@ -365,7 +391,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_enabled
+          view = screen.view_id_view
+          view.should be_enabled
         end
 
         it "should know if they are clickable" do
@@ -373,7 +400,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_clickable)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_clickable
+          view = screen.view_id_view
+          view.should be_clickable
         end
 
         it "should know if they are focusable" do
@@ -381,7 +409,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focusable)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_focusable
+          view = screen.view_id_view
+          view.should be_focusable
         end
 
         it "should know if they are focused" do
@@ -389,7 +418,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_focused)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_focused
+          view = screen.view_id_view
+          view.should be_focused
         end
 
         it "should know if they are selected" do
@@ -397,7 +427,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_selected)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_selected
+          view = screen.view_id_view
+          view.should be_selected
         end
 
         it "should know if they are shown" do
@@ -405,7 +436,8 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_shown)
           result.should_receive(:body).and_return("true")
-          screen.should be_view_id_shown
+          view = screen.view_id_view
+          view.should be_shown
         end
       end
     end
