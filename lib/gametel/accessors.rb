@@ -114,6 +114,7 @@ module Gametel
     # @param  [Hash]  locator for how the checkbox is found  The valid
     # keys are:
     #  * :text
+    #  * :index
     #  * :id
     #
     def radio_button(name, locator)
