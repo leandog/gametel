@@ -120,6 +120,9 @@ module Gametel
       define_method(name) do
         platform.click_radio_button(locator)
       end
+      define_method("#{name}_view") do
+        Gametel::Views::RadioButton.new(platform, locator)
+      end
     end
 
     #

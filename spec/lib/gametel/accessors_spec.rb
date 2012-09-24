@@ -363,19 +363,45 @@ describe Gametel::Accessors do
     end
 
     context "radio buttons" do
-      it "should know how to be clicked by text" do
-        platform.should_receive(:click_on_text).with('Radio Button 1')
-        screen.radio_text
+      context "identified by text" do
+        it "should know how to be clicked" do
+          platform.should_receive(:click_on_text).with('Radio Button 1')
+          screen.radio_text
+        end
+
+        it "should know whether or not it is checked" do
+          platform.should_receive(:is_radio_button_checked).with('Radio Button 1').and_return(result)
+          result.should_receive(:body).and_return("true")
+          screen.radio_text_view.should be_checked
+        end
       end
 
-      it "should know how to be clicked by id" do
-        platform.should_receive(:click_on_view_by_id).with('some_radio_id')
-        screen.radio_id
+      context "identified by id" do
+        it "should know how to be clicked" do
+          platform.should_receive(:click_on_view_by_id).with('some_radio_id')
+          screen.radio_id
+        end
+
+        it "should know whether or not it is checked" do
+          accumulator.should_receive(:id_from_name).with('some_radio_id', anything)
+          accumulator.should_receive(:get_view).with('@@view_id@@', anything)
+          accumulator.should_receive(:is_checked)
+          result.should_receive(:body).and_return("false")
+          screen.radio_id_view.should_not be_checked
+        end
       end
 
-      it "should know how to be clicked by index" do
-        platform.should_receive(:click_on_radio_button).with(1)
-        screen.radio_index
+      context "identified by index" do
+        it "should know how to be clicked" do
+          platform.should_receive(:click_on_radio_button).with(1)
+          screen.radio_index
+        end
+
+        it "should know whether or not it is checked" do
+          platform.should_receive(:is_radio_button_checked).with(1).and_return(result)
+          result.should_receive(:body).and_return("false")
+          screen.radio_index_view.should_not be_checked
+        end
       end
     end
 
