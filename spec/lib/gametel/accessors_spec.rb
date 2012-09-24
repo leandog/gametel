@@ -21,6 +21,7 @@ class AccessorsSampleScreen
   view(:view_id, :id => 'some_view_id')
   view(:view_text, :text => 'Any view text')
   spinner(:spinner_id, :id => 'spinner_id')
+  spinner(:spinner_index, :index => 1)
   progress(:progress_id, :id => 'progress_id')
   progress(:progress_index, :index => 1)
 end
@@ -475,13 +476,27 @@ describe Gametel::Accessors do
     end
 
     context "spinners" do
-      it "should be able to determine their selected item" do
-        accumulator.should_receive(:id_from_name)
-        accumulator.should_receive(:get_view)
-        accumulator.should_receive(:get_selected_item)
-        accumulator.should_receive(:to_string)
-        result.should_receive(:body).and_return('the text value')
-        screen.spinner_id.should eq('the text value')
+      context "identified by id" do
+        it "should be able to determine their selected item" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:get_selected_item)
+          accumulator.should_receive(:to_string)
+          result.should_receive(:body).and_return('the text value')
+          screen.spinner_id.should eq('the text value')
+        end
+      end
+
+      context "identified by index" do
+        it "should be able to determine their selected item" do
+          accumulator.should_receive(:get_class)
+          accumulator.should_receive(:for_name).with('android.widget.Spinner', anything)
+          accumulator.should_receive(:get_view).with('@@the_type@@', 1, anything)
+          accumulator.should_receive(:get_selected_item)
+          accumulator.should_receive(:to_string)
+          result.should_receive(:body).and_return('the text value')
+          screen.spinner_index.should eq('the text value')
+        end
       end
     end
 

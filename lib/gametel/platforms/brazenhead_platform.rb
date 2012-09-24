@@ -100,7 +100,8 @@ module Gametel
       # get the selected spinner value
       #
       def get_spinner_value(locator)
-        result = get_spinner_value_by_id(locator[:id])
+        result = get_spinner_value_by_id(locator[:id]) if locator[:id]
+        result = get_spinner_value_by_index(locator[:index]) if locator[:index]
         strip_quotes_from result.body
       end
 

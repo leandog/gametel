@@ -189,7 +189,7 @@ module Gametel
     #
     def spinner(name, locator)
       define_method(name) do
-        platform.get_spinner_value(locator) if locator[:id]
+        platform.get_spinner_value(locator)
       end
     end
   end

@@ -19,4 +19,5 @@ class ControlsScreen
   radio_button(:radio_button_id, :id => 'radio2')
   radio_button(:radio_button_index, :index => 1)
   spinner(:spinner_id, :id => 'spinner1')
+  spinner(:spinner_index, :index => 0)
 end
