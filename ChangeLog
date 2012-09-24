@@ -1,5 +1,7 @@
 === Version 0.5.1
 * Enhancements
+	*	Added index accessor to radio_button.  Also added ability to see if a
+	radio_button is checked or not
   * Introduced the progress accessor for progress bar controls
   * Added ability to look at view properties of buttons by text, id and index
   * Added ability to look at view properties for text and view
