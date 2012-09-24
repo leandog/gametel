@@ -93,6 +93,7 @@ module Gametel
       def click_radio_button(locator)
         result = click_on_text(locator[:text]) if locator[:text]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
+        result = click_on_radio_button(locator[:index]) if locator[:index]
       end
 
       #

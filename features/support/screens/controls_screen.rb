@@ -17,5 +17,6 @@ class ControlsScreen
   checkbox(:checkbox_id, :id => 'check1')
   radio_button(:radio_button_text, :text => 'RadioButton 1')
   radio_button(:radio_button_id, :id => 'radio2')
+  radio_button(:radio_button_index, :index => 1)
   spinner(:spinner_id, :id => 'spinner1')
 end

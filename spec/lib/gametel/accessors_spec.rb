@@ -17,6 +17,7 @@ class AccessorsSampleScreen
   checkbox(:checkbox_id, :id => 'some_check_id')
   radio_button(:radio_text, :text => 'Radio Button 1')
   radio_button(:radio_id, :id => 'some_radio_id')
+  radio_button(:radio_index, :index => 1)
   view(:view_id, :id => 'some_view_id')
   view(:view_text, :text => 'Any view text')
   spinner(:spinner_id, :id => 'spinner_id')
@@ -370,6 +371,11 @@ describe Gametel::Accessors do
       it "should know how to be clicked by id" do
         platform.should_receive(:click_on_view_by_id).with('some_radio_id')
         screen.radio_id
+      end
+
+      it "should know how to be clicked by index" do
+        platform.should_receive(:click_on_radio_button).with(1)
+        screen.radio_index
       end
     end
 
