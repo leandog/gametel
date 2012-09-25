@@ -347,19 +347,31 @@ describe Gametel::Accessors do
     end
 
     context "checkboxes" do
-      it "should know how to be checked by index" do
-        platform.should_receive(:click_on_check_box).with(1)
-        screen.checkbox_index
+      context "identified by index" do
+        it "should know how to be checked by index" do
+          platform.should_receive(:click_on_check_box).with(0)
+          screen.checkbox_index
+        end
+
+        it "should know whether or not it is checked" do
+          platform.should_receive(:is_check_box_checked).with(0).and_return(result)
+          result.should_receive(:body).and_return("false")
+          screen.checkbox_index_view.should_not be_checked
+        end
       end
 
-      it "should know how to be checked by text" do
-        platform.should_receive(:click_on_text).with('Checkbox 2')
-        screen.checkbox_text
+      context "identified by text" do
+        it "should know how to be checked by text" do
+          platform.should_receive(:click_on_text).with('Checkbox 2')
+          screen.checkbox_text
+        end
       end
 
-      it "should know how to be checked by id" do
-        platform.should_receive(:click_on_view_by_id).with('some_check_id')
-        screen.checkbox_id
+      context "identified by id" do
+        it "should know how to be checked by id" do
+          platform.should_receive(:click_on_view_by_id).with('some_check_id')
+          screen.checkbox_id
+        end
       end
     end
 
