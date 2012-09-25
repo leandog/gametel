@@ -2,7 +2,8 @@ module Gametel
   module Views
     class CheckBox < View
       def checked?
-        result = platform.is_check_box_checked locator[:index]
+        result = platform.is_check_box_checked locator[:index] if locator[:index]
+        result = platform.is_check_box_checked locator[:text] if locator[:text]
         result.body == "true"
       end
 

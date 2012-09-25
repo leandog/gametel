@@ -8,6 +8,7 @@ Feature:  Interacting with checkboxes
   Scenario: Clicking on a checkbox by text
     Given I'm on the controls screen
     Then I should be able to click a checkbox by "text"
+    And the checkbox identified by "text" should be checked
 
   Scenario: Clicking a checkbox by id
     Given I'm on the controls screen

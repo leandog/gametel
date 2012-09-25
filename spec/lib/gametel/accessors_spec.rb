@@ -365,6 +365,12 @@ describe Gametel::Accessors do
           platform.should_receive(:click_on_text).with('Checkbox 2')
           screen.checkbox_text
         end
+
+        it "should know whether or not it is checked" do
+          platform.should_receive(:is_check_box_checked).with('Checkbox 2').and_return(result)
+          result.should_receive(:body).and_return("false")
+          screen.checkbox_text_view.should_not be_checked
+        end
       end
 
       context "identified by id" do
