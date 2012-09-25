@@ -25,3 +25,10 @@ When /^I hit the enter key$/ do
   on(MainMenuScreen).enter
 end
 
+When /^I go choose to go back to the "(.*?)" activity$/ do |activity|
+  on(MainMenuScreen).back_to activity
+end
+
+Then /^I should currently be on the "(.*?)" activity$/ do |activity|
+  on(MainMenuScreen).current_activity.should eq(activity)
+end

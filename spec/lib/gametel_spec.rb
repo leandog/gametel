@@ -65,6 +65,19 @@ describe Gametel do
       screen.back
     end
 
+    it "should know how to go back to an activity" do
+      platform.should_receive(:go_back_to_activity).with('SomeActivity')
+      screen.back_to 'SomeActivity'
+    end
+
+    it "should know how to get the current activity" do
+      result.should_receive(:body).and_return('"SomeActivity"')
+      accumulator.should_receive(:get_current_activity)
+      accumulator.should_receive(:get_class)
+      accumulator.should_receive(:get_simple_name).and_return(result)
+      screen.current_activity.should eq('SomeActivity')
+    end
+
     it "should know how to press the enter key" do
       platform.should_receive(:send_key).with(66)
       screen.enter

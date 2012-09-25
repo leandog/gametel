@@ -22,7 +22,7 @@ module Gametel
             platform.get_view_by_id(locator[:id]) do |device|
               device.send "is_#{property}"
             end
-            platform.last_response.body
+            platform.last_response.body == "true"
           end
         end
       end

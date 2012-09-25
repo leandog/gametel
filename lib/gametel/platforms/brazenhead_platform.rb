@@ -65,7 +65,7 @@ module Gametel
       #
       def press_button(locator)
         result = click_on_button(locator[:text]) if locator[:text]
-        result = click_on_button(locator[:index] + 1) if locator[:index]
+        result = click_on_button(locator[:index]) if locator[:index]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
       end
 
@@ -82,7 +82,7 @@ module Gametel
       # click a checkbox
       #
       def click_checkbox(locator)
-        result = click_on_check_box(locator[:index] + 1) if locator[:index]
+        result = click_on_check_box(locator[:index]) if locator[:index]
         result = click_on_text(locator[:text]) if locator[:text]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
       end

@@ -21,3 +21,7 @@ Feature: Interacting with the elements on the main screen
     When I hit the enter key
     Then I should see the "Accessibility Service" list item
 
+  Scenario: Navigating back to a particular activity and knowing where we are at
+    Given I'm on the buttons screen
+    When I go choose to go back to the "ApiDemos" activity
+    Then I should currently be on the "ApiDemos" activity

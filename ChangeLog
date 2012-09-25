@@ -1,5 +1,6 @@
 === Version 0.5.1
 * Enhancements
+	*	Added ability to see if a checkbox is checked or not
 	*	Added index accessor to radio_button.  Also added ability to see if a
 	radio_button is checked or not
   * Introduced the progress accessor for progress bar controls
@@ -15,6 +16,9 @@
   * Added ability to get the hint and content description of a text control
   * Added scroll_left and scroll_right functionality
   * Added new View, Button, and Text classes to represent the corresponding views
+
+*	Bug Fixes
+	*	fixes an issue with using the button or checkbox accessor by index
 
 === Version 0.5 / 2012-9-19
 * Bug Fixes
