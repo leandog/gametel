@@ -180,7 +180,7 @@ describe Gametel::Accessors do
       end
 
       it "should know how to be chosen by index" do
-        platform.should_receive(:click_on_button).with(2)
+        platform.should_receive(:click_on_button).with(1)
         screen.save_index
       end
 

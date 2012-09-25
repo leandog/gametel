@@ -12,6 +12,11 @@ Feature: Interacting with buttons
     Given I'm on the buttons screen
     When I click the on/off button by "id"
     Then I should see the text "ON" on the screen
+    
+  Scenario: Should be able to click a button by id
+    Given I'm on the buttons screen
+    When I click the on/off button by "index"
+    Then I should see the text "ON" on the screen
 
   Scenario: Should be able to click a toggle button
     Given I'm on the buttons screen
