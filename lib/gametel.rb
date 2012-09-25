@@ -48,6 +48,23 @@ module Gametel
   end
 
   #
+  # Go back to a specific activity
+  #
+  def back_to(activity)
+    platform.go_back_to_activity activity
+  end
+
+  def current_activity
+    platform.chain_calls do |device|
+      device.get_current_activity
+      device.get_class
+      device.get_simple_name
+    end
+
+    platform.last_response.body.gsub('"','')
+  end
+
+  #
   # Press the enter key
   #
   def enter
