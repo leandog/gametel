@@ -21,7 +21,7 @@ module Gametel
               device.send "is_#{property}"
             end if locator[:text]
               
-            platform.last_response.body
+            platform.last_response.body == "true"
           end
         end
       end

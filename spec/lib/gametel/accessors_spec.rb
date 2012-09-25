@@ -120,9 +120,9 @@ describe Gametel::Accessors do
           accumulator.should_receive(:id_from_name)
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
-          result.should_receive(:body).and_return("true")
+          result.should_receive(:body).and_return("false")
           view = screen.first_name_id_view
-          view.should be_enabled
+          view.should_not be_enabled
         end
 
         it "should know if they are clickable" do
@@ -194,9 +194,9 @@ describe Gametel::Accessors do
           accumulator.should_receive(:id_from_name)
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
-          result.should_receive(:body).and_return("true")
+          result.should_receive(:body).and_return("false")
           view = screen.save_id_view
-          view.should be_enabled
+          view.should_not be_enabled
         end
 
         it "should know if they are clickable" do
@@ -249,9 +249,9 @@ describe Gametel::Accessors do
         it "should know if they are enabled" do
           accumulator.should_receive(:get_button)
           accumulator.should_receive(:is_enabled)
-          result.should_receive(:body).and_return("true")
+          result.should_receive(:body).and_return("false")
           view = screen.save_index_view
-          view.should be_enabled
+          view.should_not be_enabled
         end
 
         it "should know if they are clickable" do
@@ -299,9 +299,9 @@ describe Gametel::Accessors do
         it "should know if they are enabled" do
           accumulator.should_receive(:get_button).with('Save', anything())
           accumulator.should_receive(:is_enabled)
-          result.should_receive(:body).and_return("true")
+          result.should_receive(:body).and_return("false")
           view = screen.save_text_view
-          view.should be_enabled
+          view.should_not be_enabled
         end
 
         it "should know if they are clickable" do
@@ -423,9 +423,9 @@ describe Gametel::Accessors do
           accumulator.should_receive(:id_from_name)
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:is_enabled)
-          result.should_receive(:body).and_return("true")
+          result.should_receive(:body).and_return("false")
           view = screen.view_id_view
-          view.should be_enabled
+          view.should_not be_enabled
         end
 
         it "should know if they are clickable" do
