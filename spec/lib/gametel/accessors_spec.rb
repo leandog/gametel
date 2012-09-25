@@ -378,6 +378,14 @@ describe Gametel::Accessors do
           platform.should_receive(:click_on_view_by_id).with('some_check_id')
           screen.checkbox_id
         end
+
+        it "should know whether or not it is checked" do
+          accumulator.should_receive(:id_from_name).with('some_check_id', anything)
+          accumulator.should_receive(:get_view).with('@@view_id@@', anything)
+          accumulator.should_receive(:is_checked)
+          result.should_receive(:body).and_return("false")
+          screen.checkbox_id_view.should_not be_checked
+        end
       end
     end
 
