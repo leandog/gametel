@@ -511,6 +511,12 @@ describe Gametel::Accessors do
           result.should_receive(:body).and_return('the text value')
           screen.spinner_id.should eq('the text value')
         end
+
+        it "shuld be able to select an item" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:press_spinner_item_by_id)
+          screen.select_spinner_id 4
+        end
       end
 
       context "identified by index" do
@@ -522,6 +528,11 @@ describe Gametel::Accessors do
           accumulator.should_receive(:to_string)
           result.should_receive(:body).and_return('the text value')
           screen.spinner_index.should eq('the text value')
+        end
+
+        it "should be able to select an item" do
+          platform.should_receive(:press_spinner_item).with(1, 4)
+          screen.select_spinner_index 4
         end
       end
     end

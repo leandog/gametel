@@ -17,7 +17,13 @@ module Gametel
           device.to_string
         end
       end
-      
+
+      def select_spinner_value_by_id(id, index)
+        chain_calls do |device|
+          device.id_from_name id, :variable => '@@the_id@@', :target => 'Brazenhead'
+          device.press_spinner_item_by_id '@@the_id@@', index, :target => 'Brazenhead'
+        end
+      end
     end
   end
 end

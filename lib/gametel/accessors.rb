@@ -194,6 +194,9 @@ module Gametel
       define_method(name) do
         platform.get_spinner_value(locator)
       end
+      define_method("select_#{name}") do |value|
+        platform.select_spinner_value(locator, value)
+      end
     end
   end
 end

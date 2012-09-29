@@ -106,6 +106,14 @@ module Gametel
       end
 
       #
+      # select the spinner value using the item's index
+      #
+      def select_spinner_value(locator, index)
+        result = select_spinner_value_by_id(locator[:id], index) if locator[:id]
+        result = press_spinner_item(locator[:index], index) if locator[:index]
+      end
+
+      #
       # click a view
       #
       def click_view(locator)

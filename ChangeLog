@@ -1,14 +1,17 @@
+=== Version 0.5.2
+  * Added ability to select items from Spinner by index
+
 === Version 0.5.1 / 2012-9-25
 * Enhancements
-	*	Added ability to go 'back' to any other screen
-	*	Added ability to see which screen we are on
-	*	Added ability to see if a checkbox is checked or not
-	*	Added index accessor to radio_button.  Also added ability to see if a
-	radio_button is checked or not
+  * Added ability to go 'back' to any other screen
+  * Added ability to see which screen we are on
+  * Added ability to see if a checkbox is checked or not
+  * Added index accessor to radio_button.  Also added ability to see if a
+          radio_button is checked or not
   * Introduced the progress accessor for progress bar controls
   * Added ability to look at view properties of buttons by text, id and index
   * Added ability to look at view properties for text and view
-	accessors (by id) such as:
+          accessors (by id) such as:
 		* clickable
 		* enabled
 		* focusable
@@ -19,13 +22,13 @@
   * Added scroll_left and scroll_right functionality
   * Added new View, Button, and Text classes to represent the corresponding views
 
-*	Bug Fixes
-	*	fixes an issue with using the button or checkbox accessor by index
+* Bug Fixes
+  * Fixes an issue with using the button or checkbox accessor by index
 
 === Version 0.5 / 2012-9-19
 * Bug Fixes
-  * fixes an issue so the string value of a spinner is returned as it did in
-	the previous version
+  * Fixes an issue so the string value of a spinner is returned as it did in
+          the previous version
 
 === Version 0.4 / 2012-9-18
 * Enhancements
