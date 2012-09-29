@@ -53,6 +53,16 @@ end
 
 ### Brazenhead
 
+**_Getting Started_**
+
+Before being able to instrument your application, you will need to add the `INTERNET` permission to your `AndroidManifest.xml`.
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+**_Cucumber Setup_**
+
 Sample `features/support/env.rb` file.
 
 ````ruby
