@@ -1,4 +1,4 @@
-=== Version 0.5.2
+=== Version 0.5.2 / 2012-9-30
   * Added ability to select items from Spinner by index
   * Added ability to navigate through several screens using the new navigate_to method
 
