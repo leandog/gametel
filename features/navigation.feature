@@ -1,4 +1,3 @@
-@focus
 Feature: Navigation through the screens of the application
 
   Scenario: Navigating to a screen using the default route

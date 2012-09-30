@@ -25,7 +25,7 @@ module Gametel
       #
       def get_text(locator)
         result = get_text_by_id(locator[:id])
-        strip_quotes_from result.body
+        last_json
       end
 
       #
@@ -33,7 +33,7 @@ module Gametel
       #
       def get_text_hint(locator)
         result = get_text_hint_by_id(locator[:id])
-        strip_quotes_from result.body
+        last_json
       end
 
       #
@@ -41,7 +41,7 @@ module Gametel
       #
       def get_text_description(locator)
         result = get_text_description_by_id(locator[:id])
-        strip_quotes_from result.body
+        last_json
       end
 
       #
@@ -102,7 +102,7 @@ module Gametel
       def get_spinner_value(locator)
         result = get_spinner_value_by_id(locator[:id]) if locator[:id]
         result = get_spinner_value_by_index(locator[:index]) if locator[:index]
-        strip_quotes_from result.body
+        last_json
       end
 
       #
@@ -159,11 +159,6 @@ module Gametel
         result = send_key ENTER_KEY
       end
 
-      private
-
-      def strip_quotes_from(value)
-        value.gsub('"', '')
-      end
     end
   end
 end
