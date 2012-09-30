@@ -20,5 +20,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
   gem.add_development_dependency 'cucumber'
+  gem.add_development_dependency 'require_all'
 
 end

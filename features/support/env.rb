@@ -1,10 +1,10 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '../../', 'lib'))
 
 require 'rspec/expectations'
+require 'require_all'
 require 'brazenhead'
 require 'brazenhead/server'
 require 'gametel'
-require 'gametel/navigation'
 
 World(Gametel::Navigation)
 
@@ -16,6 +16,19 @@ keystore = {
 }
 
 server = Brazenhead::Server.new('features/support/ApiDemos.apk', keystore)
+
+require_rel '/screens'
+
+Gametel::Navigation.routes = {
+  :default => [[MainMenuScreen, :views],
+               [ViewsMenuScreen, :controls],
+               [ControlsMenuScreen, :light_theme],
+               [ControlsScreen, :button_field_id]],
+  :button_route => [[MainMenuScreen, :views],
+                    [ViewsMenuScreen, :buttons],
+                    [ButtonScreen, :normal_id]]
+}
+
 
 class Driver
   include Brazenhead
