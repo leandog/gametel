@@ -92,7 +92,7 @@ describe Gametel::Accessors do
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_text)
         accumulator.should_receive(:to_string)
-        result.should_receive(:body).and_return("the value")
+        device.should_receive(:last_json).and_return('the value')
         screen.first_name_id.should eq('the value')
       end
 
@@ -100,7 +100,7 @@ describe Gametel::Accessors do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_hint)
-        result.should_receive(:body).and_return("the hint")
+        device.should_receive(:last_json).and_return('the hint')
         view = screen.first_name_id_view
         view.hint.should eq('the hint')
       end
@@ -109,7 +109,7 @@ describe Gametel::Accessors do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
         accumulator.should_receive(:get_content_description)
-        result.should_receive(:body).and_return("the content description")
+        device.should_receive(:last_json).and_return('the content description')
         view = screen.first_name_id_view
         view.description.should eq('the content description')
       end
@@ -508,7 +508,7 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view)
           accumulator.should_receive(:get_selected_item)
           accumulator.should_receive(:to_string)
-          result.should_receive(:body).and_return('the text value')
+          device.should_receive(:last_json).and_return('the text value')
           screen.spinner_id.should eq('the text value')
         end
 
@@ -526,7 +526,7 @@ describe Gametel::Accessors do
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, anything)
           accumulator.should_receive(:get_selected_item)
           accumulator.should_receive(:to_string)
-          result.should_receive(:body).and_return('the text value')
+          device.should_receive(:last_json).and_return('the text value')
           screen.spinner_index.should eq('the text value')
         end
 
