@@ -24,7 +24,6 @@ Feature:  Interacting with progress bars
     When I am looking at the progress of a seek bar
     Then the retrieved progress max indicated by "index" should be "100"
 
-@focus
   Scenario: Getting the progress bar's view by id
     When I am looking at the progress of a seek bar
     Then the progress bar indicated by "id" can determine the following properties:
@@ -36,7 +35,6 @@ Feature:  Interacting with progress bars
       | selected  | false |
       | shown     | true  |
 
-@focus
   Scenario: Getting the progress bar's view by index
     When I am looking at the progress of a seek bar
     Then the progress bar indicated by "index" can determine the following properties:

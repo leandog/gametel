@@ -203,6 +203,9 @@ module Gametel
       define_method("select_#{name}") do |value|
         platform.select_spinner_value(locator, value)
       end
+      define_method("#{name}_view") do
+        Gametel::Views::Spinner.new(platform, locator)
+      end
     end
   end
 end
