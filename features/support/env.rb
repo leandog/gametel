@@ -2,8 +2,6 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '../../', 'lib'))
 
 require 'rspec/expectations'
 require 'require_all'
-require 'brazenhead'
-require 'brazenhead/server'
 require 'gametel'
 
 World(Gametel::Navigation)
