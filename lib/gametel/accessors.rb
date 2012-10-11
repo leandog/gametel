@@ -139,6 +139,7 @@ module Gametel
     # @param  [Hash]  locator indicating an id for how the view is found.
     # The only valid keys are:
     #   * :id
+    #   * :text
     #
     def view(name, locator)
       define_method(name) do
@@ -160,6 +161,7 @@ module Gametel
     # @param  [Hash]  locator indicating an id for how the progress bar is found.
     # The only valid keys are:
     #   * :id
+    #   * :index
     #
     def progress(name, locator)
       define_method("#{name}") do
@@ -189,6 +191,7 @@ module Gametel
     # @param  [Hash]  locator indicating an id for how the spinner is found.
     # The only valid keys are:
     #   * :id
+    #   * :index
     #
     def spinner(name, locator)
       define_method(name) do
