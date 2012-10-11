@@ -32,3 +32,13 @@ Then /^the retrieved progress max indicated by "(.*?)" should be "(.*?)"$/ do |h
     screen.send("progress_#{how}_max").should eq(value.to_i)
   end
 end
+
+Then /^the progress bar indicated by "(.*?)" can determine the following properties:$/ do |how, properties|
+  on(SeekBarScreen) do |screen|
+    view = screen.send("progress_#{how}_view")
+    properties.hashes.each do |property|
+      result = view.send("#{property["property"]}?")
+      result.to_s.should eq(property["value"]), "for field #{property["property"]}"
+    end
+  end
+end

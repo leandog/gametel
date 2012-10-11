@@ -1,4 +1,9 @@
+=== Version 0.5.3
+* Enhancements
+  * Added view for Progress
+
 === Version 0.5.2 / 2012-9-30
+* Enhancements
   * Added ability to select items from Spinner by index
   * Added ability to navigate through several screens using the new navigate_to method
 

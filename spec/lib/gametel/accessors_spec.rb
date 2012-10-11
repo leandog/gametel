@@ -623,6 +623,63 @@ describe Gametel::Accessors do
           screen.progress_index_max.should eq(100)
         end
       end
+
+      context "when looking at properties" do
+
+        it "should know if they are enabled" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_enabled)
+          result.should_receive(:body).and_return("false")
+          view = screen.progress_id_view
+          view.should_not be_enabled
+        end
+
+        it "should know if they are clickable" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_clickable)
+          result.should_receive(:body).and_return("true")
+          view = screen.progress_id_view
+          view.should be_clickable
+        end
+
+        it "should know if they are focusable" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_focusable)
+          result.should_receive(:body).and_return("true")
+          view = screen.progress_id_view
+          view.should be_focusable
+        end
+
+        it "should know if they are focused" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_focused)
+          result.should_receive(:body).and_return("true")
+          view = screen.progress_id_view
+          view.should be_focused
+        end
+
+        it "should know if they are selected" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_selected)
+          result.should_receive(:body).and_return("true")
+          view = screen.progress_id_view
+          view.should be_selected
+        end
+
+        it "should know if they are shown" do
+          accumulator.should_receive(:id_from_name)
+          accumulator.should_receive(:get_view)
+          accumulator.should_receive(:is_shown)
+          result.should_receive(:body).and_return("true")
+          view = screen.progress_id_view
+          view.should be_shown
+        end
+      end
     end
   end
 end

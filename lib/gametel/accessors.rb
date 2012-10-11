@@ -179,6 +179,9 @@ module Gametel
       define_method("#{name}_secondary=") do |value|
         platform.set_secondary_progress(locator, value)
       end
+      define_method("#{name}_view") do
+        Gametel::Views::Progress.new(platform, locator)
+      end
     end
 
     #
