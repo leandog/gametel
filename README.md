@@ -66,10 +66,7 @@ Before being able to instrument your application, you will need to add the `INTE
 Sample `features/support/env.rb` file.
 
 ````ruby
-require 'brazenhead'
-require 'brazenhead/server'
 require 'gametel'
-require 'gametel/navigation'
 
 World(Gametel::Navigation)
 
