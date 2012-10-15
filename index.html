@@ -28,32 +28,102 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>Welcome to GitHub Pages.</h3>
+          <h1>Gametel</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><a href="http://travis-ci.org/leandog/gametel"><img src="http://travis-ci.org/leandog/gametel.png" alt="Build Status"></a></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>A gem to assist in building page-object like structures for testing android applications.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'gametel'
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>And then execute:</p>
 
-<h3>Designer Templates</h3>
+<pre><code>$ bundle
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Or install it yourself as:</p>
 
-<h3>Rather Drive Stick?</h3>
+<pre><code>$ gem install gametel
+</code></pre>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h2>Usage</h2>
 
-<h3>Authors and Contributors</h3>
+<h3>Defining your screen object</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">LoginPage</span>
+  <span class="kp">include</span> <span class="no">Gametel</span>
+<span class="k">end</span>
+</pre></div>
 
-<h3>Support or Contact</h3>
+<p>When you include this module methods are added to your class allowing you to declare the items on the screen.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">LoginPage</span>
+  <span class="kp">include</span> <span class="no">Gametel</span>
+
+  <span class="n">text</span><span class="p">(</span><span class="ss">:username</span><span class="p">,</span> <span class="ss">:index</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">text</span><span class="p">(</span><span class="ss">:password</span><span class="p">,</span> <span class="ss">:index</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">button</span><span class="p">(</span><span class="ss">:login</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="s1">'Login'</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>In your step definitions you can then access generated methods to interact with the views on your screen.</p>
+
+<div class="highlight"><pre><span class="n">on</span><span class="p">(</span><span class="no">LoginPage</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">screen</span><span class="o">|</span>
+  <span class="n">screen</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="s1">'levi'</span>
+  <span class="n">screen</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">'secret'</span>
+  <span class="n">screen</span><span class="o">.</span><span class="n">login</span>
+<span class="k">end</span>
+</pre></div>
+
+<h2>Supported Drivers</h2>
+
+<h3>Brazenhead</h3>
+
+<p><strong><em>Getting Started</em></strong></p>
+
+<p>Before being able to instrument your application, you will need to add the <code>INTERNET</code> permission to your <code>AndroidManifest.xml</code>.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+<p><strong><em>Cucumber Setup</em></strong></p>
+
+<p>Sample <code>features/support/env.rb</code> file.</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'gametel'</span>
+
+<span class="no">World</span><span class="p">(</span><span class="no">Gametel</span><span class="o">::</span><span class="no">Navigation</span><span class="p">)</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="no">Brazenhead</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span> <span class="s2">"ApiDemos.apk"</span>
+
+<span class="k">class</span> <span class="nc">Driver</span>
+  <span class="kp">include</span> <span class="no">Brazenhead</span>
+<span class="k">end</span>
+
+<span class="no">Before</span> <span class="k">do</span>
+  <span class="vi">@driver</span> <span class="o">=</span> <span class="no">Driver</span><span class="o">.</span><span class="n">new</span>
+  <span class="n">server</span><span class="o">.</span><span class="n">start</span> <span class="s2">"ApiDemos"</span>
+<span class="k">end</span>
+
+<span class="no">After</span> <span class="k">do</span>
+  <span class="n">server</span><span class="o">.</span><span class="n">stop</span>
+<span class="k">end</span>
+</pre></div>
+
+<h2>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
         </section>
 
         <aside id="sidebar">
