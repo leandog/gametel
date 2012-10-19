@@ -1727,6 +1727,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.List18" android:label="Views/Lists/18. Custom items">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".view.ExpandableList1" android:label="Views/Expandable Lists/1. Custom Adapter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
