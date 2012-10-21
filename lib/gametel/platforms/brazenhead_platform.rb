@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), 'brazenhead', 'progress')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'spinner')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'view')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'list_item')
 
 
 module Gametel
@@ -17,6 +18,7 @@ module Gametel
       include Gametel::Platforms::Spinner
       include Gametel::Platforms::Text
       include Gametel::Platforms::View
+      include Gametel::Platforms::ListItem
 
       ENTER_KEY = 66
 
@@ -69,15 +71,6 @@ module Gametel
         result = click_on_view_by_id(locator[:id]) if locator[:id]
       end
 
-      #
-      # press a list item
-      #
-      def press_list_item(locator)
-        list = locator[:list] ? locator[:list] : 0
-        result = click_in_list(locator[:index] + 1, list) if locator[:index]
-        result = click_on_text(locator[:text]) if locator[:text]
-      end
-      
       #
       # click a checkbox
       #
