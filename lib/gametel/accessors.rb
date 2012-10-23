@@ -81,6 +81,9 @@ module Gametel
       define_method(name) do
         platform.press_list_item(locator)
       end
+      define_method("#{name}_view") do
+        Gametel::Views::ListItem.new(platform, locator)
+      end
     end
 
     #

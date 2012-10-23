@@ -1,6 +1,10 @@
 module Gametel
   module Views
     class ListItem < View
+
+      def text
+        platform.text_from_list_item(locator)
+      end
       
       protected
       
