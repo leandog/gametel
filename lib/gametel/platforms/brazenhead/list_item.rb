@@ -11,11 +11,25 @@ module Gametel
       end
 
       def text_from_list_item(locator)
-        chain_calls do |device|
-          device.list_item_by_text(locator[:text], :target => 'Brazenhead', :variable => '@@the_view@@')
+        list_item(locator) do |device|
           device.get_current_text_views('@@the_view@@', :target => 'Robotium')
         end
         last_json.map { |text_view| text_view['text'] }
+      end
+
+      def list_item_has_image(locator)
+        list_item(locator) do |device|
+          device.get_current_image_views('@@the_view@@', :target => 'Robotium')
+        end
+        last_json[0]['hasDrawable'] if last_json[0]
+      end
+
+      def list_item(locator, &block) 
+        chain_calls do |device|
+          device.list_item_by_text(locator[:text], :target => 'Brazenhead',
+                                   :variable => '@@the_view@@')
+          block.call device if block
+        end
       end
     end
   end

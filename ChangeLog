@@ -1,7 +1,9 @@
 === Version 0.5.4
 * Enhancements
   * Added ListItem view class
-  * Added text method on ListItem to return all enclosed text
+  * Added text method to ListItem to return all enclosed text
+  * Added has_text? method to ListItem to determine if it contains some text
+  * Added has_image? method to ListItem to inform if it contains a drawable
 
 === Version 0.5.3 / 2012-10-11
 * Enhancements
