@@ -7,7 +7,11 @@ module Gametel
       end
 
       def has_text?(text)
-        return self.text.include? text
+        the_text = ''
+        self.text.each do |txt|
+          the_text += txt + ' '
+        end
+        return the_text.include? text
       end
 
       def has_image?

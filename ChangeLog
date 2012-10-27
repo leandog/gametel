@@ -4,6 +4,7 @@
   * Added text method to ListItem to return all enclosed text
   * Added has_text? method to ListItem to determine if it contains some text
   * Added has_image? method to ListItem to inform if it contains a drawable
+  * Updated wait_for_text to raise exception when text not found
 
 === Version 0.5.3 / 2012-10-11
 * Enhancements
