@@ -20,7 +20,7 @@ class ViewsMenuScreen
   list_item(:image_view, :text => 'ImageView')
   list_item(:layout_animations, :text => 'Layout Animations')
   list_item(:layouts, :text => 'Layouts')
-  list_item(:lists, :text => 'Lists')
+  list_item(:lists, :text => '^Lists$')
   list_item(:popup_menu, :text => 'Popup Menu')
   list_item(:progress_bar, :text => 'Progress Bar')
   list_item(:radio_group, :text => 'Radio Group')
