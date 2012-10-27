@@ -1,4 +1,4 @@
-=== Version 0.5.4
+=== Version 0.5.4 / 2012-10-27
 * Enhancements
   * Added ListItem view class
   * Added text method to ListItem to return all enclosed text
