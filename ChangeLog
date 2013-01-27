@@ -1,3 +1,6 @@
+=== Version 0.5.5 / 2013-1-26
+* Replaced navigation with the page_navigation gem
+
 === Version 0.5.4 / 2012-10-27
 * Enhancements
   * Added ListItem view class
