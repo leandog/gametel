@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'brazenhead', '>= 0.4.5'
   gem.add_dependency 'ADB', '>= 0.5.4'
+  gem.add_dependency 'page_navigation', '>= 0.3'
 
   gem.add_development_dependency 'rspec', '>= 2.6.0'
   gem.add_development_dependency 'cucumber'

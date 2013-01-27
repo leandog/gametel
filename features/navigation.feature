@@ -10,5 +10,5 @@ Feature: Navigation through the screens of the application
 
   Scenario: Navigating to a screen starting with a current screen
     Given I am on the the ViewsMenuScreen
-    When I navigate to the Controls screen 
+    When I continue navigating to the Controls screen 
     Then I should see the text "Checkbox 1" on the screen
