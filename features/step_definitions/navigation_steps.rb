@@ -11,5 +11,5 @@ When /^I navigate to the Buttons screen using the "(.*?)" route$/ do |route|
 end
 
 Given /^I am on the the ViewsMenuScreen$/ do
-  navigate_to(ViewsMenuScreen)
+  navigate_to(MainMenuScreen).views
 end
