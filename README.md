@@ -8,6 +8,7 @@ A gem to assist in building page-object like structures for testing android appl
 
 Add this line to your application's Gemfile:
 
+    source :rubygems
     gem 'gametel'
 
 And then execute:
