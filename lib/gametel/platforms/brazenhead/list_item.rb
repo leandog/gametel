@@ -12,14 +12,18 @@ module Gametel
 
       def text_from_list_item(locator)
         list_item(locator) do |device|
-          device.get_current_text_views('@@the_view@@', :target => 'Robotium')
+          device.get_class
+          device.for_name('android.widget.TextView', :variable => '@@the_class@@')
+          device.get_current_views('@@the_class@@', '@@the_view@@', :target => 'Robotium')
         end
         last_json.map { |text_view| text_view['text'] }
       end
 
       def list_item_has_image(locator)
         list_item(locator) do |device|
-          device.get_current_image_views('@@the_view@@', :target => 'Robotium')
+          device.get_class
+          device.for_name('android.widget.ImageView', :variable => '@@the_class@@')
+          device.get_current_views('@@the_class@@', '@@the_view@@', :target => 'Robotium')
         end
         last_json[0]['hasDrawable'] if last_json[0]
       end
