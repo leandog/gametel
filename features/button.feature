@@ -52,7 +52,7 @@ Feature: Interacting with buttons
     Then the "button" field identified by "text" can determine the following properties:
       | property  | value |
       | clickable | true  |
-      | enabled   | false |
+      | enabled   | true  |
       | focusable | true  |
       | focused   | false |
       | selected  | false |
