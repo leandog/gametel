@@ -1,3 +1,10 @@
+=== Version 0.5.6 / 2013-3-13
+*	Enhancements
+	*	Support for api 17 AVDs (with brazenhead)
+	*	bumped dependencies for ADB and page_navigation
+	*	introduced hook for :active? method in page objects for pages
+		to define when they are ready
+
 === Version 0.5.5 / 2013-1-26
 * Replaced navigation with the page_navigation gem
 
