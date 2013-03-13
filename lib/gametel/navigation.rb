@@ -13,6 +13,7 @@ module Gametel
     #
     def on(cls, &block)
       @current_screen = @current_page = cls.new
+      @current_screen.active?
       block.call @current_screen if block
       @current_screen
     end

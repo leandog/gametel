@@ -1,5 +1,6 @@
 require 'gametel/accessors'
 require 'gametel/navigation'
+require 'gametel/waiter'
 require 'gametel/version'
 require 'gametel/platforms/brazenhead_platform'
 require 'gametel/views'
