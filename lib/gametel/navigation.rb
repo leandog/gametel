@@ -1,4 +1,5 @@
 require 'page_navigation'
+require 'gametel/waiter'
 
 module Gametel
   #
@@ -6,14 +7,15 @@ module Gametel
   # definitions.
   #
   module Navigation
-    include PageNavigation
+    include PageNavigation, Gametel::Waiter
 
     #
     # create a new screen given a class name
     #
     def on(cls, &block)
       @current_screen = @current_page = cls.new
-      wait_until { @current_screen.active? } if @current_screen.respond_to?(:active?)
+      waiting_for  = "#{cls} to be active"
+      wait_until(10, waiting_for) { @current_screen.active? } if @current_screen.respond_to?(:active?)
       block.call @current_screen if block
       @current_screen
     end

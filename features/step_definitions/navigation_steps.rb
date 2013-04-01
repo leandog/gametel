@@ -13,3 +13,16 @@ end
 Given /^I am on the the ViewsMenuScreen$/ do
   navigate_to(ViewsMenuScreen)
 end
+
+When(/^I wait for the "(.*?)" screen$/) do |which|
+  begin
+    on(which.to_class)
+  rescue Exception => e
+    @last_error = e
+  end
+end
+
+Then(/^the last error should tell me "(.*?)"$/) do |what|
+  @last_error.message.should eq(what)
+end
+

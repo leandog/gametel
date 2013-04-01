@@ -12,3 +12,7 @@ Feature: Navigation through the screens of the application
     Given I am on the the ViewsMenuScreen
     When I continue navigating to the Controls screen 
     Then I should see the text "Checkbox 1" on the screen
+
+  Scenario: Waiting for screens to be active
+    When I wait for the "NeverWillExist" screen
+    Then the last error should tell me "Timed out waiting for NeverWillExist to be active"

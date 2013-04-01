@@ -13,7 +13,7 @@ module Gametel
   ROBOTIUM_RIGHT = 22
 
   def self.included(cls)
-    cls.extend Gametel::Accessors
+    cls.extend Gametel::Accessors, Gametel::Waiter
   end
 
   def initialize(pform = :brazenhead)
