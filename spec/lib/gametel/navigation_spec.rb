@@ -27,4 +27,10 @@ describe Gametel::Navigation do
     self.should_receive(:wait_until)
     on(NavigationScreen)
   end
+
+  it "should say what we are waiting on" do
+    screen.stub(:active?).and_return(true)
+    self.should_receive(:wait_until).with(10, "NavigationScreen to be active")
+    on(NavigationScreen)
+  end
 end
