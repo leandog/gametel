@@ -26,6 +26,8 @@ class AccessorsSampleScreen
   spinner(:spinner_index, :index => 1)
   progress(:progress_id, :id => 'progress_id')
   progress(:progress_index, :index => 1)
+  image(:image_index, :index => 0)
+  image(:image_id, :id => 'image_id')
 end
 
 describe Gametel::Accessors do
@@ -750,6 +752,30 @@ describe Gametel::Accessors do
           view = screen.progress_id_view
           view.should be_shown
         end
+      end
+    end
+    
+    context "images" do
+      it "should click an image using the index" do
+        platform.should_receive(:click_on_image).with(0)
+        screen.click_image_index
+      end
+
+      it "should click an image by id" do
+        platform.should_receive(:click_on_view_by_id).with('image_id')
+        screen.click_image_id
+      end
+
+      it "should wait for a drawable when using index" do
+        platform.should_receive(:get_image).with(0)
+        platform.should_receive(:last_json).and_return({'hasDrawable' => 'true'})
+        screen.wait_for_image_index
+      end
+
+      it "should wait for a drawable when using index" do
+        platform.should_receive(:get_view_by_id).with(:id => 'image_id')
+        platform.should_receive(:last_json).and_return({'hasDrawable' => 'true'})
+        screen.wait_for_image_id
       end
     end
   end

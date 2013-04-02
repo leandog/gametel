@@ -90,6 +90,14 @@ module Gametel
       end
 
       #
+      # click an image
+      #
+      def click_image(locator)
+        result = click_on_image(locator[:index]) if locator[:index]
+        result = click_on_view_by_id(locator[:id]) if locator[:id]
+      end
+
+      #
       # get the selected spinner value
       #
       def get_spinner_value(locator)
@@ -128,6 +136,15 @@ module Gametel
       def has_view?(locator)
         result = get_view_by_id(locator)
         result.body.include? 'windowLocation'
+      end
+
+      #
+      # return if a view has a drawable
+      #
+      def has_drawable?(locator)
+        view = get_view_by_id(locator) if locator[:id]
+        view = get_image(locator[:index]) if locator[:index]
+        last_json['hasDrawable']
       end
 
       #

@@ -22,7 +22,7 @@ module Gametel
     #   text(:first_name, :index => 0)
     #   # will generate 'first_name', 'first_name=', 'clear_first_name', 'first_name_hint' and 'first_name_description' methods
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator for how the text is found  The valid
     # keys are:
     #  * :id
@@ -50,7 +50,7 @@ module Gametel
     #   button(:save, :text => 'Save')
     #   # will generate 'save' and 'save_enabled?' methods
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator for how the button is found  The valid
     # keys are:
     #  * :text
@@ -83,7 +83,7 @@ module Gametel
     #   # will generate 'details' method to select third item in the
     #   # first list
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator for how the list item is found  The valid
     # keys are:
     #  * :text
@@ -107,7 +107,7 @@ module Gametel
     #   checkbox(:enable, :text => 'Enable')
     #   # will generate 'enable' method
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator for how the checkbox is found  The valid
     # keys are:
     #  * :text
@@ -130,7 +130,7 @@ module Gametel
     #   radio_button(:circle, :text => 'Circle')
     #   # will generate 'circle' method
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator for how the checkbox is found  The valid
     # keys are:
     #  * :text
@@ -152,7 +152,7 @@ module Gametel
     #   view(:clickable_text, :id => 'id_name_of_your_control')
     #   # will generate 'clickable_text' method
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator indicating an id for how the view is found.
     # The only valid keys are:
     #   * :id
@@ -174,7 +174,7 @@ module Gametel
     #   spinner(:progress_item, :id => 'id_name_of_your_control')
     #   # will generate progress_item, progress_item=, progress_item_secondary, progress_item_secondary=
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator indicating an id for how the progress bar is found.
     # The only valid keys are:
     #   * :id
@@ -202,12 +202,15 @@ module Gametel
     end
 
     #
-    # Generates one method to get the selected item text.
+    # Generates three method to interact with a spinner
     # @example
     #   spinner(:spinner_item, :id => 'id_name_of_your_control')
-    #   # will generate 'spinner_item' method
+    #   # will generate 'spinner_item' method to return the spinner
+    #   # value, 'select_spinner_item(value) to set the spinner value
+    #   # and 'spinner_view' to return the view
+    
     #
-    # @param  [String]  the name used for the generated methods
+    # @param  [Symbol]  the name used for the generated methods
     # @param  [Hash]  locator indicating an id for how the spinner is found.
     # The only valid keys are:
     #   * :id
@@ -222,6 +225,34 @@ module Gametel
       end
       define_method("#{name}_view") do
         Gametel::Views::Spinner.new(platform, locator)
+      end
+    end
+
+    #
+    # Generaes method to interact with an image.
+    #
+    # @example
+    #   image(:headshot, :id => 'headshot')
+    #   # will generate 'click_headshot' method to click the image,
+    #   # 'wait_for_headshot' which will wait until the image has
+    #   # loaded a drawable and 'headshot_view' to return the view
+    #
+    # @param  [Symbol]  the name used for the generated methods
+    # @param  [Hash]  locator indicating an id for how the image is found.
+    # The only valid keys are:
+    #   * :index
+    #
+    def image(name, locator)
+      define_method("click_#{name}") do
+        platform.click_image(locator)
+      end
+      define_method("wait_for_#{name}") do
+        wait_until do
+          platform.has_drawable?(locator)
+        end
+      end
+      define_method("#{name}_view") do
+        Gametel::Views::Image.new(platform, locator)
       end
     end
   end
