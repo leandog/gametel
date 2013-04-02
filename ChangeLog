@@ -1,17 +1,18 @@
-=== Version 0.5.7 / 2013-4-1
-*	Enhancements
-	*	Gametel::Navigation indicates what screen it was waiting for if it times
-	out
+=== Version 0.5.8
+* Enhancements
+  * Added activity accessor that generates an active? method that waits until the activity becomes active
 
-*	Bug Fixes
-	*	Gametel::Navigation works now when :active? is defined on a screen
+=== Version 0.5.7 / 2013-4-1
+* Enhancements
+  * Gametel::Navigation indicates what screen it was waiting for if it times out
+* Bug Fixes
+  * Gametel::Navigation works now when :active? is defined on a screen
 
 === Version 0.5.6 / 2013-3-13
-*	Enhancements
-	*	Support for api 17 AVDs (with brazenhead)
-	*	bumped dependencies for ADB and page_navigation
-	*	introduced hook for :active? method in page objects for pages
-		to define when they are ready
+* Enhancements
+ * Support for api 17 AVDs (with brazenhead)
+ * bumped dependencies for ADB and page_navigation
+ * introduced hook for :active? method in page objects for pages to define when they are ready
 
 === Version 0.5.5 / 2013-1-26
 * Replaced navigation with the page_navigation gem

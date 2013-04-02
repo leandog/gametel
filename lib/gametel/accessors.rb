@@ -1,5 +1,19 @@
 module Gametel
   module Accessors
+
+    #
+    # Generates a method named active? which will wait for the
+    # activity to become active
+    #
+    # returns true when successful
+    #
+    def activity(activity_name)
+      define_method("active?") do
+        platform.wait_for_activity activity_name
+        platform.last_json
+      end 
+    end
+
     #
     # Generates methods to enter text into a text field, clear the text
     # field, get the hint as well as the description

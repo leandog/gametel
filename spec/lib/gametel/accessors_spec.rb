@@ -3,6 +3,8 @@ require 'spec_helper'
 class AccessorsSampleScreen
   include Gametel
 
+  activity "SomeActivity"
+
   list_item(:first_list_item_text, :text => 'first item')
   list_item(:first_list_item_index, :index => 0)
   list_item(:first_list_item_index_list, :index => 0, :list => 1)
@@ -41,6 +43,18 @@ describe Gametel::Accessors do
       accumulator.stub(:clear)
       accumulator.stub(:message)
       device.stub(:send).and_return(result)
+    end
+
+    context "defining the activity on a screen" do
+      it "should define the active? method" do
+        screen.should respond_to :active?
+      end
+
+      it "should wait for the activity to become active" do
+        platform.should_receive(:wait_for_activity).with("SomeActivity")
+        platform.should_receive(:last_json)
+        screen.active?
+      end
     end
 
     context "list items" do
