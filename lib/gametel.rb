@@ -6,6 +6,7 @@ require 'gametel/platforms/brazenhead_platform'
 require 'gametel/views'
 
 module Gametel
+  include Gametel::Waiter
 
   attr_reader :platform
 
@@ -13,7 +14,7 @@ module Gametel
   ROBOTIUM_RIGHT = 22
 
   def self.included(cls)
-    cls.extend Gametel::Accessors, Gametel::Waiter
+    cls.extend Gametel::Accessors
   end
 
   def initialize(pform = :brazenhead)
