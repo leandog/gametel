@@ -19,8 +19,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'ADB', '>= 0.5.5'
   gem.add_dependency 'page_navigation', '>= 0.7'
 
-  gem.add_development_dependency 'rspec', '>= 2.6.0'
-  gem.add_development_dependency 'cucumber'
+  gem.add_development_dependency 'rspec', '>= 2.13.0'
+  gem.add_development_dependency 'cucumber', '>=1.2.0'
   gem.add_development_dependency 'require_all'
 
 end
