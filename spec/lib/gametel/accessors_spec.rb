@@ -773,7 +773,7 @@ describe Gametel::Accessors do
       end
 
       it "should wait for a drawable when using index" do
-        platform.should_receive(:get_view_by_id).with(:id => 'image_id')
+        platform.should_receive(:get_view_by_id).with('image_id')
         platform.should_receive(:last_json).and_return({'hasDrawable' => 'true'})
         screen.wait_for_image_id
       end
