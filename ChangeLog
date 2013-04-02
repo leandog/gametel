@@ -1,4 +1,4 @@
-=== Version 0.5.8
+=== Version 0.5.8 / 2013-4-2
 * Enhancements
   * Added activity accessor that generates an active? method that waits until the activity becomes active
   * Added support for ImageView
