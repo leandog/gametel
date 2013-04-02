@@ -1,3 +1,7 @@
+=== Version 0.5.8. / 2013-4-2
+* Bug Fixes
+  * Fixed an error when waiting for image using an id
+
 === Version 0.5.8 / 2013-4-2
 * Enhancements
   * Added activity accessor that generates an active? method that waits until the activity becomes active
