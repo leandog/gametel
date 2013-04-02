@@ -142,7 +142,7 @@ module Gametel
       # return if a view has a drawable
       #
       def has_drawable?(locator)
-        view = get_view_by_id(locator) if locator[:id]
+        view = get_view_by_id(locator[:id]) if locator[:id]
         view = get_image(locator[:index]) if locator[:index]
         last_json['hasDrawable']
       end
