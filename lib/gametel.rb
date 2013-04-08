@@ -31,8 +31,9 @@ module Gametel
     @default_server ||= Brazenhead::Server.new @apk_path
   end
 
-  def self.start(activity)
-    default_server.start(activity)
+  def self.start(activity, keystore=nil)
+    default_server.start(activity, keystore) if keystore
+    default_server.start(activity) unless keystore
     default_driver
   end
 

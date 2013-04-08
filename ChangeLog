@@ -1,3 +1,7 @@
+=== Version 0.5.9.1 / 2013-4-8
+* Bug Fixes
+  * Updated to accept keystore when using simple configuration
+
 === Version 0.5.9 / 2013-4-8
 * Enhancements
   * Simplified startup process by adding default driver, default server and start/stop methods
