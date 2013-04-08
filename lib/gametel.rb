@@ -1,4 +1,6 @@
+require 'brazenhead'
 require 'gametel/accessors'
+require 'gametel/driver'
 require 'gametel/navigation'
 require 'gametel/waiter'
 require 'gametel/version'
@@ -15,6 +17,27 @@ module Gametel
 
   def self.included(cls)
     cls.extend Gametel::Accessors
+  end
+
+  def self.apk_path=(path)
+    @apk_path = path
+  end
+
+  def self.default_driver
+    @default_driver ||= Gametel::Driver.new
+  end
+
+  def self.default_server
+    @default_server ||= Brazenhead::Server.new @apk_path
+  end
+
+  def self.start(activity)
+    default_server.start(activity)
+    default_driver
+  end
+
+  def self.stop
+    default_server.stop
   end
 
   def initialize(pform = :brazenhead)

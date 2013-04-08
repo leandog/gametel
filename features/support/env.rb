@@ -6,15 +6,6 @@ require 'gametel'
 
 World(Gametel::Navigation)
 
-keystore = {
-  :path => 'features/support/debug.keystore',
-  :alias => 'androiddebugkey',
-  :password => 'android',
-  :keystore_password => 'android'
-}
-
-server = Brazenhead::Server.new('features/support/ApiDemos.apk', keystore)
-
 require_rel '/screens'
 
 Gametel::Navigation.routes = {
@@ -28,15 +19,12 @@ Gametel::Navigation.routes = {
 }
 
 
-class Driver
-  include Brazenhead
-end
+Gametel.apk_path = 'features/support/ApiDemos.apk'
 
 Before do
-  @driver = Driver.new
-  server.start("ApiDemos")
+  @driver = Gametel.start('ApiDemos')
 end
 
 After do
-  server.stop
+  Gametel.stop
 end
