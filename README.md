@@ -71,19 +71,14 @@ require 'gametel'
 
 World(Gametel::Navigation)
 
-server = Brazenhead::Server.new "ApiDemos.apk"
-
-class Driver
-  include Brazenhead
-end
+Gametel.apk_path = "features/support/ApiDemos.apk"
 
 Before do
-  @driver = Driver.new
-  server.start "ApiDemos"
+  @driver = Gametel.start('ApiDemos')
 end
 
 After do
-  server.stop
+  Gametel.stop
 end
 ````
 
