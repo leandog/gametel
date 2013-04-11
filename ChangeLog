@@ -1,3 +1,7 @@
+=== Version 0.5.9.1
+*	Bug Fixes
+	*	Fixed an issue when retrieving text identified by index
+
 === Version 0.5.9.1 / 2013-4-8
 * Bug Fixes
   * Updated to accept keystore when using simple configuration
