@@ -32,10 +32,15 @@ Feature: Interacting with the standard text field
     When I'm on the search view filter screen
     Then I am am given the description "Edit Description" for the "text_field_id" control
 
-  Scenario: Retrieving text identified by index
+  Scenario: Retrieving text identified by id
     Given I'm on the controls screen
     When I enter "example text" into the text field identified by "id"
     Then I should have the value "example text" in the text field identified by "id"
+
+  Scenario: Retrieving text identified by index
+    Given I'm on the controls screen
+    When I enter "example text" into the text field identified by "index"
+    Then I should have the value "example text" in the text field identified by "index"
 
   Scenario: Determining if a text view is enabled
     When I'm on the controls screen

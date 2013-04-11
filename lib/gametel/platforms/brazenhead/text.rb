@@ -11,6 +11,13 @@ module Gametel
         end
       end
 
+      def get_text_by_index(index)
+        get_view_by_index('android.widget.EditText', index) do |device|
+          device.get_text
+          device.to_string
+        end
+      end
+
       def enter_text_by_id(id, text)
         get_view_by_id(id) do |device|
           device.enter_text '@@the_view@@', text, :target => 'Robotium'

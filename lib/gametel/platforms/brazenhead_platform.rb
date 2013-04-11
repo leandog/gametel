@@ -26,7 +26,8 @@ module Gametel
       # get text
       #
       def get_text(locator)
-        result = get_text_by_id(locator[:id])
+        result = get_text_by_id(locator[:id]) if locator[:id]
+        result = get_text_by_index(locator[:index]) if locator[:index]
         last_json
       end
 

@@ -112,6 +112,16 @@ describe Gametel::Accessors do
         screen.first_name_id.should eq('the value')
       end
 
+      it "should know how to get text by index" do
+        accumulator.should_receive(:get_class)
+        accumulator.should_receive(:for_name).with('android.widget.EditText', :variable => '@@the_type@@')
+        accumulator.should_receive(:get_view).with('@@the_type@@', 2, :target => 'Robotium', :variable => '@@the_view@@')
+        accumulator.should_receive(:get_text)
+        accumulator.should_receive(:to_string)
+        device.should_receive(:last_json).and_return('the indexed text')
+        screen.first_name_index.should eq('the indexed text')
+      end
+
       it "should know how to get the hint text" do
         accumulator.should_receive(:id_from_name)
         accumulator.should_receive(:get_view)
