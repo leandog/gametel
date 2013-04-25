@@ -5,6 +5,13 @@ class GametelSampleScreen
 end
 
 describe Gametel do
+  let(:server) { double('Brazenhead Server') }
+
+  before(:each) do
+    Gametel.instance_variable_set(:@default_server, nil)
+    Gametel.keystore = nil
+    Gametel.apk_path = nil
+  end
 
   it "should initialize the platform to Brazenhead when no other platform is specified" do
     screen = GametelSampleScreen.new
@@ -15,6 +22,22 @@ describe Gametel do
   it "should add the accessors to the class when included" do
     GametelSampleScreen.should respond_to :text
     GametelSampleScreen.should respond_to :button
+  end
+
+  it "should use the supplied apk path" do
+    Brazenhead::Server.should_receive(:new).with('expected/path/to.apk').and_return(server)
+    server.should_receive(:start).with('SomeActivity')
+
+    Gametel.apk_path = 'expected/path/to.apk'
+    Gametel.start 'SomeActivity'
+  end
+
+  it "should use the supplied keystore" do
+    Brazenhead::Server.should_receive(:new).with(nil, :keystore => :info).and_return(server)
+    server.should_receive(:start).with('SomeActivity')
+
+    Gametel.keystore = {:keystore => :info}
+    Gametel.start 'SomeActivity'
   end
   
   context "when using Brazenhead" do

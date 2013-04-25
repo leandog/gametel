@@ -23,17 +23,22 @@ module Gametel
     @apk_path = path
   end
 
+  def self.keystore=(keystore)
+    @keystore = keystore
+  end
+
   def self.default_driver
     @default_driver ||= Gametel::Driver.new
   end
 
   def self.default_server
-    @default_server ||= Brazenhead::Server.new @apk_path
+    options = [@apk_path]
+    options << @keystore if @keystore
+    @default_server ||= Brazenhead::Server.new *options
   end
 
-  def self.start(activity, keystore=nil)
-    default_server.start(activity, keystore) if keystore
-    default_server.start(activity) unless keystore
+  def self.start(activity)
+    default_server.start(activity)
     default_driver
   end
 
