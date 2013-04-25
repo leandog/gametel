@@ -18,6 +18,12 @@ Gametel::Navigation.routes = {
                     [ButtonScreen, :normal_id]]
 }
 
+Gametel.keystore = {
+  :path => 'features/support/debug.keystore',
+  :alias => 'androiddebugkey',
+  :password => 'android',
+  :keystore_password => 'android'
+}
 
 Gametel.apk_path = 'features/support/ApiDemos.apk'
 
