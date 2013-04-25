@@ -1,3 +1,7 @@
+=== Version 0.5.9.3
+* Bug Fixes
+	*	Fixed an issue when providing a keystore other than default to Gametel
+
 === Version 0.5.9.2 / 2013-4-12
 * Bug Fixes
   * Fixed an issue when retrieving text identified by index
