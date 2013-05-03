@@ -26,3 +26,4 @@ ApiDemos/bin
 test_servers
 local.properties
 .settings/
+.idea/
