@@ -9,6 +9,10 @@ module Gametel
         build_property_methods
       end
 
+      def view_class
+        'android.view.View'
+      end
+
       protected
       
       def properties
@@ -20,7 +24,8 @@ module Gametel
         properties.each do |property|
           metaclass.send(:define_method, "#{property}?".to_sym) do
             query_property = lambda {|device| device.send "is_#{property}" }
-            platform.get_view_by_id(locator[:id], &query_property)
+            platform.get_view_by_id(locator[:id], &query_property) if locator[:id]
+            platform.get_view_by_index(view_class, locator[:index], &query_property) if locator[:index]
             platform.last_response.body == "true"
           end
         end
