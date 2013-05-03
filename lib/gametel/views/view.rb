@@ -19,9 +19,8 @@ module Gametel
         metaclass = class << self; self; end
         properties.each do |property|
           metaclass.send(:define_method, "#{property}?".to_sym) do
-            platform.get_view_by_id(locator[:id]) do |device|
-              device.send "is_#{property}"
-            end
+            query_property = lambda {|device| device.send "is_#{property}" }
+            platform.get_view_by_id(locator[:id], &query_property)
             platform.last_response.body == "true"
           end
         end
