@@ -22,6 +22,12 @@ Feature: Interacting with the list item control
     Then I should know that it has the text "Tom"
     And I should know that it has the text "This is Tom, he likes long walks in the park."
 
+  Scenario: Determining text inside a list item by index
+    Given I am on the custom list screen
+    When I ask for the first item by the first index
+    Then I should know that it has the text "Tom"
+    And I should know that it has the text "This is Tom, he likes long walks in the park."
+
   Scenario: Determining if a list item has an image
     Given I am on the efficient adapter screen
     When I ask for the list item for "Abertam"

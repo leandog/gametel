@@ -28,8 +28,8 @@ module Gametel
 
       def list_item(locator, &block) 
         chain_calls do |device|
-          device.list_item_by_text(locator[:text], :target => 'Brazenhead',
-                                   :variable => '@@the_view@@')
+          device.list_item_by_text(locator[:text], :target => 'Brazenhead', :variable => '@@the_view@@') if locator[:text]
+          device.list_item_by_index(locator[:index], :target => 'Brazenhead', :variable => '@@the_view@@') if locator[:index]
           block.call device if block
         end
       end
