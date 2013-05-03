@@ -64,3 +64,14 @@ Feature: Interacting with the standard text field
       | focused   | true  |
       | selected  | false |
       | shown     | true  |
+
+  Scenario: Determining properties of a text view by index
+    When I'm on the controls screen
+    Then the "text" field identified by "index" can determine the following properties:
+      | property  | value |
+      | clickable | true  |
+      | enabled   | true  |
+      | focusable | true  |
+      | focused   | true  |
+      | selected  | false |
+      | shown     | true  |
