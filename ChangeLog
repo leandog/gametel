@@ -1,3 +1,7 @@
+=== Version 0.5.9.4
+*	Enhancements
+	*	Can get view information for text fields by index
+
 === Version 0.5.9.3 / 2013-4-26
 * Bug Fixes
 	*	Fixed an issue when providing a keystore other than default to Gametel
