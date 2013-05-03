@@ -1,3 +1,3 @@
 module Gametel
-  VERSION = "0.5.9.3"
+  VERSION = "0.6"
 end

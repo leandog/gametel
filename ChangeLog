@@ -1,11 +1,11 @@
-=== Version 0.5.9.4
-*	Enhancements
-	*	Can get view information for text fields by index
-	* Can get the text of a list item by index
+=== Version 0.6 / 2013-5-3
+* Enhancements
+  * Can get view information for text fields by index
+  * Can get the text of a list item by index
 
 === Version 0.5.9.3 / 2013-4-26
 * Bug Fixes
-	*	Fixed an issue when providing a keystore other than default to Gametel
+  * Fixed an issue when providing a keystore other than default to Gametel
 
 === Version 0.5.9.2 / 2013-4-12
 * Bug Fixes
