@@ -25,3 +25,4 @@ ApiDemos/gen
 ApiDemos/bin
 test_servers
 local.properties
+.settings/
