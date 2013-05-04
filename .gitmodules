@@ -1,0 +1,3 @@
+[submodule "webview_sample"]
+	path = webview_sample
+	url = git@github.com:cheezy/Androidwebviewsampleapp.git
