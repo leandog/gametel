@@ -25,10 +25,15 @@ Gametel.keystore = {
   :keystore_password => 'android'
 }
 
-Gametel.apk_path = 'features/support/ApiDemos.apk'
 
-Before do
+Before('~@webview') do
+  Gametel.apk_path = 'features/support/ApiDemos.apk'
   @driver = Gametel.start('ApiDemos')
+end
+
+Before('@webview') do
+  Gametel.apk_path = 'webview_sample/bin/webview_sample-debug.apk'
+  driver = Gametel.start('MainActivity')
 end
 
 After do
