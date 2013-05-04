@@ -3,3 +3,4 @@ notifications:
   email:
     - levi@leviwilson.com
     - jeff.morgan@leandog.com
+before_install: git submodule update --init --recursive
