@@ -255,6 +255,12 @@ module Gametel
         Gametel::Views::Image.new(platform, locator)
       end
     end
+
+    def webview(name, locator)
+      define_method "click_on_webview_text" do |text|
+        platform.click_on_text(text)
+      end
+    end
   end
 end
 

@@ -6,8 +6,8 @@ Feature: Adding support for webviews
 
 @focus
   Scenario: Clicking a link in a WebView
-    When I click the images link in a webview
-    Then I should not see the Coffee link
+    When I click the text "Coffee"  in a webview
+    Then I should see the text "Starbucks" in a webview
 
 
     
