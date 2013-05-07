@@ -51,6 +51,13 @@ module Gametel
   end
 
   #
+  # click on the provided text
+  #
+  def click_on_text(text)
+    platform.click_on_text text
+  end
+
+  #
   # Returns true if the provided text is found on the screen
   #
   def has_text?(text)
