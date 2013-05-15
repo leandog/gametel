@@ -105,6 +105,7 @@ module Gametel
       #
       def click_menu(locator)
         click_menu_by_id(locator[:id]) if locator[:id]
+        click_menu_by_text(locator[:text]) if locator[:text]
       end
 
       #

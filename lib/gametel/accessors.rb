@@ -265,6 +265,8 @@ module Gametel
         platform.click_menu(locator)
       end
     end
+
+    alias_method :menu_item, :action_item
   end
 end
 

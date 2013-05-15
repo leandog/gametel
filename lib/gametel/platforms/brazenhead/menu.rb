@@ -9,6 +9,10 @@ module Gametel
           device.click_on_action_bar_item '@@id@@', :target => 'Robotium'
         end
       end
+
+      def click_menu_by_text(text)
+        click_on_menu_item text
+      end
     end
   end
 end
