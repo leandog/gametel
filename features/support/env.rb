@@ -15,7 +15,10 @@ Gametel::Navigation.routes = {
                [ControlsScreen, :button_field_id]],
   :button_route => [[MainMenuScreen, :views],
                     [ViewsMenuScreen, :buttons],
-                    [ButtonScreen, :normal_id]]
+                    [ButtonScreen, :normal_id]],
+  :action_bar => [[MainMenuScreen, :app],
+                  [AppScreen, :action_bar],
+                  [ActionBar]]
 }
 
 Gametel.keystore = {

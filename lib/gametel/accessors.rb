@@ -259,6 +259,12 @@ module Gametel
     def webview(name, locator)
 
     end
+
+    def action_item(name, locator)
+      define_method(name) do
+        platform.click_menu(locator)
+      end
+    end
   end
 end
 

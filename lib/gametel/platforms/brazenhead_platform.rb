@@ -1,6 +1,7 @@
 require 'brazenhead'
 require File.join(File.dirname(__FILE__), 'brazenhead', 'basic')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'button')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'menu')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'progress')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'spinner')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
@@ -19,6 +20,7 @@ module Gametel
       include Gametel::Platforms::Text
       include Gametel::Platforms::View
       include Gametel::Platforms::ListItem
+      include Gametel::Platforms::Menu
 
       ENTER_KEY = 66
 
@@ -96,6 +98,13 @@ module Gametel
       def click_image(locator)
         result = click_on_image(locator[:index]) if locator[:index]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
+      end
+
+      #
+      # click a menu item
+      #
+      def click_menu(locator)
+        click_menu_by_id(locator[:id]) if locator[:id]
       end
 
       #
