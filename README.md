@@ -1,6 +1,7 @@
 # Gametel
 
 [![Build Status](http://travis-ci.org/leandog/gametel.png)](http://travis-ci.org/leandog/gametel)
+[![Coverage Status](https://coveralls.io/repos/leandog/gametel/badge.png)](https://coveralls.io/r/leandog/gametel)
 
 A gem to assist in building page-object like structures for testing android applications.
 

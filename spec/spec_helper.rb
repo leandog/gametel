@@ -11,6 +11,8 @@ end
 
 require 'rspec'
 require 'gametel'
+require 'coveralls'
+Coveralls.wear!
 
 def brazenhead_platform(gametel)
   platform = Gametel::Platforms::BrazenheadPlatform.new
