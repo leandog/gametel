@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Gametel::VERSION
 
-  gem.add_dependency 'brazenhead', '>= 0.4.6'
+  gem.add_dependency 'brazenhead', '>= 0.4.7'
   gem.add_dependency 'ADB', '>= 0.5.5'
   gem.add_dependency 'page_navigation', '>= 0.7'
 
