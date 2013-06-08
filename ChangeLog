@@ -1,8 +1,9 @@
-=== Version 0.7
+=== Version 0.7 / 2013-6-8
 * Enhancements
   * Added click_on_text method
   * click_on_text, has_text?, scroll_up, and scroll_down now support Webviews
 	*	added menu_item accessor to click on menus by either text or id
+	* Bump brazenhead dependency to 0.4.7 (with support for Robotium 4.1)
 
 === Version 0.6 / 2013-5-3
 * Enhancements
