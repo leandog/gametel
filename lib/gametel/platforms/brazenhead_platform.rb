@@ -145,17 +145,25 @@ module Gametel
       # determine if a view exists
       #
       def has_view?(locator)
-        result = get_view_by_id(locator)
-        result.body.include? 'windowLocation'
+        begin
+          result = get_view_by_id(locator)
+          result.body.include? 'windowLocation'
+        rescue Exception
+          false
+        end
       end
 
       #
       # return if a view has a drawable
       #
       def has_drawable?(locator)
-        view = get_view_by_id(locator[:id]) if locator[:id]
-        view = get_image(locator[:index]) if locator[:index]
-        last_json['hasDrawable']
+        begin
+          view = get_view_by_id(locator[:id]) if locator[:id]
+          view = get_image(locator[:index]) if locator[:index]
+          last_json['hasDrawable']
+        rescue Exception
+          false
+        end
       end
 
       #
