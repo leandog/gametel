@@ -1,0 +1,3 @@
+[submodule "ApiDemos"]
+	path = ApiDemos
+	url = git@github.com:leviwilson/ApiDemos.git
