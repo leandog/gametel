@@ -9,13 +9,10 @@ Given(/^I have navigated to the webview screen$/) do
   end
 end
 
-When(/^I click the text "(.*?)"  in a webview$/) do |text|
+When(/^I click the text "(.*?)" in a webview$/) do |text|
   on(WebviewScreen).click_on_text text
 end
 
 Then(/^I should see the text "(.*?)" in a webview$/) do |text|
-  on(WebviewScreen) do |screen|
-    screen.wait_for_text text
-    screen.should have_text text
-  end
+  on(WebviewScreen).should have_text(text)
 end
