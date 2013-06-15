@@ -3,10 +3,7 @@ Given(/^I have navigated to the webview screen$/) do
     screen.views
     screen.wait_for_text 'Buttons'
   end
-  on(ViewsMenuScreen) do |screen|
-    screen.webview
-#    screen.wait_for_text 'Google Apps for Android'
-  end
+  on(ViewsMenuScreen).webview
 end
 
 When(/^I click the text "(.*?)" in a webview$/) do |text|
@@ -15,4 +12,17 @@ end
 
 Then(/^I should see the text "(.*?)" in a webview$/) do |text|
   on(WebviewScreen).should have_text(text)
+end
+
+When(/^I look for elements in the webview$/) do
+  on(WebviewScreen) do |screen|
+    screen.wait_for_text 'Welcome to Foundation'
+    @webview = screen.web_view
+  end
+end
+
+Then(/^I should know the following elements exist:$/) do |table|
+  table.hashes.each do |hsh|
+    @webview.should have_element(hsh['locator'], hsh['value'])
+  end
 end

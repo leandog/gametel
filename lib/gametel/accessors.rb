@@ -257,7 +257,9 @@ module Gametel
     end
 
     def webview(name, locator)
-
+      define_method("#{name}_view") do
+        Gametel::Views::WebView.new(platform, locator)
+      end
     end
 
     def action_item(name, locator)
