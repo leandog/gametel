@@ -1,4 +1,3 @@
-@webview
 Feature: Adding support for webviews
 
   Background:
