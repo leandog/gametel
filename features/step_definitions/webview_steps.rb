@@ -41,3 +41,6 @@ Then(/^I should be able to type "(.*?)" into the text field$/) do |text|
   @webview.type_text('id', 'tf', text)
 end
 
+Then(/^I should be able to clear the text of the text field$/) do
+  @webview.clear_text('id', 'tf')
+end

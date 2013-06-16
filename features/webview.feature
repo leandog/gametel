@@ -26,7 +26,11 @@ Feature: Adding support for webviews
     When I look for elements in the webview
     Then I should be able to enter "Some Text" into the text field
 
-@focus
   Scenario: Typing text in a web element
     When I look for elements in the webview
     Then I should be able to type "Some Text" into the text field
+
+  Scenario: Clearing the text in a web welement
+    When I look for elements in the webview
+    Then I should be able to enter "Some Text" into the text field
+    And I should be able to clear the text of the text field
