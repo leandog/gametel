@@ -44,3 +44,8 @@ end
 Then(/^I should be able to clear the text of the text field$/) do
   @webview.clear_text('id', 'tf')
 end
+
+Then(/^I should be able to wait for the text field$/) do
+  @webview.wait_for_element('id', 'tf')
+end
+

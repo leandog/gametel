@@ -27,6 +27,12 @@ module Gametel
         end
       end
 
+      def wait_for_element(how, what, timeout=20, scroll=true)
+        find_element_by(how, what) do |device, by|
+          device.wait_for_web_element(by, timeout, scroll, :target => :Robotium)
+        end
+      end
+
       def has_element?(how, what)
         platform.get_web_views_by(how, what, :target => :Brazenhead)
         not platform.last_json.empty?

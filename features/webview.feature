@@ -34,3 +34,7 @@ Feature: Adding support for webviews
     When I look for elements in the webview
     Then I should be able to enter "Some Text" into the text field
     And I should be able to clear the text of the text field
+
+  Scenario: Waiting for a web element
+    When I look for elements in the webview
+    Then I should be able to wait for the text field
