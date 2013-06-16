@@ -17,8 +17,12 @@ Feature: Adding support for webviews
     | tagName     | p           |
     | textContent | Six columns |
 
-@focus
   Scenario: Clicking on a web element
     When I look for elements in the webview
     And I click on the anchor with the text "Some Other Page"
     Then I should see the text "Welcome to Some Other Page" in a webview
+
+@focus
+  Scenario: Entering text in a web element
+    When I look for elements in the webview
+    Then I should be able to enter "Some Text" into the text field

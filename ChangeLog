@@ -4,6 +4,7 @@
   * Added WebView view class with these methods:
     * has_element?
     * click
+    * enter_text
 
 === Version 0.7 / 2013-6-8
 * Enhancements
