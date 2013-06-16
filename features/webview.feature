@@ -8,7 +8,6 @@ Feature: Adding support for webviews
     When I click the text "Some Other Page" in a webview
     Then I should see the text "Welcome to Some Other Page" in a webview
 
-@focus
   Scenario: Checking for the existance of elements
     When I look for elements in the webview
     Then I should know the following elements exist:
@@ -18,3 +17,8 @@ Feature: Adding support for webviews
     | tagName     | p           |
     | textContent | Six columns |
 
+@focus
+  Scenario: Clicking on a web element
+    When I look for elements in the webview
+    And I click on the anchor with the text "Some Other Page"
+    Then I should see the text "Welcome to Some Other Page" in a webview

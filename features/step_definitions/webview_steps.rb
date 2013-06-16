@@ -26,3 +26,8 @@ Then(/^I should know the following elements exist:$/) do |table|
     @webview.should have_element(hsh['locator'], hsh['value'])
   end
 end
+
+When(/^I click on the anchor with the text "(.*?)"$/) do |text|
+  @webview.click('textContent', text)
+end
+

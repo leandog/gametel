@@ -3,6 +3,7 @@
   * click_on_text, wait_for_text, and has_text? now work with WebViews
   * Added WebView view class with these methods:
     * has_element?
+    * click
 
 === Version 0.7 / 2013-6-8
 * Enhancements
