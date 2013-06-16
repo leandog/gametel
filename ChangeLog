@@ -5,6 +5,7 @@
     * has_element?
     * click
     * enter_text
+    * type_text
 
 === Version 0.7 / 2013-6-8
 * Enhancements

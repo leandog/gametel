@@ -35,3 +35,9 @@ Then(/^I should be able to enter "(.*?)" into the text field$/) do |text|
   on(WebviewScreen).scroll_down
   @webview.enter_text('id', 'tf', text)
 end
+
+Then(/^I should be able to type "(.*?)" into the text field$/) do |text|
+  on(WebviewScreen).scroll_down
+  @webview.type_text('id', 'tf', text)
+end
+

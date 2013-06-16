@@ -15,6 +15,12 @@ module Gametel
         end
       end
 
+      def type_text(how, what, text, index=0)
+        find_element_by(how, what) do |device, by| 
+          device.type_text_in_web_element(by, text, index, :target => :Robotium)
+        end
+      end
+
       def has_element?(how, what)
         platform.get_web_views_by(how, what, :target => :Brazenhead)
         not platform.last_json.empty?
