@@ -3,10 +3,10 @@ module Gametel
     class WebView < View
       WEB_VIEW_CLASS = 'android.webkit.WebView'
 
-      def click(how, what)
+      def click(how, what, index=0, scroll=true)
         platform.chain_calls do |device|
           device.web_view_by(how, what, :variable => '@@by@@', :target => :Brazenhead)
-          device.click_on_web_element('@@by@@', :target => :Robotium)
+          device.click_on_web_element('@@by@@', index, scroll, :target => :Robotium)
         end
       end
 
