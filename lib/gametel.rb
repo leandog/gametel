@@ -6,11 +6,12 @@ require 'gametel/waiter'
 require 'gametel/version'
 require 'gametel/platforms/brazenhead_platform'
 require 'gametel/views'
+require 'gametel/webview'
+require 'gametel/webviewable'
 
 module Gametel
   include Gametel::Waiter
-
-  attr_reader :platform
+  include Gametel::Webviewable
 
   ROBOTIUM_LEFT = 21
   ROBOTIUM_RIGHT = 22
@@ -44,24 +45,6 @@ module Gametel
 
   def self.stop
     default_server.stop
-  end
-
-  def initialize(pform = :brazenhead)
-    @platform = Gametel::Platforms::BrazenheadPlatform.new if pform == :brazenhead
-  end
-
-  #
-  # click on the provided text
-  #
-  def click_on_text(text)
-    platform.click_on_text text
-  end
-
-  #
-  # Returns true if the provided text is found on the screen
-  #
-  def has_text?(text)
-    platform.has_text?(text)
   end
 
   #

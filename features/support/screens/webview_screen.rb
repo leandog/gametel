@@ -1,8 +1,4 @@
 class WebviewScreen
-  include Gametel
+  include Gametel::Webview
 
-  activity 'WebView1'
-  
-  webview(:web, :id => 'wv1')
-  
 end

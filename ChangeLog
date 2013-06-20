@@ -8,6 +8,9 @@
     * type_text
     * clear_text
     * wait_for_element
+  * Added Gametel::Webview module for inclusion in stand-alone webview screens with methods:
+    * click_on_text
+    * has_text?
 
 === Version 0.7 / 2013-6-8
 * Enhancements

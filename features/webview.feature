@@ -37,3 +37,8 @@ Feature: Adding support for webviews
   Scenario: Waiting for a web element
     When I look for elements in the webview
     Then I should be able to wait for the text field
+
+@focus
+  Scenario: Clicking on text and checking if text exists on webview screen
+    When I click the text "Some Other Page" in a webview screen
+    Then I should see the text "Welcome to Some Other Page" in a webview screen

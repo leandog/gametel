@@ -7,15 +7,15 @@ Given(/^I have navigated to the webview screen$/) do
 end
 
 When(/^I click the text "(.*?)" in a webview$/) do |text|
-  on(WebviewScreen).click_on_text text
+  on(MixedWebviewScreen).click_on_text text
 end
 
 Then(/^I should see the text "(.*?)" in a webview$/) do |text|
-  on(WebviewScreen).should have_text(text)
+  on(MixedWebviewScreen).should have_text(text)
 end
 
 When(/^I look for elements in the webview$/) do
-  on(WebviewScreen) do |screen|
+  on(MixedWebviewScreen) do |screen|
     screen.wait_for_text 'Welcome to Foundation'
     @webview = screen.web_view
   end
@@ -32,12 +32,12 @@ When(/^I click on the anchor with the text "(.*?)"$/) do |text|
 end
 
 Then(/^I should be able to enter "(.*?)" into the text field$/) do |text|
-  on(WebviewScreen).scroll_down
+  on(MixedWebviewScreen).scroll_down
   @webview.enter_text('id', 'tf', text)
 end
 
 Then(/^I should be able to type "(.*?)" into the text field$/) do |text|
-  on(WebviewScreen).scroll_down
+  on(MixedWebviewScreen).scroll_down
   @webview.type_text('id', 'tf', text)
 end
 
@@ -47,5 +47,13 @@ end
 
 Then(/^I should be able to wait for the text field$/) do
   @webview.wait_for_element('id', 'tf')
+end
+
+When(/^I click the text "(.*?)" in a webview screen$/) do |text|
+  on(WebviewScreen).click_on_text text
+end
+
+Then(/^I should see the text "(.*?)" in a webview screen$/) do |text|
+  on(WebviewScreen).should have_text(text)
 end
 
