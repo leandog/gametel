@@ -38,7 +38,17 @@ Feature: Adding support for webviews
     When I look for elements in the webview
     Then I should be able to wait for the text field
 
-@focus
   Scenario: Clicking on text and checking if text exists on webview screen
     When I click the text "Some Other Page" in a webview screen
     Then I should see the text "Welcome to Some Other Page" in a webview screen
+
+@focus
+  Scenario: Checking for the existance of elements on webview screen
+    When I look for elements in the webview screen
+    Then I should know the following webview elements exist:
+    | locator     | value       |
+    | className   | panel       |
+    | cssSelector | div.panel   |
+    | tagName     | p           |
+    | textContent | Six columns |
+

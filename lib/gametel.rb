@@ -120,13 +120,5 @@ module Gametel
     platform.scroll_to_side ROBOTIUM_RIGHT
   end
 
-  #
-  # Wait for the provided text to appear
-  #
-  def wait_for_text(text_to_find)
-    platform.wait_for_text(text_to_find)
-    raise "Timed out waiting for the text '#{text_to_find}'" unless platform.last_json
-  end
-
 end
 

@@ -57,3 +57,12 @@ Then(/^I should see the text "(.*?)" in a webview screen$/) do |text|
   on(WebviewScreen).should have_text(text)
 end
 
+When(/^I look for elements in the webview screen$/) do
+  on(WebviewScreen).wait_for_text 'Welcome to Foundation'
+end
+
+Then(/^I should know the following webview elements exist:$/) do |table|
+  table.hashes.each do |hsh|
+    on(WebviewScreen).should have_element(hsh['locator'], hsh['value'])
+  end
+end
