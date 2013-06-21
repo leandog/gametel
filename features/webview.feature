@@ -16,6 +16,7 @@ Feature: Adding support for webviews
     | tagName     | p           |
     | textContent | Six columns |
 
+@focus
   Scenario: Clicking on a web element
     When I look for elements in the webview
     And I click on the anchor with the text "Some Other Page"
@@ -42,7 +43,6 @@ Feature: Adding support for webviews
     When I click the text "Some Other Page" in a webview screen
     Then I should see the text "Welcome to Some Other Page" in a webview screen
 
-@focus
   Scenario: Checking for the existance of elements on webview screen
     When I look for elements in the webview screen
     Then I should know the following webview elements exist:
@@ -51,4 +51,11 @@ Feature: Adding support for webviews
     | cssSelector | div.panel   |
     | tagName     | p           |
     | textContent | Six columns |
+
+@focus
+  Scenario: Clicking on a web element on a webview screen
+    When I look for elements in the webview screen
+    And I click on the anchor with the text "Some Other Page" on that screen
+    Then I should see the text "Welcome to Some Other Page" in a webview screen
+
 

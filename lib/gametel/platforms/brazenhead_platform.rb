@@ -7,6 +7,7 @@ require File.join(File.dirname(__FILE__), 'brazenhead', 'spinner')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'text')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'view')
 require File.join(File.dirname(__FILE__), 'brazenhead', 'list_item')
+require File.join(File.dirname(__FILE__), 'brazenhead', 'webview')
 
 
 module Gametel
@@ -21,6 +22,7 @@ module Gametel
       include Gametel::Platforms::View
       include Gametel::Platforms::ListItem
       include Gametel::Platforms::Menu
+      include Gametel::Platforms::Webview
 
       ENTER_KEY = 66
 

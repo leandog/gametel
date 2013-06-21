@@ -1,12 +1,9 @@
 module Gametel
   module Views
     class WebView < View
-      WEB_VIEW_CLASS = 'android.webkit.WebView'
 
       def click(how, what, index=0, scroll=true)
-        find_element_by(how, what) do |device, by| 
-          device.click_on_web_element(by, index, scroll, :target => :Robotium)
-        end
+        platform.click_on_webview(how, what, index, scroll)
       end
 
       def enter_text(how, what, text)

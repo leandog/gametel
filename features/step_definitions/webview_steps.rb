@@ -66,3 +66,7 @@ Then(/^I should know the following webview elements exist:$/) do |table|
     on(WebviewScreen).should have_element(hsh['locator'], hsh['value'])
   end
 end
+
+When(/^I click on the anchor with the text "Some Other Page" on that screen$/) do
+  on(WebviewScreen).some_other_page
+end
