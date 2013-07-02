@@ -12,6 +12,13 @@ module Gametel
         end
       end
 
+      def text(name, locator)
+        locator = cleanup(locator)
+        define_method("#{name}=") do |text|
+          platform.enter_text_in_webview(locator.first[0], locator.first[1], text)
+        end
+      end
+
       private
 
       def cleanup(locator)

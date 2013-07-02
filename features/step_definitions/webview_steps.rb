@@ -70,3 +70,7 @@ end
 When(/^I click on the anchor with the text "Some Other Page" on that screen$/) do
   on(WebviewScreen).some_other_page
 end
+
+Then(/^I should be able to enter "(.*?)" into the text field on that screen$/) do |text|
+  on(WebviewScreen).address = text
+end

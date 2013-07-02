@@ -7,9 +7,7 @@ module Gametel
       end
 
       def enter_text(how, what, text)
-        find_element_by(how, what) do |device, by| 
-          device.enter_text_in_web_element(by, text, :target => :Robotium)
-        end
+        platform.enter_text_in_webview(how, what, text)
       end
 
       def type_text(how, what, text, index=0)

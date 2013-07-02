@@ -15,6 +15,7 @@
     * has_element?
   * Added Gametel::Webview::Accessors to add static methods to Gametel::Webview screens
     * Added link method
+    * Added text method
 
 === Version 0.7 / 2013-6-8
 * Enhancements
