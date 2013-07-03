@@ -34,6 +34,7 @@ RSpec::Matchers.define :load_the_class do |class_name|
   match do |actual|
     actual.should_receive(:get_class).ordered
     actual.should_receive(:get_class_loader).with(:variable => '@@loader@@').ordered
+    actual.should_receive(:get_class).ordered
     actual.should_receive(:for_name).with(class_name, false, '@@loader@@', :variable => '@@the_type@@').ordered
   end
 end
