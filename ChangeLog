@@ -2,6 +2,7 @@
 * Enhancements
   * click_on_text, wait_for_text, and has_text? now work with WebViews
 	*	added a :class locator for the view accessor
+	*	can check for the existence of a view by :class
   * Added WebView view class with these methods:
     * has_element?
     * click
