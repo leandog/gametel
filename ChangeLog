@@ -8,6 +8,10 @@
     * type_text
     * clear_text
     * wait_for_element
+    * scroll_down
+    * scroll_up
+    * scroll_right
+    * scroll_left
   * Added Gametel::Webview module for inclusion in stand-alone webview screens with methods:
     * click_on_text
     * has_text?

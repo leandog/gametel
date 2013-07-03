@@ -13,9 +13,6 @@ module Gametel
   include Gametel::Waiter
   include Gametel::Webviewable
 
-  ROBOTIUM_LEFT = 21
-  ROBOTIUM_RIGHT = 22
-
   def self.included(cls)
     cls.extend Gametel::Accessors
   end
@@ -92,33 +89,6 @@ module Gametel
     platform.enter
   end
 
-  #
-  # scroll down
-  #
-  def scroll_down
-    platform.scroll_down
-  end
-
-  #
-  # scroll up
-  #
-  def scroll_up
-    platform.scroll_up
-  end
-  
-  #
-  # scroll left
-  #
-  def scroll_left
-    platform.scroll_to_side ROBOTIUM_LEFT
-  end
-
-  #
-  # scroll right
-  #
-  def scroll_right
-    platform.scroll_to_side ROBOTIUM_RIGHT
-  end
 
 end
 
