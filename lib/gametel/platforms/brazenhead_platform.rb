@@ -149,7 +149,8 @@ module Gametel
       #
       def has_view?(locator)
         begin
-          result = get_view_by_id(locator)
+          result = get_view_by_id(locator[:id]) if locator[:id]
+          result = get_view_by_index(locator[:class], locator[:index]) if locator[:class]
           result.body.include? 'windowLocation'
         rescue Exception
           false

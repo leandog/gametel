@@ -30,7 +30,7 @@ module Gametel
           device.get_class_loader :variable => '@@loader@@'
           device.get_class
           device.for_name clazz, false, '@@loader@@', :variable => '@@the_type@@'
-          device.get_view '@@the_type@@', index, :target => 'Robotium', :variable  => '@@the_view@@'
+          device.get_view '@@the_type@@', index || 0, :target => 'Robotium', :variable  => '@@the_view@@'
           block.call device if block
         end
       end
