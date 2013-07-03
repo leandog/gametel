@@ -21,7 +21,8 @@ module Gametel
       def get_view_by_index(clazz, index, &block)
         chain_calls do |device|
           device.get_class
-          device.for_name clazz, :variable => '@@the_type@@'
+          device.get_class_loader :variable => '@@loader@@'
+          device.for_name clazz, false, '@@loader@@', :variable => '@@the_type@@'
           device.get_view '@@the_type@@', index, :target => 'Robotium', :variable  => '@@the_view@@'
           block.call device if block
         end

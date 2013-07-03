@@ -30,6 +30,14 @@ class AccessorsSampleScreen
   image(:image_id, :id => 'image_id')
 end
 
+RSpec::Matchers.define :load_the_class do |class_name|
+  match do |actual|
+    actual.should_receive(:get_class).ordered
+    actual.should_receive(:get_class_loader).with(:variable => '@@loader@@').ordered
+    actual.should_receive(:for_name).with(class_name, false, '@@loader@@', :variable => '@@the_type@@').ordered
+  end
+end
+
 describe Gametel::Accessors do
   context "when using Brazenhead" do
     let(:screen) { AccessorsSampleScreen.new }
@@ -113,8 +121,7 @@ describe Gametel::Accessors do
       end
 
       it "should know how to get text by index" do
-        accumulator.should_receive(:get_class)
-        accumulator.should_receive(:for_name).with('android.widget.EditText', :variable => '@@the_type@@')
+        accumulator.should load_the_class('android.widget.EditText')
         accumulator.should_receive(:get_view).with('@@the_type@@', 2, :target => 'Robotium', :variable => '@@the_view@@')
         accumulator.should_receive(:get_text)
         accumulator.should_receive(:to_string)
@@ -547,8 +554,7 @@ describe Gametel::Accessors do
 
       context "identified by index" do
         it "should be able to determine their selected item" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.Spinner', anything)
+          accumulator.should load_the_class('android.widget.Spinner')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, anything)
           accumulator.should_receive(:get_selected_item)
           accumulator.should_receive(:to_string)
@@ -663,25 +669,23 @@ describe Gametel::Accessors do
       end
 
       context "identified by index" do
+        before(:each) do
+          accumulator.should load_the_class('android.widget.ProgressBar')
+        end
+
         it "should be able to set the progress" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
           accumulator.should_receive(:set_progress_bar).with('@@the_view@@', 37, :target => 'Robotium')
           screen.progress_index = 37
         end
 
         it "should be able to set the secondary progress" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
           accumulator.should_receive(:set_secondary_progress).with(74)
           screen.progress_index_secondary = 74
         end
 
         it "should be able to get the progress" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
           accumulator.should_receive(:get_progress)
           result.should_receive(:body).and_return("37")
@@ -689,8 +693,6 @@ describe Gametel::Accessors do
         end
 
         it "should be able to get the secondary progress" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
           accumulator.should_receive(:get_secondary_progress)
           result.should_receive(:body).and_return("74")
@@ -698,8 +700,6 @@ describe Gametel::Accessors do
         end
 
         it "should be able to get the max" do
-          accumulator.should_receive(:get_class)
-          accumulator.should_receive(:for_name).with('android.widget.ProgressBar', :variable => '@@the_type@@')
           accumulator.should_receive(:get_view).with('@@the_type@@', 1, :target => 'Robotium', :variable => '@@the_view@@')
           accumulator.should_receive(:get_max)
           result.should_receive(:body).and_return("100")
