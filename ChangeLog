@@ -1,6 +1,7 @@
 === Version 0.8
 * Enhancements
   * click_on_text, wait_for_text, and has_text? now work with WebViews
+	*	get_view_by_index can load custom classes
   * Added WebView view class with these methods:
     * has_element?
     * click
