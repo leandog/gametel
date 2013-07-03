@@ -160,6 +160,7 @@ module Gametel
     # The only valid keys are:
     #   * :id
     #   * :text
+    #   * :class (:index => 0 implied)
     #
     def view(name, locator)
       define_method(name) do
