@@ -26,6 +26,7 @@ module Gametel
             query_property = lambda {|device| device.send "is_#{property}" }
             platform.get_view_by_id(locator[:id], &query_property) if locator[:id]
             platform.get_view_by_index(view_class, locator[:index], &query_property) if locator[:index]
+            platform.get_view_by_index(locator[:class], locator[:index] || 0, &query_property) if locator[:class]
             platform.last_response.body == "true"
           end
         end

@@ -10,6 +10,12 @@ module Gametel
         end
       end
 
+      def click_on_view_by_class(clazz, index)
+        get_view_by_index(clazz, index) do |device|
+          device.click_on_view('@@the_view@@', :target => 'Robotium')
+        end
+      end
+
       def get_view_by_id(id, &block)
         chain_calls do |device|
           device.id_from_name(id, :target => 'Brazenhead', :variable => '@@view_id@@')

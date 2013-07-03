@@ -22,6 +22,7 @@ class AccessorsSampleScreen
   radio_button(:radio_index, :index => 1)
   view(:view_id, :id => 'some_view_id')
   view(:view_text, :text => 'Any view text')
+  view(:view_class, :class => 'com.example.views.YourCustomView', :index => 0)
   spinner(:spinner_id, :id => 'spinner_id')
   spinner(:spinner_index, :index => 1)
   progress(:progress_id, :id => 'progress_id')
@@ -472,9 +473,14 @@ describe Gametel::Accessors do
         screen.view_id
       end
 
-      it "should know how to be clicked by test" do
+      it "should know how to be clicked by text" do
         platform.should_receive(:click_on_text).with('Any view text')
         screen.view_text
+      end
+
+      it "should know how to be clicked by class" do
+        platform.should_receive(:click_on_view_by_class).with('com.example.views.YourCustomView', 0)
+        screen.view_class
       end
 
       context "when looking at properties" do

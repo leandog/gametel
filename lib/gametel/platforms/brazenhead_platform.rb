@@ -133,6 +133,7 @@ module Gametel
       def click_view(locator)
         result = click_on_text(locator[:text]) if locator[:text]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
+        result = click_on_view_by_class(locator[:class], locator[:index]) if locator[:class]
       end
 
       #

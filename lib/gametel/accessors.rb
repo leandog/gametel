@@ -118,6 +118,9 @@ module Gametel
       define_method(name) do
         platform.click_checkbox(locator)
       end
+      define_method("#{name}_checked?") do
+        Gametel::Views::CheckBox.new(platform, locator).checked?
+      end
       define_method("#{name}_view") do
         Gametel::Views::CheckBox.new(platform, locator)
       end
