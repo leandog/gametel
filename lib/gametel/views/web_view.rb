@@ -17,9 +17,7 @@ module Gametel
       end
 
       def clear_text(how, what)
-        find_element_by(how, what) do |device, by| 
-          device.clear_text_in_web_element(by, :target => :Robotium)
-        end
+        platform.clear_text_in_webview(how, what)
       end
 
       def wait_for_element(how, what, timeout=20, scroll=true)

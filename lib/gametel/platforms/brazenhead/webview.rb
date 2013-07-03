@@ -16,13 +16,18 @@ module Gametel
         end
       end
 
+      def clear_text_in_webview(how, what)
+        find_web_element_by(how, what) do |device, by|
+          device.clear_text_in_web_element(by, :target => :Robotium)
+        end
+      end
+
       def find_web_element_by(how, what)
         chain_calls do |device|
           device.web_view_by(how, what, :variable => '@@by@@', :target => :Brazenhead)
           yield device, '@@by@@'
         end
       end
-
     end
   end
 end

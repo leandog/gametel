@@ -72,5 +72,12 @@ When(/^I click on the anchor with the text "Some Other Page" on that screen$/) d
 end
 
 Then(/^I should be able to enter "(.*?)" into the text field on that screen$/) do |text|
-  on(WebviewScreen).address = text
+  on(WebviewScreen) do |screen|
+    screen.scroll_down
+    screen.address = text
+  end
+end
+
+Then(/^I should be able to clear the text of the text field on that screen$/) do
+  on(WebviewScreen).clear_address
 end

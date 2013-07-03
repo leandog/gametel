@@ -7,15 +7,18 @@ module Gametel
       def link(name, locator)
         index = value_or_default(locator, :index, 0)
         locator = cleanup(locator)
-        define_method(name) do
+        define_method name  do
           platform.click_on_webview(locator.first[0], locator.first[1], index)
         end
       end
 
       def text(name, locator)
         locator = cleanup(locator)
-        define_method("#{name}=") do |text|
+        define_method "#{name}="  do |text|
           platform.enter_text_in_webview(locator.first[0], locator.first[1], text)
+        end
+        define_method "clear_#{name}" do
+          platform.clear_text_in_webview(locator.first[0], locator.first[1])
         end
       end
 
