@@ -17,6 +17,7 @@ module Gametel
         get_view_by_id(locator[:id], &block) if locator[:id]
         get_view_by_index(view_class, locator[:index], &block) if locator[:index]
         get_view_by_index(locator[:class], locator[:index] || 0, &block) if locator[:class]
+        get_view_by_text(locator[:text], &block) if locator[:text]
       end
 
       protected
@@ -31,6 +32,10 @@ module Gametel
 
       def get_view_by_index(clazz, index, &block)
         platform.get_view_by_index(clazz, index, &block)
+      end
+
+      def get_view_by_text(text, &block)
+        raise NotImplementedError
       end
 
       def build_property_methods
