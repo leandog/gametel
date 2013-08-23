@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{High level wrapper around android drivers}
   gem.summary       = %q{High level wrapper around android drivers}
   gem.homepage      = "http://github.com/leandog/gametel"
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($\).grep(%r{^(lib|spec|features)})
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
@@ -15,12 +16,13 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Gametel::VERSION
 
-  gem.add_dependency 'brazenhead', '>= 0.4.7'
+  gem.add_dependency 'brazenhead', '>= 0.4.8'
   gem.add_dependency 'ADB', '>= 0.5.5'
   gem.add_dependency 'page_navigation', '>= 0.7'
 
   gem.add_development_dependency 'rspec', '>= 2.13.0'
   gem.add_development_dependency 'cucumber', '>=1.2.0'
   gem.add_development_dependency 'require_all'
+
 
 end

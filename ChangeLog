@@ -20,6 +20,7 @@
   * Added Gametel::Webview::Accessors to add static methods to Gametel::Webview screens
     * Added link method
     * Added text method
+  * Updated Brazenhead dependency to latest version
 
 === Version 0.7 / 2013-6-8
 * Enhancements
