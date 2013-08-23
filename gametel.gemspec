@@ -17,11 +17,11 @@ Gem::Specification.new do |gem|
   gem.version       = Gametel::VERSION
 
   gem.add_dependency 'brazenhead', '>= 0.4.8'
-  gem.add_dependency 'ADB', '>= 0.5.5'
-  gem.add_dependency 'page_navigation', '>= 0.7'
+  gem.add_dependency 'ADB', '>= 0.5.6'
+  gem.add_dependency 'page_navigation', '>= 0.9'
 
-  gem.add_development_dependency 'rspec', '>= 2.13.0'
-  gem.add_development_dependency 'cucumber', '>=1.2.0'
+  gem.add_development_dependency 'rspec', '>= 2.14.0'
+  gem.add_development_dependency 'cucumber', '>=1.3.6'
   gem.add_development_dependency 'require_all'
 
 

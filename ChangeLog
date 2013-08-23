@@ -1,4 +1,4 @@
-=== Version 0.8
+=== Version 0.8 / 2013-8-23
 * Enhancements
   * click_on_text, wait_for_text, and has_text? now work with WebViews
   * added a :class locator for the view accessor
