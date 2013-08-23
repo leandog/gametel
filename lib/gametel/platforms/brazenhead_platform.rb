@@ -133,6 +133,7 @@ module Gametel
       def click_view(locator)
         result = click_on_text(locator[:text]) if locator[:text]
         result = click_on_view_by_id(locator[:id]) if locator[:id]
+        result = click_on_view_by_class(locator[:class], locator[:index]) if locator[:class]
       end
 
       #
@@ -148,7 +149,8 @@ module Gametel
       #
       def has_view?(locator)
         begin
-          result = get_view_by_id(locator)
+          result = get_view_by_id(locator[:id]) if locator[:id]
+          result = get_view_by_index(locator[:class], locator[:index]) if locator[:class]
           result.body.include? 'windowLocation'
         rescue Exception
           false

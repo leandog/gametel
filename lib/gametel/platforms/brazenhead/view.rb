@@ -10,6 +10,12 @@ module Gametel
         end
       end
 
+      def click_on_view_by_class(clazz, index)
+        get_view_by_index(clazz, index) do |device|
+          device.click_on_view('@@the_view@@', :target => 'Robotium')
+        end
+      end
+
       def get_view_by_id(id, &block)
         chain_calls do |device|
           device.id_from_name(id, :target => 'Brazenhead', :variable => '@@view_id@@')
@@ -21,8 +27,10 @@ module Gametel
       def get_view_by_index(clazz, index, &block)
         chain_calls do |device|
           device.get_class
-          device.for_name clazz, :variable => '@@the_type@@'
-          device.get_view '@@the_type@@', index, :target => 'Robotium', :variable  => '@@the_view@@'
+          device.get_class_loader :variable => '@@loader@@'
+          device.get_class
+          device.for_name clazz, false, '@@loader@@', :variable => '@@the_type@@'
+          device.get_view '@@the_type@@', index || 0, :target => 'Robotium', :variable  => '@@the_view@@'
           block.call device if block
         end
       end

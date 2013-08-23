@@ -6,6 +6,7 @@ class ControlsScreen
   text(:text_field_name, :content_description => 'Edit Description')
   view(:view_field_id, :id => 'edit')
   view(:view_field_text, :text => 'textColorPrimary')
+  view(:view_field_class, :class => 'android.widget.CheckBox', :index => 1)
   text(:button_field_id, :id => 'button')
   text(:button_disabled_field_id, :id => 'button_disabled')
   button(:enabled_save, :index => 0)

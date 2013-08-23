@@ -70,16 +70,22 @@ describe Gametel do
       screen.should be_enabled('some_id')
     end
 
-    it "should know if a view exists" do
+    it "should know if a view exists by id" do
       result.should_receive(:body).and_return('windowLocation')
-      platform.should_receive(:get_view_by_id).and_return(result)
-      screen.should have_view('some_id')
+      platform.should_receive(:get_view_by_id).with('some_id').and_return(result)
+      screen.should have_view(:id => 'some_id')
     end
 
-    it "should know if a view does not exist" do
+    it "should know if a view exists by class" do
+      result.should_receive(:body).and_return('windowLocation')
+      platform.should_receive(:get_view_by_index).with('some_class', 0).and_return(result)
+      screen.should have_view(:class => 'some_class', :index => 0)
+    end
+
+    it "should know if a view does not exist by id" do
       result.should_receive(:body).and_return('')
-      platform.should_receive(:get_view_by_id).and_return(result)
-      screen.should_not have_view('some_id')
+      platform.should_receive(:get_view_by_id).with('some_id').and_return(result)
+      screen.should_not have_view(:id => 'some_id')
     end
 
 
